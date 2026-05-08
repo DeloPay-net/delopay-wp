@@ -1,0 +1,653 @@
+.wp-delopay-wrap .wp-delopay-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 1.25rem;
+	margin-top: 1.5rem;
+}
+
+.wp-delopay-card {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	padding: 1.25rem;
+}
+
+.wp-delopay-card h2 {
+	margin-top: 0;
+	font-size: 1.1rem;
+}
+
+.wp-delopay-card ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wp-delopay-card li {
+	padding: 0.25rem 0;
+}
+
+.wp-delopay-status {
+	display: inline-block;
+	padding: 2px 10px;
+	border-radius: 999px;
+	background: #e7e8ea;
+	color: #2c3338;
+	font-size: 0.85em;
+	font-weight: 500;
+}
+
+/* Status pills — mapped to design-guidelines status tokens so admin
+ * matches the control center. Keep the lifecycle mapping in sync with
+ * design-guidelines/components.md "Status pill". */
+.wp-delopay-status-succeeded {
+	background: var(--dp-status-green-bg);
+	color: var(--dp-status-green-text);
+}
+.wp-delopay-status-processing {
+	background: var(--dp-status-amber-bg);
+	color: var(--dp-status-amber-text);
+}
+.wp-delopay-status-failed,
+.wp-delopay-status-cancelled,
+.wp-delopay-status-expired {
+	background: var(--dp-status-red-bg);
+	color: var(--dp-status-red-text);
+}
+.wp-delopay-status-requires_payment_method {
+	background: var(--dp-status-blue-bg);
+	color: var(--dp-status-blue-text);
+}
+
+.wp-delopay-copy-row {
+	display: inline-flex;
+	gap: 6px;
+	align-items: stretch;
+	max-width: 100%;
+}
+
+.wp-delopay-copy-row input.regular-text {
+	min-width: 360px;
+	max-width: 100%;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+	font-size: 12px;
+}
+
+.wp-delopay-copy-btn.wp-delopay-copy-ok {
+	background: var(--dp-status-green-text);
+	color: #fff;
+	border-color: var(--dp-status-green-text);
+}
+
+/* Settings sections */
+
+.wp-delopay-settings-form .form-table {
+	margin-top: 0.5rem;
+}
+
+.wp-delopay-settings-section-title {
+	margin: 1.75rem 0 0.25rem;
+	font-size: 0.95rem;
+	font-weight: 600;
+	color: #1d2327;
+	padding-bottom: 0.4rem;
+	border-bottom: 1px solid #dcdcde;
+}
+
+.wp-delopay-settings-section-title:first-of-type {
+	margin-top: 1rem;
+}
+
+.wp-delopay-settings-section-desc {
+	margin: 0.4rem 0 0.5rem;
+	color: #646970;
+	font-size: 0.85rem;
+	max-width: 60ch;
+}
+
+.wp-delopay-settings-form .wp-delopay-env-summary code {
+	font-size: 0.82em;
+	background: #f0f0f1;
+	padding: 1px 6px;
+	border-radius: 3px;
+}
+
+.wp-delopay-currency-input {
+	width: 6em;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* =====================================================================
+ * Products / Categories list
+ * ===================================================================*/
+
+.wp-delopay-wrap .page-title-action {
+	margin-left: 0.25rem;
+}
+
+.wp-delopay-products-table {
+	margin-top: 1.25rem;
+}
+.wp-delopay-products-table th,
+.wp-delopay-products-table td {
+	vertical-align: middle;
+}
+.wp-delopay-products-table .column-thumbnail {
+	width: 64px;
+	padding: 8px 12px;
+}
+
+.wp-delopay-thumb {
+	display: block;
+	width: 48px;
+	height: 48px;
+	object-fit: cover;
+	border-radius: 4px;
+	border: 1px solid #dcdcde;
+}
+.wp-delopay-thumb-empty {
+	font-size: 32px !important;
+	width: 48px !important;
+	height: 48px !important;
+	line-height: 48px !important;
+	color: #c3c4c7;
+}
+
+/* Descriptor paragraph that sits under a page title (the "Each category
+ * becomes its own page…" copy on the Categories index, etc.). */
+.wp-delopay-section-description {
+	margin-top: 1rem;
+	max-width: 70ch;
+}
+
+/* Empty-cell placeholder ("—" or "Uncategorized" in dim grey) — saves
+ * repeating inline color styles in the table loops. */
+.wp-delopay-cell-dim {
+	color: #8c8f94;
+}
+
+/* Filter + search row sits above the list. Use a flex layout so the
+ * filter dropdown and the search box share the row cleanly without
+ * relying on WP's mixed `.alignleft .search-box` floats. */
+.wp-delopay-list-toolbar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem 0.75rem;
+	margin: 1rem 0 0;
+}
+.wp-delopay-list-toolbar .alignleft.actions {
+	float: none;
+	margin: 0;
+	padding: 0;
+}
+.wp-delopay-list-toolbar .search-box {
+	float: none;
+	margin: 0 0 0 auto;
+	display: flex;
+	gap: 0.4rem;
+}
+.wp-delopay-list-toolbar .search-box input[type="search"] {
+	min-width: 220px;
+}
+
+.wp-delopay-subsubsub {
+	margin: 1rem 0 0;
+}
+
+.wp-delopay-import {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	padding: 0.95rem 1.1rem;
+	margin-top: 1rem;
+}
+.wp-delopay-import form > p {
+	margin: 0;
+}
+
+.wp-delopay-products-empty {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	padding: 3rem;
+	margin-top: 1.5rem;
+	text-align: center;
+}
+.wp-delopay-products-empty p {
+	font-size: 1rem;
+	margin: 0 0 1rem;
+}
+
+/* =====================================================================
+ * Product / Category form
+ * ===================================================================*/
+
+.wp-delopay-form-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 300px;
+	gap: 1.5rem;
+	margin-top: 1.25rem;
+	align-items: start;
+}
+
+@media (max-width: 960px) {
+	.wp-delopay-form-grid {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+}
+
+.wp-delopay-postbox {
+	margin: 0 0 1rem;
+	border-radius: 6px;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	box-shadow: none;
+}
+.wp-delopay-postbox:last-child {
+	margin-bottom: 0;
+}
+
+.wp-delopay-postbox .postbox-header {
+	border-bottom: 1px solid #f0f0f1;
+	min-height: 0;
+	margin: 0;
+}
+
+.wp-delopay-postbox .postbox-header .hndle {
+	font-size: 0.875rem;
+	font-weight: 600;
+	padding: 0.65rem 1rem;
+	margin: 0;
+	line-height: 1.4;
+}
+
+.wp-delopay-postbox .inside {
+	padding: 1rem 1.1rem;
+	margin: 0;
+}
+
+/* Field block — label on top, control underneath. Bottom margin makes
+ * stacked fields breathe; row-wrapped fields opt out (below). */
+.wp-delopay-field {
+	display: block;
+	margin: 0 0 1rem;
+}
+.wp-delopay-field:last-child {
+	margin-bottom: 0;
+}
+
+.wp-delopay-field label {
+	display: block;
+	font-weight: 600;
+	font-size: 0.82rem;
+	color: #1d2327;
+	margin: 0 0 0.35rem;
+	line-height: 1.4;
+}
+
+.wp-delopay-field .wp-delopay-optional {
+	color: #8c8f94;
+	font-weight: 400;
+	font-size: 0.85em;
+}
+
+.wp-delopay-field input[type="text"],
+.wp-delopay-field input[type="number"],
+.wp-delopay-field input[type="url"],
+.wp-delopay-field input[type="email"],
+.wp-delopay-field select,
+.wp-delopay-field textarea {
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	padding: 0.45rem 0.65rem;
+	font-size: 0.875rem;
+	line-height: 1.45;
+	border-radius: 4px;
+}
+
+.wp-delopay-field textarea {
+	font-family: inherit;
+	min-height: 140px;
+	resize: vertical;
+}
+
+.wp-delopay-field .wp-delopay-uppercase {
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.wp-delopay-help {
+	color: #646970;
+	font-size: 0.8rem;
+	margin: 0.45rem 0 0;
+	line-height: 1.5;
+}
+.wp-delopay-help code {
+	font-size: 0.85em;
+	padding: 1px 4px;
+	background: #f0f0f1;
+	border-radius: 3px;
+}
+
+/* Section divider inside a postbox — used for "Pricing" / "Catalog"
+ * groupings on the product form. */
+.wp-delopay-section {
+	margin-top: 1.25rem;
+	padding-top: 1rem;
+	border-top: 1px solid #f0f0f1;
+}
+.wp-delopay-section:first-child {
+	margin-top: 0;
+	padding-top: 0;
+	border-top: 0;
+}
+
+.wp-delopay-section-title {
+	font-size: 0.72rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.07em;
+	color: #50575e;
+	margin: 0 0 0.75rem;
+	padding: 0;
+}
+
+/* Row of two or more fields side-by-side. Consecutive rows need their
+ * own vertical gap — without `+` selector spacing, two rows visually
+ * collide.  align-items: flex-start keeps inputs at the top regardless
+ * of which label wraps to two lines. */
+.wp-delopay-row {
+	display: flex;
+	gap: 0.85rem;
+	align-items: flex-start;
+}
+.wp-delopay-row + .wp-delopay-row {
+	margin-top: 1rem;
+}
+.wp-delopay-row .wp-delopay-field {
+	margin-bottom: 0;
+}
+
+.wp-delopay-field-grow { flex: 1 1 auto; min-width: 0; }
+.wp-delopay-field-currency { flex: 0 0 100px; }
+.wp-delopay-field-sort { flex: 0 0 110px; }
+
+.wp-delopay-save {
+	width: 100%;
+	justify-content: center;
+	display: inline-flex;
+	margin-top: 0.5rem;
+}
+
+.wp-delopay-delete-link {
+	display: block;
+	text-align: center;
+	color: #b32d2e;
+	margin-top: 0.75rem;
+	font-size: 0.8rem;
+	text-decoration: none;
+}
+.wp-delopay-delete-link:hover { color: #8a1f1f; text-decoration: underline; }
+
+/* Pull the form-side cards in a touch on wider screens so the sidebar
+ * doesn't feel disconnected from the main column. */
+.wp-delopay-form-side .wp-delopay-postbox .inside {
+	padding: 0.95rem;
+}
+
+/* Image picker (sidebar) */
+
+.wp-delopay-image-picker .wp-delopay-image-preview {
+	aspect-ratio: 1 / 1;
+	background: #f6f7f7;
+	border: 1px dashed #c3c4c7;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	margin-bottom: 0.65rem;
+}
+
+.wp-delopay-image-picker .wp-delopay-image-preview img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.wp-delopay-image-empty {
+	color: #8c8f94;
+	font-size: 0.78rem;
+	text-align: center;
+	padding: 0.5rem 1rem;
+}
+
+.wp-delopay-image-actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5rem;
+	margin-bottom: 0.85rem;
+}
+
+.wp-delopay-image-url-field {
+	margin-bottom: 0;
+	border-top: 1px solid #f0f0f1;
+	padding-top: 0.75rem;
+}
+
+.wp-delopay-image-url-field label {
+	font-size: 0.75rem;
+	font-weight: 500;
+	color: #646970;
+	text-transform: none;
+	letter-spacing: 0;
+}
+
+.wp-delopay-image-url-field input[type="url"] {
+	font-size: 0.8rem;
+	padding: 0.35rem 0.5rem;
+}
+
+/* Connect-to-DeloPay hero card on the Settings page.
+ *
+ * Two states:
+ *   - is-brand     → disconnected, brand-blue surface, white CTA. The
+ *                    one moment in admin where DeloPay shows up loud.
+ *   - is-connected → success-tinted surface, plain WP buttons. Stays
+ *                    quiet so we don't stress the merchant after setup.
+ */
+.wp-delopay-connect-card {
+	background: var(--dp-card-bg);
+	border: 1px solid var(--dp-card-border);
+	border-radius: 6px;
+	padding: 1.5rem 1.75rem;
+	margin: 1.25rem 0 1.75rem;
+	display: grid;
+	grid-template-columns: 1fr auto;
+	align-items: center;
+	gap: 1.25rem;
+}
+
+/* Brand state — applied while disconnected. */
+.wp-delopay-connect-card.is-brand {
+	background: var(--dp-blue);
+	border-color: var(--dp-blue);
+	color: var(--dp-text-inverse);
+	/* Subtle inner depth, evoking the chevron overlay on the marketing hero. */
+	background-image:
+		linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 60%);
+}
+
+.wp-delopay-connect-card.is-brand h2 {
+	color: var(--dp-text-inverse);
+	margin: 0 0 0.35rem;
+	font-size: 1.25rem;
+	font-weight: 600;
+}
+
+.wp-delopay-connect-card.is-brand p {
+	color: rgba(255, 255, 255, 0.85);
+	margin: 0;
+	max-width: 60ch;
+}
+
+.wp-delopay-connect-card.is-connected {
+	border-color: var(--dp-success);
+	background: var(--dp-success-bg);
+}
+
+.wp-delopay-connect-pitch {
+	display: flex;
+	gap: 1rem;
+	align-items: flex-start;
+}
+
+.wp-delopay-connect-symbol {
+	flex: 0 0 auto;
+	width: 40px;
+	height: 40px;
+	background: rgba(255, 255, 255, 0.12);
+	border-radius: 4px;
+	padding: 4px;
+}
+
+.wp-delopay-connect-pitch h2 {
+	margin: 0 0 0.35rem;
+	font-size: 1.15rem;
+}
+
+.wp-delopay-connect-pitch .description,
+.wp-delopay-connect-pitch p {
+	margin: 0;
+	max-width: 60ch;
+}
+
+.wp-delopay-connect-status {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.65rem;
+}
+
+.wp-delopay-connect-status p {
+	margin: 0.1rem 0 0;
+}
+
+.wp-delopay-connect-dot {
+	color: var(--dp-success);
+	font-size: 1.25rem;
+	line-height: 1;
+	margin-top: 0.05rem;
+}
+
+.wp-delopay-connect-actions {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	justify-self: end;
+}
+
+/*
+ * White CTA on the brand-blue card — overrides WP's `.button-hero` so
+ * the "Connect to DeloPay" button reads as the primary action. We're
+ * intentionally heavy-handed here (`!important`) because WP's button
+ * styles use the same selector specificity and would otherwise win.
+ */
+.wp-delopay-connect-card.is-brand .wp-delopay-connect-cta.button {
+	background: #fff !important;
+	border-color: #fff !important;
+	color: var(--dp-blue) !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	font-weight: 600;
+}
+
+.wp-delopay-connect-card.is-brand .wp-delopay-connect-cta.button:hover,
+.wp-delopay-connect-card.is-brand .wp-delopay-connect-cta.button:focus {
+	background: rgba(255, 255, 255, 0.92) !important;
+	color: var(--dp-blue-dark) !important;
+}
+
+.wp-delopay-connect-card.is-brand .wp-delopay-connect-cta.button:disabled {
+	opacity: 0.7;
+}
+
+.wp-delopay-connect-status-msg {
+	grid-column: 1 / -1;
+	margin: 0;
+	min-height: 1em;
+	font-size: 0.85rem;
+	color: var(--dp-text-secondary);
+}
+
+.wp-delopay-connect-status-msg.is-error { color: var(--dp-warning); }
+.wp-delopay-connect-status-msg.is-ok    { color: var(--dp-success); }
+.wp-delopay-connect-status-msg.is-info  { color: var(--dp-info); }
+
+/* On the brand surface the message text needs to lift off blue. */
+.wp-delopay-connect-card.is-brand .wp-delopay-connect-status-msg {
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.wp-delopay-manual-details {
+	background: var(--dp-card-bg);
+	border: 1px solid var(--dp-card-border);
+	border-radius: 6px;
+	padding: 0.75rem 1.25rem;
+	margin-bottom: 1.25rem;
+}
+
+.wp-delopay-manual-details > summary {
+	cursor: pointer;
+	font-weight: 600;
+	padding: 0.5rem 0;
+	user-select: none;
+}
+
+.wp-delopay-manual-details[open] > summary {
+	margin-bottom: 0.75rem;
+	border-bottom: 1px solid var(--dp-border);
+}
+
+.wp-delopay-design-details {
+	background: var(--dp-card-bg);
+	border: 1px solid var(--dp-card-border);
+	border-radius: 6px;
+	padding: 0.5rem 1.25rem;
+	margin: 0 0 1rem;
+}
+.wp-delopay-design-details > summary {
+	cursor: pointer;
+	font-weight: 600;
+	padding: 0.5rem 0;
+	user-select: none;
+}
+.wp-delopay-design-details[open] > summary {
+	margin-bottom: 0.5rem;
+	border-bottom: 1px solid var(--dp-border);
+}
+
+.wp-delopay-color-row {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+.wp-delopay-color-swatch {
+	width: 28px;
+	height: 28px;
+	border-radius: 6px;
+	border: 1px solid var(--dp-border);
+	box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.5);
+	flex-shrink: 0;
+}
+.wp-delopay-color-input {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	width: 9rem;
+}

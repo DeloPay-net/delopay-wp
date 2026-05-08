@@ -1,0 +1,29 @@
+name: lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer:v2
+          coverage: none
+
+      - uses: ramsey/composer-install@v4
+
+      - name: phpcs (WordPress Coding Standards)
+        run: composer lint
+
+      - name: phpstan (level 6)
+        run: composer analyze

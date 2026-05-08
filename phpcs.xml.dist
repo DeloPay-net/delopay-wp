@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<ruleset name="DeloPay WP">
+    <description>WordPress coding standards for the DeloPay plugin and theme.</description>
+
+    <file>plugin</file>
+    <file>theme</file>
+
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>plugin/assets/*</exclude-pattern>
+    <exclude-pattern>theme/assets/*</exclude-pattern>
+    <exclude-pattern>theme/src/*</exclude-pattern>
+    <exclude-pattern>wp-test/*</exclude-pattern>
+
+    <arg name="extensions" value="php"/>
+    <arg name="colors"/>
+    <arg value="sp"/>
+
+    <config name="minimum_supported_wp_version" value="6.0"/>
+    <config name="testVersion" value="7.4-"/>
+
+    <rule ref="WordPress">
+        <!-- Boilerplate docblock sniffs disabled: this codebase doesn't use per-function/file/class
+             docblocks, and adding empty stubs would obscure rather than help. Real-content sniffs
+             (e.g. DocComment.MissingShort, ParamCommentFullStop) remain on so docblocks that DO
+             exist must still be well-formed. -->
+        <exclude name="Squiz.Commenting.FunctionComment.Missing"/>
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/>
+        <exclude name="Squiz.Commenting.FunctionComment.WrongStyle"/>
+        <exclude name="Squiz.Commenting.FileComment.Missing"/>
+        <exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
+        <exclude name="Squiz.Commenting.ClassComment.Missing"/>
+        <exclude name="Squiz.Commenting.VariableComment.Missing"/>
+    </rule>
+
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="wp-delopay"/>
+                <element value="delopay-shop"/>
+            </property>
+        </properties>
+    </rule>
+
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="wp_delopay"/>
+                <element value="WP_Delopay"/>
+                <element value="WP_DELOPAY"/>
+                <element value="delopay_shop"/>
+                <element value="DELOPAY_SHOP"/>
+            </property>
+        </properties>
+    </rule>
+
+    <rule ref="WordPress.Files.FileName">
+        <properties>
+            <property name="strict_class_file_names" value="false"/>
+        </properties>
+    </rule>
+</ruleset>

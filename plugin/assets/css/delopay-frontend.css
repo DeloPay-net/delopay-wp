@@ -1,0 +1,640 @@
+/* ==================================================================
+ *  DeloPay — frontend storefront styles
+ *
+ *  Standalone-pretty: works in any WP theme. Colors, surfaces, accent
+ *  and corner radius are driven by the --dp-* CSS variables emitted
+ *  inline in <head> by WP_Delopay_Plugin::print_design_css_vars().
+ *  The fallback values below match the "light" palette defaults so
+ *  things still look reasonable if the inline block fails to load.
+ * ================================================================== */
+
+:root {
+	--dp-bg:          #ffffff;
+	--dp-surface:     #ffffff;
+	--dp-surface-alt: #f8fafc;
+	--dp-fg:          #0f172a;
+	--dp-muted:       #475569;
+	--dp-line:        #e2e8f0;
+	--dp-accent:      #1e4feb;
+	--dp-accent-fg:   #ffffff;
+	--dp-radius:      10px;
+}
+
+/* Page heading shortcodes share these classes (set by theme markup). */
+.ds-page-head {
+	margin: 2rem 0 1.25rem;
+}
+.ds-page-head h1 {
+	margin: 0 0 0.35rem;
+	font-size: 1.6rem;
+	line-height: 1.2;
+	color: var(--dp-fg);
+}
+.ds-page-head .ds-sub,
+.ds-page-head p {
+	margin: 0;
+	color: var(--dp-muted);
+	font-size: 0.95rem;
+}
+
+/* ------------------------------------------------------------------
+ * Product grid + card
+ * ------------------------------------------------------------------ */
+.wp-delopay-grid {
+	display: grid;
+	grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+	gap: 1.5rem;
+	margin: 2rem 0;
+}
+.wp-delopay-grid-single {
+	max-width: 28rem;
+	margin: 1rem 0;
+}
+@media (max-width: 720px) {
+	.wp-delopay-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media (max-width: 480px) {
+	.wp-delopay-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.wp-delopay-product {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid var(--dp-line);
+	border-radius: var(--dp-radius);
+	overflow: hidden;
+	background: var(--dp-surface);
+	color: var(--dp-fg);
+	transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+.wp-delopay-product:hover {
+	border-color: var(--dp-accent);
+	box-shadow: 0 12px 32px -18px rgb(0 0 0 / 0.22);
+	transform: translateY(-1px);
+}
+.wp-delopay-product-image {
+	display: block;
+	aspect-ratio: 4 / 3;
+	overflow: hidden;
+	background: var(--dp-surface-alt);
+}
+.wp-delopay-product-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+.wp-delopay-product-body {
+	padding: 1rem 1rem 1.1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	flex: 1;
+}
+.wp-delopay-product-name {
+	margin: 0;
+	font-size: 1.05rem;
+	line-height: 1.3;
+	font-weight: 600;
+	color: var(--dp-fg);
+}
+.wp-delopay-product-excerpt {
+	margin: 0;
+	color: var(--dp-muted);
+	font-size: 0.9rem;
+	line-height: 1.45;
+}
+.wp-delopay-product-row {
+	margin-top: auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+	padding-top: 0.5rem;
+}
+.wp-delopay-product-price {
+	font-weight: 600;
+	font-size: 1.05rem;
+	color: var(--dp-fg);
+}
+
+/* ------------------------------------------------------------------
+ * Buttons (single source of truth for storefront buttons)
+ * ------------------------------------------------------------------ */
+.wp-delopay-buy-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4rem;
+	padding: 0.55rem 1rem;
+	background: var(--dp-accent);
+	color: var(--dp-accent-fg);
+	text-decoration: none;
+	border: 0;
+	border-radius: var(--dp-radius);
+	font-weight: 500;
+	font-size: 0.92rem;
+	line-height: 1.2;
+	cursor: pointer;
+	transition: filter 120ms ease, transform 120ms ease, box-shadow 120ms ease;
+}
+.wp-delopay-buy-button:hover,
+.wp-delopay-buy-button:focus-visible {
+	filter: brightness(0.92);
+	color: var(--dp-accent-fg);
+	text-decoration: none;
+}
+.wp-delopay-buy-button:active {
+	transform: translateY(1px);
+}
+.wp-delopay-buy-button:disabled,
+.wp-delopay-buy-button[disabled] {
+	opacity: 0.55;
+	cursor: not-allowed;
+}
+.wp-delopay-add-to-cart.is-added {
+	filter: brightness(0.85);
+}
+.wp-delopay-buy-button-secondary {
+	background: transparent;
+	color: var(--dp-accent);
+	border: 1px solid var(--dp-accent);
+}
+.wp-delopay-buy-button-secondary:hover,
+.wp-delopay-buy-button-secondary:focus-visible {
+	background: var(--dp-surface-alt);
+	color: var(--dp-accent);
+	filter: none;
+}
+
+/* Empty state shared by products / cart / lists. */
+.wp-delopay-empty {
+	padding: 2rem;
+	text-align: center;
+	color: var(--dp-muted);
+	background: var(--dp-surface-alt);
+	border: 1px dashed var(--dp-line);
+	border-radius: var(--dp-radius);
+}
+
+/* ------------------------------------------------------------------
+ * Cart
+ * ------------------------------------------------------------------ */
+.wp-delopay-cart {
+	background: var(--dp-surface);
+	border: 1px solid var(--dp-line);
+	border-radius: var(--dp-radius);
+	padding: 1.25rem;
+	color: var(--dp-fg);
+	margin: 1rem 0 2rem;
+}
+.wp-delopay-cart-loading,
+.wp-delopay-cart-empty {
+	text-align: center;
+	padding: 2rem 1rem;
+	color: var(--dp-muted);
+}
+.wp-delopay-cart-empty p {
+	margin: 0 0 1rem;
+}
+.wp-delopay-cart-items {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+.wp-delopay-cart-row {
+	display: grid;
+	grid-template-columns: 64px 1fr auto auto auto;
+	gap: 1rem;
+	align-items: center;
+	padding: 1rem 0;
+	border-bottom: 1px solid var(--dp-line);
+}
+.wp-delopay-cart-row:first-child {
+	padding-top: 0;
+}
+.wp-delopay-cart-row:last-child {
+	border-bottom: 0;
+	padding-bottom: 0;
+}
+.wp-delopay-cart-thumb {
+	width: 64px;
+	height: 64px;
+	border-radius: calc(var(--dp-radius) * 0.7);
+	overflow: hidden;
+	background: var(--dp-surface-alt);
+	flex-shrink: 0;
+}
+.wp-delopay-cart-thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+.wp-delopay-cart-meta {
+	min-width: 0;
+}
+.wp-delopay-cart-meta h3 {
+	margin: 0 0 0.2rem;
+	font-size: 0.98rem;
+	font-weight: 600;
+	color: var(--dp-fg);
+}
+.wp-delopay-cart-unit {
+	margin: 0;
+	font-size: 0.85rem;
+	color: var(--dp-muted);
+}
+.wp-delopay-cart-qty {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	border: 1px solid var(--dp-line);
+	border-radius: calc(var(--dp-radius) * 0.7);
+	padding: 0.15rem 0.35rem;
+	background: var(--dp-surface-alt);
+}
+.wp-delopay-cart-qty button {
+	width: 1.6rem;
+	height: 1.6rem;
+	border: 0;
+	background: transparent;
+	color: var(--dp-fg);
+	cursor: pointer;
+	font-size: 1rem;
+	line-height: 1;
+	border-radius: calc(var(--dp-radius) * 0.5);
+	padding: 0;
+}
+.wp-delopay-cart-qty button:hover {
+	background: var(--dp-surface);
+}
+.wp-delopay-cart-qty span {
+	min-width: 1.4rem;
+	text-align: center;
+	font-variant-numeric: tabular-nums;
+	font-size: 0.92rem;
+	color: var(--dp-fg);
+}
+.wp-delopay-cart-line-total {
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+	color: var(--dp-fg);
+}
+.wp-delopay-cart-remove {
+	border: 0;
+	background: transparent;
+	color: var(--dp-muted);
+	cursor: pointer;
+	font-size: 1.25rem;
+	line-height: 1;
+	width: 1.75rem;
+	height: 1.75rem;
+	border-radius: 999px;
+	padding: 0;
+}
+.wp-delopay-cart-remove:hover {
+	background: var(--dp-surface-alt);
+	color: var(--dp-fg);
+}
+.wp-delopay-cart-summary {
+	margin-top: 1.25rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid var(--dp-line);
+	display: flex;
+	flex-direction: column;
+	gap: 0.85rem;
+}
+.wp-delopay-cart-summary dl {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	margin: 0;
+	font-size: 1rem;
+}
+.wp-delopay-cart-summary dt {
+	color: var(--dp-muted);
+	margin: 0;
+}
+.wp-delopay-cart-summary dd {
+	margin: 0;
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+	color: var(--dp-fg);
+}
+.wp-delopay-cart-checkout-row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 1rem 1.5rem;
+	margin-top: 0.5rem;
+}
+.wp-delopay-cart-checkout,
+.wp-delopay-cart-checkout-external {
+	min-width: 12rem;
+	flex: 0 0 auto;
+}
+.wp-delopay-cart-error {
+	margin: 0;
+	color: #b91c1c;
+	background: #fee2e2;
+	border-radius: calc(var(--dp-radius) * 0.7);
+	padding: 0.6rem 0.85rem;
+	font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+	.wp-delopay-cart-row {
+		grid-template-columns: 56px 1fr auto;
+		grid-template-areas:
+			"thumb meta remove"
+			"thumb qty   total";
+		gap: 0.5rem 0.85rem;
+	}
+	.wp-delopay-cart-thumb { grid-area: thumb; width: 56px; height: 56px; }
+	.wp-delopay-cart-meta  { grid-area: meta; }
+	.wp-delopay-cart-qty   { grid-area: qty; justify-self: start; }
+	.wp-delopay-cart-line-total { grid-area: total; justify-self: end; }
+	.wp-delopay-cart-remove { grid-area: remove; justify-self: end; }
+	.wp-delopay-cart-checkout-row { flex-direction: column; }
+	.wp-delopay-cart-checkout,
+	.wp-delopay-cart-checkout-external { min-width: 0; width: 100%; }
+}
+
+/* ------------------------------------------------------------------
+ * Checkout
+ * ------------------------------------------------------------------ */
+.wp-delopay-checkout {
+	display: grid;
+	grid-template-columns: minmax(280px, 1fr) minmax(320px, 2fr);
+	gap: 1.5rem;
+	margin: 1rem 0 2rem;
+	align-items: start;
+}
+@media (max-width: 720px) {
+	.wp-delopay-checkout {
+		grid-template-columns: 1fr;
+	}
+}
+.wp-delopay-checkout-summary {
+	background: var(--dp-surface);
+	border: 1px solid var(--dp-line);
+	border-radius: var(--dp-radius);
+	padding: 1.25rem;
+	color: var(--dp-fg);
+}
+.wp-delopay-checkout-summary h2 {
+	margin: 0 0 1rem;
+	font-size: 1.05rem;
+	font-weight: 600;
+	color: var(--dp-fg);
+}
+.wp-delopay-checkout-lines {
+	list-style: none;
+	margin: 0 0 1rem;
+	padding: 0;
+}
+.wp-delopay-checkout-lines li {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 0.55rem 0;
+	border-bottom: 1px solid var(--dp-line);
+	font-size: 0.92rem;
+	color: var(--dp-fg);
+}
+.wp-delopay-checkout-lines li:last-child {
+	border-bottom: 0;
+}
+.wp-delopay-checkout-lines strong {
+	font-weight: 600;
+	float: none !important;
+	font-variant-numeric: tabular-nums;
+}
+.wp-delopay-checkout-total {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	padding-top: 0.85rem;
+	border-top: 1px solid var(--dp-line);
+	font-size: 1rem;
+	color: var(--dp-fg);
+}
+.wp-delopay-checkout-total strong {
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+}
+.wp-delopay-checkout-pay {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+.wp-delopay-checkout-status {
+	padding: 1.5rem;
+	background: var(--dp-surface);
+	border: 1px solid var(--dp-line);
+	border-radius: var(--dp-radius);
+	color: var(--dp-muted);
+	text-align: center;
+}
+.wp-delopay-checkout-iframe-wrap {
+	background: var(--dp-surface);
+	border: 1px solid var(--dp-line);
+	border-radius: var(--dp-radius);
+	overflow: hidden;
+	min-height: 640px;
+	opacity: 0;
+	transition: opacity 240ms ease;
+}
+.wp-delopay-checkout-iframe-wrap.is-ready {
+	opacity: 1;
+}
+.wp-delopay-checkout-iframe {
+	width: 100%;
+	min-height: 640px;
+	border: 0;
+	display: block;
+}
+.wp-delopay-checkout-error {
+	padding: 0.85rem 1rem;
+	border: 1px solid #ef4444;
+	background: #fef2f2;
+	color: #991b1b;
+	border-radius: var(--dp-radius);
+	font-size: 0.9rem;
+}
+
+/* ------------------------------------------------------------------
+ * Complete (post-payment) page
+ * ------------------------------------------------------------------ */
+.wp-delopay-complete {
+	max-width: 36rem;
+	margin: 2rem auto;
+	background: var(--dp-surface);
+	border: 1px solid var(--dp-line);
+	border-radius: var(--dp-radius);
+	padding: 2rem;
+	text-align: center;
+	color: var(--dp-fg);
+}
+.wp-delopay-complete-icon {
+	width: 56px;
+	height: 56px;
+	margin: 0 auto 1rem;
+	border-radius: 999px;
+	background: var(--dp-surface-alt);
+	border: 2px solid var(--dp-line);
+	transition: background-color 180ms ease, border-color 180ms ease;
+}
+.wp-delopay-complete-icon.is-success {
+	background: color-mix(in srgb, var(--dp-accent) 15%, transparent);
+	border-color: var(--dp-accent);
+}
+.wp-delopay-complete-icon.is-failure {
+	background: #fde8e8;
+	border-color: #ef4444;
+}
+.wp-delopay-complete-status {
+	font-size: 1.1rem;
+	font-weight: 500;
+	margin: 0 0 0.5rem;
+}
+.wp-delopay-complete-status.is-success { color: var(--dp-accent); }
+.wp-delopay-complete-status.is-failure { color: #b91c1c; }
+.wp-delopay-complete-amount {
+	margin: 0 0 0.25rem;
+	font-size: 1.4rem;
+	font-weight: 600;
+	color: var(--dp-fg);
+	font-variant-numeric: tabular-nums;
+}
+.wp-delopay-complete-message {
+	margin: 0 0 1.5rem;
+	color: var(--dp-muted);
+}
+.wp-delopay-complete-details {
+	margin: 1.5rem 0;
+	display: grid;
+	grid-template-columns: max-content 1fr;
+	gap: 0.5rem 1rem;
+	text-align: left;
+	background: var(--dp-surface-alt);
+	border-radius: calc(var(--dp-radius) * 0.7);
+	padding: 1rem 1.25rem;
+}
+.wp-delopay-complete-details dt {
+	font-weight: 500;
+	color: var(--dp-muted);
+	font-size: 0.85rem;
+	margin: 0;
+}
+.wp-delopay-complete-details dd {
+	margin: 0;
+	font-size: 0.9rem;
+	color: var(--dp-fg);
+	word-break: break-all;
+}
+.wp-delopay-complete-actions {
+	margin-top: 0.5rem;
+}
+.wp-delopay-complete-link {
+	color: var(--dp-accent);
+	text-decoration: none;
+	font-weight: 500;
+}
+.wp-delopay-complete-link:hover,
+.wp-delopay-complete-link:focus-visible {
+	text-decoration: underline;
+}
+
+/* ------------------------------------------------------------------
+ * Categories grid + card
+ * ------------------------------------------------------------------ */
+.wp-delopay-grid-categories {
+	grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+}
+.wp-delopay-category {
+	list-style: none;
+}
+.wp-delopay-category-link {
+	display: block;
+	padding: 1.25rem;
+	border-radius: var(--dp-radius);
+	border: 1px solid var(--dp-line);
+	background: var(--dp-surface);
+	text-decoration: none;
+	color: inherit;
+	height: 100%;
+	transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+.wp-delopay-category-link:hover,
+.wp-delopay-category-link:focus-visible {
+	border-color: var(--dp-accent);
+	transform: translateY(-1px);
+	box-shadow: 0 12px 32px -18px rgb(0 0 0 / 0.18);
+}
+.wp-delopay-category-name {
+	font-size: 1.05rem;
+	margin: 0 0 0.3rem;
+	font-weight: 600;
+	color: var(--dp-fg);
+}
+.wp-delopay-category-excerpt {
+	font-size: 0.9rem;
+	color: var(--dp-muted);
+	margin: 0 0 0.75rem;
+	line-height: 1.45;
+}
+.wp-delopay-category-count {
+	font-size: 0.78rem;
+	color: var(--dp-muted);
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-weight: 500;
+}
+
+/* ------------------------------------------------------------------
+ * Category hero (standalone — paired with .ds-hero in markup)
+ * ------------------------------------------------------------------ */
+.wp-delopay-hero {
+	margin: 2rem 0 1.5rem;
+	padding: 2.25rem 1.5rem;
+	background: var(--dp-surface-alt);
+	border: 1px solid var(--dp-line);
+	border-radius: var(--dp-radius);
+	text-align: center;
+	color: var(--dp-fg);
+}
+.wp-delopay-hero .ds-eyebrow {
+	margin: 0 0 0.5rem;
+	color: var(--dp-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	font-size: 0.78rem;
+	font-weight: 500;
+}
+.wp-delopay-hero h1 {
+	margin: 0 0 0.6rem;
+	font-size: 1.85rem;
+	line-height: 1.2;
+	font-weight: 600;
+	color: var(--dp-fg);
+}
+.wp-delopay-hero .ds-lede {
+	margin: 0 auto;
+	max-width: 36rem;
+	color: var(--dp-muted);
+	font-size: 1rem;
+	line-height: 1.55;
+}
+.wp-delopay-hero-empty {
+	display: none;
+}

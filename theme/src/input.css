@@ -1,0 +1,1026 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Default values for the design tokens. Customizer values override these
+ * inline in <head>; everything below this block is the matcha-shop look
+ * (washi-paper background, sage cream surfaces, deep matcha-green accent,
+ * system sans, 15px base, 12-14px radii) shipped as the theme's baseline.
+ */
+@layer base {
+	:root {
+		--ds-bg:           245 244 234;   /* #f5f4ea */
+		--ds-surface:      255 255 255;
+		--ds-surface-alt:  235 233 218;   /* #ebe9da */
+		--ds-fg:           28 32 20;      /* #1c2014 */
+		--ds-muted:        107 112 96;    /* #6b7060 */
+		--ds-line:         221 217 197;   /* #ddd9c5 */
+		--ds-line-strong:  194 191 169;   /* #c2bfa9 */
+		--ds-accent:       91 122 42;     /* #5b7a2a */
+		--ds-accent-fg:    255 255 255;
+		--ds-success:      21 128 61;     /* #15803d */
+		--ds-danger:       185 28 28;     /* #b91c1c */
+
+		--ds-font-body:    "system-sans";
+		--ds-font-display: "system-sans";
+
+		--ds-radius:  12px;
+		--ds-max-w:   1080px;
+		--ds-pad:     1.25rem;
+
+		color-scheme: light dark;
+	}
+
+	/*
+	 * After-hours mode. Matcha palette tuned for low-light reading —
+	 * deep tea-room background, paper-tone text, lighter matcha green
+	 * accent so contrast still passes against the dark surface.
+	 *
+	 * Only kicks in when the user hasn't overridden the values in the
+	 * Customizer (delopay_shop_print_css_vars skips any token still at
+	 * its default, so this media query stays the source of truth on a
+	 * fresh install).
+	 */
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--ds-bg:           15 18 10;     /* #0f120a */
+			--ds-surface:      24 27 17;     /* #181b11 */
+			--ds-surface-alt:  31 35 22;     /* #1f2316 */
+			--ds-fg:           236 235 215;  /* #ecebd7 */
+			--ds-muted:        147 149 125;  /* #93957d */
+			--ds-line:         42 46 31;     /* #2a2e1f */
+			--ds-line-strong:  58 63 44;     /* #3a3f2c */
+			--ds-accent:       168 198 108;  /* #a8c66c — lighter matcha reads on dark */
+			--ds-accent-fg:    20 24 12;     /* #14180c */
+			--ds-success:      74 222 128;   /* #4ade80 */
+			--ds-danger:       248 113 113;  /* #f87171 */
+		}
+	}
+
+	html { -webkit-text-size-adjust: 100%; }
+
+	[hidden] { display: none !important; }
+
+	body {
+		background: rgb(var(--ds-bg));
+		color: rgb(var(--ds-fg));
+		font-family: var(--ds-font-body), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+		font-size: 15px;
+		line-height: 1.5;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	h1, h2, h3, h4 {
+		font-family: var(--ds-font-display), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+		font-weight: 600;
+		line-height: 1.2;
+		letter-spacing: -0.01em;
+		margin: 0;
+	}
+
+	::selection { background: rgb(var(--ds-accent)); color: rgb(var(--ds-accent-fg)); }
+	a { color: inherit; }
+	a:focus-visible, button:focus-visible {
+		outline: 2px solid rgb(var(--ds-accent));
+		outline-offset: 3px;
+		border-radius: 4px;
+	}
+
+	/* Themed scrollbars — picked up from the demo. */
+	:where(html, body) {
+		scrollbar-width: thin;
+		scrollbar-color: rgb(var(--ds-line-strong)) transparent;
+	}
+}
+
+@layer components {
+	/* ------------------------------------------------------------------
+	 * Layout shell
+	 * ------------------------------------------------------------------ */
+	.ds-shell {
+		@apply flex min-h-screen flex-col;
+	}
+	.ds-container {
+		max-width: var(--ds-max-w);
+		margin-inline: auto;
+		padding-inline: 1.25rem;
+		width: 100%;
+	}
+
+	/* ------------------------------------------------------------------
+	 * Buttons — match demo's .btn / .btn.primary / .btn.ghost exactly.
+	 * ------------------------------------------------------------------ */
+	.ds-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.4rem;
+		padding: 0.55rem 0.95rem;
+		border-radius: 8px;
+		border: 1px solid transparent;
+		background: rgb(var(--ds-surface-alt));
+		color: rgb(var(--ds-fg));
+		font: inherit;
+		font-size: 0.9rem;
+		font-weight: 500;
+		cursor: pointer;
+		text-decoration: none;
+		transition: background 120ms ease, border-color 120ms ease, transform 60ms ease;
+	}
+	.ds-btn:hover { background: rgb(var(--ds-line)); }
+	.ds-btn:active { transform: translateY(1px); }
+	.ds-btn[disabled],
+	.ds-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+	.ds-btn-primary {
+		background: rgb(var(--ds-accent));
+		color: rgb(var(--ds-accent-fg));
+		padding: 0.7rem 1.1rem;
+		font-weight: 600;
+	}
+	.ds-btn-primary:hover { filter: brightness(1.05); }
+
+	.ds-btn-ghost {
+		background: transparent;
+		border-color: rgb(var(--ds-line));
+	}
+	.ds-btn-ghost:hover { background: rgb(var(--ds-surface-alt)); }
+
+	.ds-btn-full { width: 100%; }
+
+	/* ------------------------------------------------------------------
+	 * Eyebrow (uppercase small label used on headings)
+	 * ------------------------------------------------------------------ */
+	.ds-eyebrow {
+		font-size: 0.75rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: rgb(var(--ds-muted));
+		margin: 0 0 0.5rem;
+	}
+
+	/* ------------------------------------------------------------------
+	 * Page head (Cart / Checkout) — demo's .head treatment
+	 * ------------------------------------------------------------------ */
+	.ds-page-head { padding: 2.5rem 0 1.5rem; }
+	.ds-page-head h1 {
+		font-size: 2rem;
+		margin: 0 0 0.25rem;
+		letter-spacing: -0.02em;
+	}
+	.ds-page-head .ds-sub {
+		margin: 0;
+		color: rgb(var(--ds-muted));
+	}
+
+	/* ------------------------------------------------------------------
+	 * Hero — rendered by the plugin's [delopay_category_hero] shortcode
+	 * once per category page. .ds-hero-empty is the spacing-only stand-in
+	 * the shortcode emits when the category has no hero content, so the
+	 * product grid below it sits at the same vertical position whether
+	 * or not the hero is filled in.
+	 * ------------------------------------------------------------------ */
+	.ds-hero { padding: 3rem 0 2rem; }
+	.ds-hero h1 {
+		font-size: clamp(2rem, 4vw, 3rem);
+		margin: 0 0 0.5rem;
+		letter-spacing: -0.02em;
+	}
+	.ds-hero .ds-lede {
+		color: rgb(var(--ds-muted));
+		margin: 0;
+		max-width: 46ch;
+	}
+	.ds-hero-empty { padding: 1.5rem 0; }
+
+	/* ------------------------------------------------------------------
+	 * Admin banner (shown to logged-in admins until DeloPay is connected)
+	 * ------------------------------------------------------------------ */
+	.ds-admin-banner {
+		background: rgb(var(--ds-surface));
+		border-bottom: 1px solid rgb(var(--ds-line));
+		color: rgb(var(--ds-fg));
+	}
+	.ds-admin-banner-inner {
+		max-width: var(--ds-max-w);
+		margin: 0 auto;
+		padding: 0.7rem 1.25rem;
+		display: flex;
+		align-items: center;
+		gap: 0.85rem;
+		flex-wrap: wrap;
+	}
+	.ds-admin-banner-mark {
+		width: 32px;
+		height: 32px;
+		border-radius: 8px;
+		background: #1E4FEB;
+		color: #fff;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+	.ds-admin-banner-mark svg {
+		width: 18px;
+		height: 18px;
+	}
+	.ds-admin-banner-text {
+		flex: 1;
+		min-width: 14rem;
+		display: flex;
+		flex-direction: column;
+		line-height: 1.35;
+	}
+	.ds-admin-banner-text strong {
+		font-weight: 600;
+		font-size: 0.92rem;
+		color: rgb(var(--ds-fg));
+	}
+	.ds-admin-banner-text span {
+		font-size: 0.83rem;
+		color: rgb(var(--ds-muted));
+	}
+	.ds-admin-banner-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.5rem 0.9rem;
+		border-radius: 8px;
+		background: #1E4FEB;
+		color: #fff;
+		text-decoration: none;
+		font-size: 0.88rem;
+		font-weight: 500;
+		transition: background-color 120ms ease;
+		white-space: nowrap;
+	}
+	.ds-admin-banner-cta:hover,
+	.ds-admin-banner-cta:focus-visible {
+		background: #0A2BC0;
+		color: #fff;
+	}
+	.ds-admin-banner-cta-arrow {
+		transition: transform 120ms ease;
+	}
+	.ds-admin-banner-cta:hover .ds-admin-banner-cta-arrow {
+		transform: translateX(2px);
+	}
+
+	/* ------------------------------------------------------------------
+	 * Header / brand bar
+	 * ------------------------------------------------------------------ */
+	.ds-topbar {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		background: color-mix(in srgb, rgb(var(--ds-bg)) 85%, transparent);
+		backdrop-filter: saturate(140%) blur(10px);
+		border-bottom: 1px solid rgb(var(--ds-line));
+	}
+	.ds-topbar-inner {
+		max-width: var(--ds-max-w);
+		margin: 0 auto;
+		padding: 0.9rem 1.25rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+	.ds-brand {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 0.6rem;
+		text-decoration: none;
+		color: inherit;
+		font-weight: 600;
+		letter-spacing: -0.01em;
+	}
+	.ds-brand-dot {
+		width: 10px;
+		height: 10px;
+		border-radius: 999px;
+		background: rgb(var(--ds-accent));
+		align-self: center;
+	}
+	.ds-brand-tag {
+		font-size: 0.72rem;
+		font-weight: 500;
+		color: rgb(var(--ds-muted));
+		letter-spacing: 0.02em;
+	}
+
+	.ds-nav {
+		display: inline-flex;
+		align-items: center;
+	}
+	.ds-menu {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+	}
+	.ds-menu li {
+		position: relative;
+		list-style: none;
+	}
+	.ds-menu a {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.45rem 0.75rem;
+		border-radius: 8px;
+		text-decoration: none;
+		color: rgb(var(--ds-muted));
+		font-size: 0.92rem;
+		line-height: 1.2;
+		transition: background-color 120ms ease, color 120ms ease;
+	}
+	.ds-menu a:hover,
+	.ds-menu a:focus-visible,
+	.ds-menu .current-menu-item > a,
+	.ds-menu .current-menu-ancestor > a,
+	.ds-menu a.is-current {
+		color: rgb(var(--ds-fg));
+		background: rgb(var(--ds-surface-alt));
+	}
+	.ds-menu .menu-item-has-children > a::after {
+		content: "";
+		width: 0.45rem;
+		height: 0.45rem;
+		border-right: 1.5px solid currentColor;
+		border-bottom: 1.5px solid currentColor;
+		transform: translateY(-1px) rotate(45deg);
+		opacity: 0.6;
+	}
+	.ds-menu .sub-menu {
+		list-style: none;
+		margin: 0;
+		padding: 0.35rem;
+		position: absolute;
+		top: calc(100% + 0.4rem);
+		left: 0;
+		min-width: 12rem;
+		background: rgb(var(--ds-surface));
+		border: 1px solid rgb(var(--ds-line));
+		border-radius: 10px;
+		box-shadow: 0 12px 28px -16px rgba(0, 0, 0, 0.25);
+		display: none;
+		z-index: 20;
+	}
+	.ds-menu li:hover > .sub-menu,
+	.ds-menu li:focus-within > .sub-menu {
+		display: block;
+	}
+	.ds-menu .sub-menu li {
+		display: block;
+	}
+	.ds-menu .sub-menu a {
+		display: block;
+		width: 100%;
+		padding: 0.5rem 0.7rem;
+		font-size: 0.9rem;
+		border-radius: 6px;
+	}
+	.ds-menu .sub-menu .menu-item-has-children > a::after {
+		display: none;
+	}
+
+	.ds-cart-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+	}
+	.ds-cart-badge {
+		display: inline-flex;
+		min-width: 1.25rem;
+		height: 1.25rem;
+		padding: 0 0.35rem;
+		align-items: center;
+		justify-content: center;
+		background: rgb(var(--ds-accent));
+		color: rgb(var(--ds-accent-fg));
+		border-radius: 999px;
+		font-size: 0.72rem;
+		font-weight: 600;
+		font-variant-numeric: tabular-nums;
+		line-height: 1;
+	}
+
+	/* ------------------------------------------------------------------
+	 * Footer
+	 * ------------------------------------------------------------------ */
+	.ds-footer {
+		border-top: 1px solid rgb(var(--ds-line));
+		padding: 1.25rem 0;
+		color: rgb(var(--ds-muted));
+		font-size: 0.85rem;
+	}
+	.ds-footer-nav {
+		max-width: var(--ds-max-w);
+		margin: 0 auto;
+		padding: 0 1.25rem 1rem;
+	}
+	.ds-footer-nav-inner {
+		display: flex;
+	}
+	.ds-menu-footer {
+		flex-wrap: wrap;
+		gap: 0.5rem 0.25rem;
+	}
+	.ds-menu-footer .sub-menu {
+		position: static;
+		display: block;
+		background: transparent;
+		border: 0;
+		box-shadow: none;
+		padding: 0 0 0 0.5rem;
+		min-width: 0;
+	}
+	.ds-menu-footer .menu-item-has-children > a::after {
+		display: none;
+	}
+	.ds-footer-inner {
+		max-width: var(--ds-max-w);
+		margin: 0 auto;
+		padding: 0 1.25rem;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 0.75rem;
+	}
+
+	/* ==================================================================
+	 *  PLUGIN-RENDERED BLOCKS
+	 *  Override the markup that comes from WP Delopay's shortcodes so
+	 *  product cards / cart / checkout / complete inherit the theme's
+	 *  design tokens. Class names are owned by the plugin; values here
+	 *  match the demo-shop's CSS line-by-line.
+	 * ================================================================== */
+
+	/* Product grid + card */
+	.wp-delopay-grid {
+		display: grid;
+		gap: 1.25rem;
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		padding-bottom: 4rem;
+	}
+	.wp-delopay-grid-single { grid-template-columns: minmax(260px, 360px); }
+
+	.wp-delopay-product {
+		display: flex;
+		flex-direction: column;
+		background: rgb(var(--ds-surface));
+		border: 1px solid rgb(var(--ds-line));
+		border-radius: 14px;
+		overflow: hidden;
+		transition: transform 120ms ease, border-color 120ms ease;
+	}
+	.wp-delopay-product:hover {
+		border-color: rgb(var(--ds-line-strong));
+		transform: translateY(-2px);
+	}
+
+	.wp-delopay-product-image {
+		display: block;
+		aspect-ratio: 4 / 3;
+		background: rgb(var(--ds-surface-alt));
+		overflow: hidden;
+	}
+	.wp-delopay-product-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	.wp-delopay-product-body {
+		padding: 1rem 1.1rem 1.2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		flex: 1;
+	}
+	.wp-delopay-product-name {
+		font-size: 1.05rem;
+		margin: 0;
+		letter-spacing: -0.01em;
+	}
+	.wp-delopay-product-excerpt {
+		color: rgb(var(--ds-muted));
+		font-size: 0.9rem;
+		margin: 0;
+		flex: 1;
+	}
+	.wp-delopay-product-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 0.5rem;
+		gap: 0.75rem;
+	}
+	.wp-delopay-product-price {
+		font-weight: 600;
+		font-variant-numeric: tabular-nums;
+	}
+
+	/*
+	 * Default `.wp-delopay-buy-button` look = demo's subtle `.btn`
+	 * (surface-alt bg, fg color, 0.9rem). Used by the product card's
+	 * "Add to cart" and the cart-empty "Browse products" link.
+	 *
+	 * Primary accent treatment is opt-in via `.wp-delopay-cart-checkout`
+	 * (the demo's "Proceed to checkout" CTA).
+	 */
+	.wp-delopay-buy-button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.4rem;
+		padding: 0.55rem 0.95rem;
+		border-radius: 8px;
+		border: 1px solid transparent;
+		background: rgb(var(--ds-surface-alt));
+		color: rgb(var(--ds-fg));
+		font: inherit;
+		font-size: 0.9rem;
+		font-weight: 500;
+		cursor: pointer;
+		text-decoration: none;
+		transition: background 120ms ease, border-color 120ms ease, transform 60ms ease;
+	}
+	.wp-delopay-buy-button:hover { background: rgb(var(--ds-line)); }
+	.wp-delopay-buy-button:active { transform: translateY(1px); }
+	.wp-delopay-buy-button:disabled,
+	.wp-delopay-buy-button[disabled] { opacity: 0.6; cursor: not-allowed; }
+	.wp-delopay-add-to-cart.is-added {
+		background: rgb(var(--ds-success));
+		color: rgb(var(--ds-accent-fg));
+	}
+
+	/* Cart-empty "Browse products" link gets the demo's ghost variant. */
+	.wp-delopay-cart-empty .wp-delopay-buy-button {
+		background: transparent;
+		border-color: rgb(var(--ds-line));
+	}
+	.wp-delopay-cart-empty .wp-delopay-buy-button:hover {
+		background: rgb(var(--ds-surface-alt));
+	}
+
+	/* Cart "Proceed to checkout" CTA = primary. */
+	.wp-delopay-cart-checkout {
+		background: rgb(var(--ds-accent)) !important;
+		color: rgb(var(--ds-accent-fg)) !important;
+		font-weight: 600;
+		padding: 0.7rem 1.1rem;
+	}
+	.wp-delopay-cart-checkout:hover {
+		filter: brightness(1.05);
+	}
+
+	.wp-delopay-empty {
+		border: 1px dashed rgb(var(--ds-line));
+		border-radius: 12px;
+		padding: 3rem;
+		text-align: center;
+		color: rgb(var(--ds-muted));
+	}
+
+	/* ------------------------------------------------------------------
+	 * Cart page
+	 * ------------------------------------------------------------------ */
+	.wp-delopay-cart-loading {
+		padding: 1.5rem 0;
+		color: rgb(var(--ds-muted));
+		font-size: 0.95rem;
+	}
+	.wp-delopay-cart-empty {
+		border: 1px dashed rgb(var(--ds-line));
+		border-radius: 12px;
+		padding: 3rem;
+		text-align: center;
+		color: rgb(var(--ds-muted));
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+	.wp-delopay-cart-empty .wp-delopay-buy-button {
+		background: transparent;
+		border-color: rgb(var(--ds-line));
+		color: rgb(var(--ds-fg));
+		font-weight: 500;
+	}
+	.wp-delopay-cart-empty .wp-delopay-buy-button:hover {
+		background: rgb(var(--ds-surface-alt));
+	}
+
+	.wp-delopay-cart-content {
+		display: block;
+	}
+	.wp-delopay-cart-items {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.wp-delopay-cart-row {
+		display: grid;
+		grid-template-columns: 84px minmax(0, 1fr) auto auto auto;
+		gap: 1.1rem;
+		align-items: center;
+		padding: 0.9rem 1rem;
+		background: rgb(var(--ds-surface));
+		border: 1px solid rgb(var(--ds-line));
+		border-radius: 12px;
+	}
+	.wp-delopay-cart-thumb {
+		width: 84px;
+		height: 84px;
+		border-radius: 8px;
+		overflow: hidden;
+		background: rgb(var(--ds-surface-alt));
+	}
+	.wp-delopay-cart-thumb img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	.wp-delopay-cart-meta { min-width: 0; }
+	.wp-delopay-cart-meta h3 {
+		font-family: var(--ds-font-display), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+		font-weight: 600;
+		font-size: 0.98rem;
+		line-height: 1.3;
+		letter-spacing: -0.005em;
+		margin: 0 0 0.2rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.wp-delopay-cart-unit {
+		margin: 0;
+		color: rgb(var(--ds-muted));
+		font-size: 0.82rem;
+		font-variant-numeric: tabular-nums;
+	}
+	.wp-delopay-cart-qty {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+		background: rgb(var(--ds-surface-alt));
+		border-radius: 999px;
+		padding: 0.2rem;
+	}
+	.wp-delopay-cart-qty button {
+		width: 28px;
+		height: 28px;
+		border-radius: 999px;
+		border: none;
+		background: transparent;
+		font: inherit;
+		font-size: 1rem;
+		line-height: 1;
+		cursor: pointer;
+		color: rgb(var(--ds-fg));
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: background 120ms ease;
+	}
+	.wp-delopay-cart-qty button:hover { background: rgb(var(--ds-line)); }
+	.wp-delopay-cart-qty span {
+		min-width: 1.5rem;
+		text-align: center;
+		font-variant-numeric: tabular-nums;
+		font-weight: 500;
+		font-size: 0.9rem;
+	}
+	.wp-delopay-cart-line-total {
+		font-weight: 600;
+		font-variant-numeric: tabular-nums;
+		font-size: 0.95rem;
+		min-width: 80px;
+		text-align: right;
+		letter-spacing: -0.005em;
+	}
+	.wp-delopay-cart-remove {
+		background: transparent;
+		border: none;
+		color: rgb(var(--ds-muted));
+		font: inherit;
+		font-size: 1.15rem;
+		line-height: 1;
+		cursor: pointer;
+		padding: 0.3rem 0.5rem;
+		border-radius: 6px;
+		transition: background 120ms ease, color 120ms ease;
+	}
+	.wp-delopay-cart-remove:hover {
+		color: rgb(var(--ds-fg));
+		background: rgb(var(--ds-surface-alt));
+	}
+
+	.wp-delopay-cart-summary {
+		margin-top: 1.5rem;
+		padding: 1.25rem 1.5rem;
+		background: rgb(var(--ds-surface));
+		border: 1px solid rgb(var(--ds-line));
+		border-radius: 12px;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		max-width: 420px;
+		margin-left: auto;
+	}
+	.wp-delopay-cart-summary dl {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		margin: 0;
+		gap: 1rem;
+	}
+	.wp-delopay-cart-summary dt {
+		margin: 0;
+		color: rgb(var(--ds-muted));
+		font-size: 0.85rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-weight: 500;
+	}
+	.wp-delopay-cart-summary dd {
+		margin: 0;
+		font-weight: 600;
+		font-size: 1.25rem;
+		font-variant-numeric: tabular-nums;
+		letter-spacing: -0.01em;
+		color: rgb(var(--ds-fg));
+	}
+	.wp-delopay-cart-checkout-row {
+		margin-top: 1rem;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		align-items: center;
+		gap: 1rem 1.5rem;
+	}
+	.wp-delopay-cart-checkout,
+	.wp-delopay-cart-checkout-external {
+		margin: 0;
+		text-align: center;
+		flex: 0 0 auto;
+	}
+	.wp-delopay-buy-button-secondary {
+		background: transparent !important;
+		color: rgb(var(--ds-accent)) !important;
+		border-color: rgb(var(--ds-accent));
+	}
+	.wp-delopay-buy-button-secondary:hover {
+		background: rgb(var(--ds-surface-alt)) !important;
+		filter: none;
+	}
+	@media (max-width: 600px) {
+		.wp-delopay-cart-checkout-row {
+			flex-direction: column;
+			align-items: stretch;
+		}
+		.wp-delopay-cart-checkout,
+		.wp-delopay-cart-checkout-external {
+			width: 100%;
+		}
+	}
+	.wp-delopay-cart-error {
+		margin: 0.75rem 0 0;
+		padding: 0.6rem 0.75rem;
+		border-radius: 8px;
+		font-size: 0.85rem;
+		background: color-mix(in srgb, rgb(var(--ds-danger)) 12%, transparent);
+		color: rgb(var(--ds-danger));
+		border: 1px solid color-mix(in srgb, rgb(var(--ds-danger)) 30%, transparent);
+	}
+
+	@media (max-width: 640px) {
+		.wp-delopay-cart-row {
+			grid-template-columns: 64px 1fr auto;
+			grid-template-areas:
+				"thumb meta remove"
+				"thumb qty   total";
+			row-gap: 0.5rem;
+		}
+		.wp-delopay-cart-thumb { grid-area: thumb; width: 64px; height: 64px; }
+		.wp-delopay-cart-meta { grid-area: meta; }
+		.wp-delopay-cart-qty { grid-area: qty; }
+		.wp-delopay-cart-line-total { grid-area: total; text-align: right; }
+		.wp-delopay-cart-remove { grid-area: remove; align-self: start; justify-self: end; }
+	}
+
+	/* ------------------------------------------------------------------
+	 * Checkout (single product OR cart)
+	 * ------------------------------------------------------------------ */
+	.wp-delopay-checkout {
+		display: grid;
+		grid-template-columns: 1fr 1.15fr;
+		gap: 1.25rem;
+		align-items: start;
+		padding-bottom: 3rem;
+	}
+	@media (max-width: 800px) {
+		.wp-delopay-checkout { grid-template-columns: 1fr; }
+	}
+
+	.wp-delopay-checkout-summary,
+	.wp-delopay-checkout-iframe-wrap,
+	.wp-delopay-checkout-error {
+		background: rgb(var(--ds-surface));
+		border: 1px solid rgb(var(--ds-line));
+		border-radius: 12px;
+		padding: 1.25rem 1.5rem;
+	}
+	.wp-delopay-checkout-summary h2 {
+		margin: 0 0 1rem;
+		font-size: 1rem;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+		color: rgb(var(--ds-muted));
+	}
+	.wp-delopay-checkout-summary p { margin: 0.5rem 0; }
+	.wp-delopay-checkout-lines {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+	.wp-delopay-checkout-lines li {
+		font-size: 0.92rem;
+		color: rgb(var(--ds-fg));
+	}
+	.wp-delopay-checkout-total {
+		margin-top: 1.25rem;
+		padding-top: 1rem;
+		border-top: 1px solid rgb(var(--ds-line));
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		font-weight: 600;
+		font-size: 1.1rem;
+	}
+	.wp-delopay-checkout-pay {
+		background: rgb(var(--ds-surface));
+		border: 1px solid rgb(var(--ds-line));
+		border-radius: 12px;
+		padding: 1.25rem 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+	.wp-delopay-checkout-pay .wp-delopay-checkout-status,
+	.wp-delopay-checkout-pay .wp-delopay-checkout-iframe-wrap,
+	.wp-delopay-checkout-pay .wp-delopay-checkout-error {
+		border: 0;
+		padding: 0;
+	}
+	.wp-delopay-checkout-pay .wp-delopay-checkout-status { background: transparent; }
+	.wp-delopay-checkout-pay .wp-delopay-checkout-iframe-wrap {
+		border: 1px solid rgb(var(--ds-line));
+		border-radius: 10px;
+	}
+
+	.wp-delopay-checkout-status {
+		background: rgb(var(--ds-surface));
+		border: 1px solid rgb(var(--ds-line));
+		border-radius: 12px;
+		padding: 1.25rem 1.5rem;
+		color: rgb(var(--ds-muted));
+		font-size: 0.9rem;
+	}
+
+	.wp-delopay-checkout-iframe-wrap {
+		position: relative;
+		padding: 0;
+		overflow: hidden;
+		background: rgb(var(--ds-surface-alt));
+		opacity: 0;
+		transition: opacity 180ms ease-out;
+		min-height: 600px;
+	}
+	.wp-delopay-checkout-iframe-wrap.is-ready { opacity: 1; }
+	.wp-delopay-checkout-iframe {
+		display: block;
+		width: 100%;
+		height: 600px;
+		border: 0;
+	}
+	@media (max-width: 800px) {
+		.wp-delopay-checkout-iframe-wrap,
+		.wp-delopay-checkout-iframe { min-height: 540px; height: 540px; }
+	}
+
+	.wp-delopay-checkout-error {
+		background: color-mix(in srgb, rgb(var(--ds-danger)) 12%, transparent);
+		color: rgb(var(--ds-danger));
+		border-color: color-mix(in srgb, rgb(var(--ds-danger)) 30%, transparent);
+		padding: 0.6rem 0.75rem;
+		font-size: 0.85rem;
+	}
+
+	/* ------------------------------------------------------------------
+	 * Complete page — demo's circular badge + meta block
+	 * ------------------------------------------------------------------ */
+	.wp-delopay-complete {
+		max-width: 460px;
+		margin: 4rem auto;
+		text-align: center;
+		background: rgb(var(--ds-surface));
+		border: 1px solid rgb(var(--ds-line));
+		border-radius: 14px;
+		padding: 2.5rem 2rem;
+	}
+	.wp-delopay-complete-icon {
+		width: 56px;
+		height: 56px;
+		border-radius: 999px;
+		font-size: 1.5rem;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto 1rem;
+		background: rgb(var(--ds-surface-alt));
+		color: rgb(var(--ds-muted));
+	}
+	.wp-delopay-complete-icon::before { content: '…'; }
+	.wp-delopay-complete-icon.is-pending::before { content: '…'; }
+	.wp-delopay-complete-icon.is-success {
+		background: color-mix(in srgb, rgb(var(--ds-success)) 20%, transparent);
+		color: rgb(var(--ds-success));
+	}
+	.wp-delopay-complete-icon.is-success::before { content: '✓'; }
+	.wp-delopay-complete-icon.is-failure {
+		background: color-mix(in srgb, rgb(var(--ds-danger)) 20%, transparent);
+		color: rgb(var(--ds-danger));
+	}
+	.wp-delopay-complete-icon.is-failure::before { content: '!'; }
+
+	.wp-delopay-complete-status {
+		font-size: 1.5rem;
+		margin: 0 0 0.25rem;
+		letter-spacing: -0.01em;
+		font-weight: 600;
+		color: rgb(var(--ds-fg));
+	}
+	.wp-delopay-complete-amount {
+		color: rgb(var(--ds-fg));
+		font-weight: 600;
+		margin: 0 0 1rem;
+		font-variant-numeric: tabular-nums;
+	}
+	.wp-delopay-complete-message {
+		color: rgb(var(--ds-muted));
+		margin: 0 0 1.5rem;
+	}
+	.wp-delopay-complete-details {
+		text-align: left;
+		background: rgb(var(--ds-surface-alt));
+		border-radius: 10px;
+		padding: 1rem 1.25rem;
+		margin: 0 0 1.5rem;
+		display: grid;
+		grid-template-columns: max-content 1fr;
+		gap: 0.5rem 1rem;
+		font-size: 0.9rem;
+	}
+	.wp-delopay-complete-details dt {
+		margin: 0;
+		color: rgb(var(--ds-muted));
+	}
+	.wp-delopay-complete-details dd {
+		margin: 0;
+		font-variant-numeric: tabular-nums;
+		word-break: break-all;
+		text-align: right;
+	}
+	.wp-delopay-complete-details code {
+		font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+		font-size: 0.85rem;
+	}
+	.wp-delopay-complete-actions { display: flex; justify-content: center; }
+	.wp-delopay-complete-link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.4rem;
+		padding: 0.7rem 1.1rem;
+		border-radius: 8px;
+		background: rgb(var(--ds-accent));
+		color: rgb(var(--ds-accent-fg));
+		font-weight: 600;
+		text-decoration: none;
+	}
+	.wp-delopay-complete-link:hover { filter: brightness(1.05); color: rgb(var(--ds-accent-fg)); }
+}

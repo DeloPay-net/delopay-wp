@@ -1,0 +1,1398 @@
+# Copyright (C) 2026 DeloPay
+# This file is distributed under the MIT License.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP DeloPay\n"
+"Report-Msgid-Bugs-To: https://delopay.net\n"
+"POT-Creation-Date: 2026-05-05 23:59+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: wp-delopay\n"
+
+#: /plugin/includes/class-delopay-rest.php:376
+msgid "%1$s (admin: %2$s)"
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:130
+msgid "%d product"
+msgid_plural "%d products"
+msgstr[0] ""
+msgstr[1] ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:113
+msgid "(missing — saving recreates)"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-business.php:51
+msgid "(not set)"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:325
+msgid "(optional)"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:263
+msgid "A page on your site renders this category."
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:190
+msgid "A small, calm catalog to exercise the DeloPay checkout end-to-end."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:113
+msgid "API key"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:37
+msgid "API key & checkout URL"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:93
+msgid "Accepts a file previously exported from this screen. Existing SKUs are skipped."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:103
+msgid "Active"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:351
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:244
+msgid "Active (visible)"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:49
+msgid "Activity"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:58
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:43
+msgid "Add New"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-business.php:64
+msgid "Add Project ID + Shop / Profile ID + Control center URL on the Settings page to enable."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:76
+msgid "Add a Project ID and Shop / Profile ID under Settings to enable a one-click link to your shop's branding page."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:61
+msgid "Add a category"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:73
+msgid "Add a product"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:43
+msgid "Add at least one product"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:131
+msgid "Add category"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:216
+msgid "Add product"
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:128
+#: /plugin/includes/class-delopay-shortcodes.php:427
+msgid "Add to cart"
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:129
+msgid "Added ✓"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:39
+msgid "Advanced — paste credentials manually"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:102
+msgid "All"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:135
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:27
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:133
+msgid "All categories"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:95
+msgid "All orders"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:27
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:218
+msgid "All products"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:46
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:100
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:157
+msgid "Amount"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:186
+msgid "Amount (decimal):"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:41
+msgid "Auto (follow OS)"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:45
+msgid "Auto matches the visitor's OS preference; light or dark force the chosen palette regardless."
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:396
+msgid "Back to shop"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:70
+msgid "Body text"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:72
+msgid "Borders"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:14
+msgid "Branding"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-business.php:30
+msgid "Branding and contact info shown to buyers on receipts and emails. The DeloPay-side profile (acquirers, payout settings, webhooks) is configured in your DeloPay dashboard."
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:216
+msgid "Browse products"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-business.php:14
+#: /plugin/includes/admin-pages/class-delopay-admin-page-business.php:28
+msgid "Business Profile"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-business.php:21
+msgid "Business name"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:68
+msgid "Buttons & links"
+msgstr ""
+
+#: /plugin/includes/class-delopay-categories.php:212
+msgid "Cannot delete: %d product still uses this category. Reassign it first or delete with force."
+msgid_plural "Cannot delete: %d products still use this category. Reassign them first or delete with force."
+msgstr[0] ""
+msgstr[1] ""
+
+#: /plugin/includes/class-delopay-plugin.php:161
+msgid "Cart"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:302
+msgid "Cart checkout buttons"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:294
+msgid "Catalog"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:14
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:42
+msgid "Categories"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:162
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:297
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:175
+msgid "Category"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:287
+msgid "Category created. A matching page was published automatically."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:289
+msgid "Category deleted."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:27
+msgid "Category not found"
+msgstr ""
+
+#: /plugin/includes/class-delopay-categories.php:183
+msgid "Category not found."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:288
+msgid "Category updated."
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:382
+msgid "Checking payment status…"
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:162
+#: /plugin/includes/class-delopay-shortcodes.php:296
+msgid "Checkout"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:67
+#: /plugin/includes/admin-pages/class-delopay-admin-page-business.php:56
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:328
+msgid "Checkout branding"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:254
+msgid "Checkout origin"
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:104
+msgid "Choose product image"
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:137
+msgid "Click %s to link this site to your DeloPay account in one step."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:34
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:38
+msgid "Color mode"
+msgstr ""
+
+#: /plugin/includes/class-delopay-connect.php:146
+msgid "Connect link expired or already used. Please try again."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:89
+msgid "Connect this site to DeloPay"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:98
+#: /plugin/includes/class-delopay-admin.php:138
+msgid "Connect to DeloPay"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:61
+#: /plugin/includes/class-delopay-connect.php:286
+msgid "Connected to DeloPay"
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:113
+msgid "Connected. Reloading…"
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:114
+msgid "Connection cancelled."
+msgstr ""
+
+#: /plugin/includes/class-delopay-connect.php:287
+msgid "Connection failed"
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:112
+msgid "Connection failed: "
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-business.php:22
+msgid "Contact email"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:236
+msgid "Control center URL"
+msgstr ""
+
+#: /plugin/includes/class-delopay-connect.php:74
+msgid "Control center URL is not configured."
+msgstr ""
+
+#: /plugin/includes/class-delopay-connect.php:151
+msgid "Control center returned incomplete credentials."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:350
+msgid "Control center: %1$s · Checkout origin: %2$s"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:28
+msgid "Controls the colors of the cart, checkout, products, and category hero shortcodes — the UI elements rendered by the DeloPay plugin itself. The DeloPay Shop theme owns its own typography, layout, and footer; on other themes these settings let you keep DeloPay's buttons and text on-brand."
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin-ui.php:130
+msgid "Copy"
+msgstr ""
+
+#: /plugin/includes/class-delopay-categories.php:174
+msgid "Could not create category."
+msgstr ""
+
+#: /plugin/includes/class-delopay-products.php:296
+msgid "Could not create product."
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:117
+msgid "Could not disconnect: "
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:106
+msgid "Could not load image from that URL."
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:131
+msgid "Could not load your cart."
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:134
+msgid "Could not start payment."
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:348
+msgid "Could not start payment. Please try again."
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:111
+msgid "Could not start the connect flow: "
+msgstr ""
+
+#: /plugin/includes/class-delopay-categories.php:189
+msgid "Could not update category."
+msgstr ""
+
+#: /plugin/includes/class-delopay-products.php:311
+msgid "Could not update product."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:249
+msgid "Create category"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:356
+msgid "Create product"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:45
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:102
+msgid "Created"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:51
+msgid "Creating a category automatically publishes a matching WordPress page with the <code>[delopay_products category=\"slug\"]</code> shortcode."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:129
+msgid "Credentials"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:287
+msgid "Currency"
+msgstr ""
+
+#: /plugin/includes/class-delopay-products.php:239
+msgid "Currency must be a 3-letter ISO 4217 code."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:228
+msgid "Custom"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:69
+msgid "Customize the look & feel of the hosted checkout in the DeloPay control center:"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:43
+msgid "Dark"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:56
+msgid "Dark mode colors"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:14
+msgid "Dashboard"
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:267
+msgid "Decrease"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:275
+msgid "Default currency"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:271
+msgid "Defaults for products and post-purchase routing."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:186
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:97
+msgid "Delete"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:253
+msgid "Delete category"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:360
+msgid "Delete product"
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:107
+msgid "Delete this product? This cannot be undone."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:27
+#: /plugin/includes/class-delopay-admin.php:52
+#: /plugin/includes/class-delopay-admin.php:53
+msgid "DeloPay"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:30
+msgid "DeloPay Settings"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:511
+msgid "DeloPay accepted the refund but returned no refund_id; not recorded locally. Reconcile manually from the DeloPay dashboard."
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:49
+msgid "DeloPay every 15 minutes"
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:133
+msgid "DeloPay is not connected yet."
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:175
+#: /plugin/includes/class-delopay-client.php:73
+msgid "DeloPay is not connected. Open DeloPay → Settings and click \"Connect to DeloPay\"."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-business.php:49
+msgid "DeloPay profile ID"
+msgstr ""
+
+#: /plugin/includes/class-delopay-connect.php:163
+msgid "DeloPay rejected the credentials returned by the control center. Please retry the Connect flow."
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:360
+msgid "DeloPay response missing payment_id/merchant_id"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:315
+msgid "DeloPay → Categories"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:272
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:194
+msgid "Description"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:80
+msgid "Disconnect"
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:115
+msgid "Disconnect this site from DeloPay? The API key will be revoked. You can reconnect at any time."
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:116
+msgid "Disconnecting…"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:352
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:245
+msgid "Draft (hidden)"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:104
+msgid "Drafts"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:185
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:96
+msgid "Edit"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:131
+msgid "Edit category"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:216
+msgid "Edit product"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:306
+msgid "Embedded checkout only (iframe page)"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:310
+msgid "Embedded sends the buyer to your [delopay_checkout] page with the iframe. External redirects straight to DeloPay's hosted checkout. When only one is shown, it becomes the primary CTA."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:212
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:217
+msgid "Environment"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:105
+msgid "Error"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:59
+msgid "Export JSON"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:307
+msgid "External checkout only (redirect to hosted)"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:208
+msgid "Eyebrow"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:202
+msgid "Eyebrow / title / subtitle shown above the product grid on this category's page (via <code>[delopay_category_hero]</code>). Leave empty for a clean grid — the shortcode keeps the same vertical spacing either way."
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin-handlers.php:178
+msgid "File is too large or empty (max %s)."
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin-handlers.php:189
+msgid "File must be a .json export."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:143
+msgid "Filter"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:133
+msgid "Filter by category"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:275
+msgid "HTML allowed. Trimmed to an excerpt on the grid; shown in full on the single-product view."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:213
+msgid "Headline for this category"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:198
+msgid "Hero"
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:185
+msgid "Home"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:73
+msgid "Hover & inset background"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:281
+msgid "ISO 4217 currency code. Per-product currencies on each product override this."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:170
+msgid "Identifiers"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:367
+msgid "Image"
+msgstr ""
+
+#: /plugin/includes/class-delopay-products.php:252
+msgid "Image URL must be a valid http(s) URL."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:60
+msgid "Import JSON"
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin-handlers.php:154
+msgid "Import complete: %1$d created, %2$d skipped (existing SKU), %3$d failed."
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin-handlers.php:148
+msgid "Import complete: %1$d products created, %2$d skipped (existing SKU), %3$d failed; %4$d categories created, %5$d updated, %6$d failed."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:408
+msgid "Import failed."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:90
+msgid "Import products"
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:269
+msgid "Increase"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:323
+msgid "Integration links"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:180
+msgid "Issue refund"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:103
+msgid "Last webhook"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:221
+msgid "Layout"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:78
+msgid "Leave a field blank to keep the built-in default shown as placeholder."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:42
+msgid "Light"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:52
+msgid "Light mode colors"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:109
+msgid "Line items"
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:212
+msgid "Loading your cart…"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-business.php:62
+msgid "Logo, colors, and copy for the hosted checkout iframe live in the DeloPay control center."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:314
+msgid "Manage categories at %s. New products land in <em>Home</em> by default."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:54
+msgid "Manage products →"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:272
+msgid "Manually: drop %s into any other page or post."
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:189
+msgid "Matcha & ceremony tools"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:381
+msgid "Media library"
+msgstr ""
+
+#: /plugin/includes/class-delopay-connect.php:139
+msgid "Missing or invalid connect state."
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:183
+msgid "Missing product id or sku."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:160
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:268
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:75
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:178
+msgid "Name"
+msgstr ""
+
+#: /plugin/includes/class-delopay-products.php:175
+#: /plugin/includes/class-delopay-categories.php:127
+msgid "Name is required."
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:102
+msgid "No categories yet."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:59
+msgid "No categories yet. Add your first one to start grouping products."
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:132
+msgid "No checkout page configured."
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin-handlers.php:171
+msgid "No file uploaded or upload failed."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:369
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:374
+msgid "No image selected"
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:377
+msgid "No order id in URL."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:31
+msgid "No orders yet."
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin-handlers.php:139
+msgid "No products found in the file."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:71
+msgid "No products match that search."
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:75
+msgid "No products yet."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:72
+msgid "No products yet. Add your first one to start selling."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:149
+msgid "No refunds yet."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:288
+msgid "Not set"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:68
+msgid "Open"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:79
+msgid "Open Settings →"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:72
+msgid "Open branding settings ↗"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-business.php:60
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:331
+msgid "Open checkout branding ↗"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:111
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:265
+msgid "Open page"
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:108
+msgid "Opening DeloPay control center…"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:333
+msgid "Opens this shop's checkout-branding screen in the DeloPay control center, in a new tab."
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:387
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:44
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:92
+msgid "Order"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:399
+msgid "Order %1$s on %2$s"
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:244
+msgid "Order complete"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:79
+msgid "Order not found"
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:331
+#: /plugin/includes/class-delopay-shortcodes.php:349
+msgid "Order summary"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:285
+msgid "Order-complete page"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:16
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:29
+msgid "Orders"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:75
+msgid "Origin check failed."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:260
+msgid "Origin of the DeloPay checkout app. Buyers are sent to {origin}/pay/{merchant}/{payment_id} — embedded as an iframe by [delopay_checkout]."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:78
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:261
+msgid "Page"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:140
+msgid "Paste this into your DeloPay business profile → Webhooks. The matching signing secret goes in the field above. Connect to DeloPay registers this for you automatically."
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:389
+msgid "Payment"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:98
+msgid "Payment ID"
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:137
+msgid "Payment failed."
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:136
+msgid "Payment received — thank you."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:296
+msgid "Pick a WP page that contains the [delopay_complete] shortcode. DeloPay redirects buyers there after payment."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:213
+msgid "Pick the DeloPay environment this shop talks to. Production and Sandbox use canonical URLs."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:171
+msgid "Pointers DeloPay uses to attribute payments to this shop and to deep-link into the control center."
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:110
+msgid "Popup blocked. Allow popups for this site and try again."
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:133
+#: /plugin/includes/class-delopay-shortcodes.php:312
+msgid "Preparing secure payment…"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:163
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:283
+msgid "Price"
+msgstr ""
+
+#: /plugin/includes/class-delopay-products.php:226
+msgid "Price must be a non-negative number."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:280
+msgid "Pricing"
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:239
+#: /plugin/includes/class-delopay-shortcodes.php:244
+msgid "Proceed to checkout"
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:244
+msgid "Proceed to external checkout"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:265
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:127
+msgid "Product"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:404
+msgid "Product created."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:406
+msgid "Product deleted."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:27
+msgid "Product not found"
+msgstr ""
+
+#: /plugin/includes/class-delopay-products.php:305
+#: /plugin/includes/class-delopay-shortcodes.php:188
+msgid "Product not found."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:405
+msgid "Product updated."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:226
+msgid "Production"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:14
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:57
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:77
+msgid "Products"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:407
+msgid "Products imported."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:66
+msgid "Project %1$s · Shop %2$s · connected %3$s ago"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:163
+msgid "Project ID"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:346
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:239
+msgid "Publish"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:128
+msgid "Qty"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:324
+msgid "Read-only references you wire into the DeloPay control center."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:159
+msgid "Reason"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:192
+msgid "Reason:"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:77
+msgid "Reconnect"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:199
+msgid "Refund"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:156
+msgid "Refund ID"
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:103
+msgid "Refund failed: "
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:102
+msgid "Refund submitted."
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:100
+msgid "Refund this order? This cannot be undone."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:48
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:101
+msgid "Refunded"
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:101
+msgid "Refunding…"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:112
+msgid "Refunds"
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:272
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:384
+msgid "Remove"
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:297
+msgid "Review your order and pay with DeloPay."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:161
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:325
+msgid "SKU"
+msgstr ""
+
+#: /plugin/includes/class-delopay-products.php:183
+msgid "SKU \"%s\" is already used by another product."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:334
+msgid "SKU is the unique identifier used by shortcodes and the order API. Lower sort orders appear first in the grid."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:227
+msgid "Sandbox"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:356
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:249
+msgid "Save changes"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:148
+msgid "Search"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:146
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:147
+msgid "Search products"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:71
+msgid "Secondary text"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:29
+msgid "Sell products on this site with the DeloPay hosted checkout. Configure your API key, manage products, and process orders & refunds — all from this admin."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:115
+msgid "Server-side merchant API key. Never exposed to the browser."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:345
+msgid "Set the control-center and checkout origins below."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-business.php:52
+msgid "Set this on the Settings page."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:14
+msgid "Settings"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:34
+msgid "Setup"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:154
+msgid "Shop / Profile ID"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:209
+msgid "Short context line above the title"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:59
+msgid "Shortcodes"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:305
+msgid "Show both — embedded + external"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:91
+msgid "Sign in to the DeloPay control center, pick the project and shop this site should belong to, and we'll fill in every credential below for you — and register the webhook URL automatically."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:76
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:182
+msgid "Slug"
+msgstr ""
+
+#: /plugin/includes/class-delopay-categories.php:135
+msgid "Slug \"%s\" is already used by another category."
+msgstr ""
+
+#: /plugin/includes/class-delopay-categories.php:158
+msgid "Slug must contain at least one URL-safe character."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:409
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:290
+msgid "Something went wrong."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:329
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:224
+msgid "Sort order"
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:391
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:164
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:349
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:79
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:242
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:47
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:99
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:158
+msgid "Status"
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:188
+msgid "Stone-ground · Uji-sourced"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:270
+msgid "Storefront"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:24
+msgid "Storefront branding"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:216
+msgid "Subtitle"
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:224
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:130
+msgid "Subtotal"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-business.php:23
+msgid "Support phone or URL"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-branding.php:69
+msgid "Text on buttons"
+msgstr ""
+
+#: /plugin/includes/class-delopay-categories.php:164
+msgid "That slug is reserved."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:166
+msgid "The DeloPay project id (prj_…). Used with the shop id to build the checkout-branding link."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:246
+msgid "The REST API is always reached at %s."
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin-handlers.php:133
+msgid "The file is not valid JSON."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:130
+msgid "The keys DeloPay uses to authenticate this site. Both stay server-side."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:157
+msgid "The shop / business profile id (pro_…). Required if your account has more than one profile."
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin-handlers.php:194
+msgid "The uploaded file is empty."
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:90
+msgid "This endpoint requires a same-origin request with a valid REST nonce."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:212
+msgid "Title"
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:135
+#: /plugin/includes/class-delopay-shortcodes.php:339
+#: /plugin/includes/class-delopay-shortcodes.php:352
+msgid "Total"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:136
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:197
+msgid "Uncategorized"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:129
+msgid "Unit price"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:165
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:80
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:160
+msgid "Updated"
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:105
+msgid "Use this image"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:187
+msgid "Used in the shortcode <code>[delopay_products category=\"slug\"]</code> and in URLs. Lowercase, hyphens only."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:53
+msgid "View orders →"
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:138
+msgid "Waiting for payment confirmation…"
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin.php:109
+msgid "Waiting for you to finish in the control center…"
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:139
+msgid "We'll update this page automatically when the payment confirms."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:49
+msgid "Webhook"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:137
+msgid "Webhook URL"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:122
+msgid "Webhook secret"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:40
+msgid "Webhook secret configured"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:124
+msgid "Webhook signing secret. Set in your DeloPay business profile and copied here. Without it the webhook endpoint rejects every request."
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin-ui.php:13
+msgid "You are not allowed to do that."
+msgstr ""
+
+#: /plugin/includes/class-delopay-connect.php:289
+msgid "You can close this window — your WordPress site is now connected to DeloPay."
+msgstr ""
+
+#: /plugin/includes/class-delopay-shortcodes.php:207
+msgid "Your cart"
+msgstr ""
+
+#: /plugin/includes/class-delopay-plugin.php:130
+#: /plugin/includes/class-delopay-shortcodes.php:215
+msgid "Your cart is empty."
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:467
+msgid "amount_minor must be a positive number"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:472
+msgid "another refund is in progress for this order; try again in a moment"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:183
+msgid "auto-generated from name"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:322
+msgid "cannot mix currencies in a single order"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:62
+msgid "checkout iframe (reads ?product_id from URL)"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:304
+msgid "draft"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:179
+msgid "e.g. Coffee"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:269
+msgid "e.g. Premium subscription"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:199
+msgid "failed to create local order"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:216
+msgid "failed to finalize local order"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:304
+msgid "invalid line item"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:389
+msgid "or paste image URL"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:488
+msgid "order already fully refunded"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:289
+msgid "order amount exceeds the per-order maximum"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:286
+msgid "order amount must be greater than zero"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:414
+#: /plugin/includes/class-delopay-rest.php:462
+msgid "order not found"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:63
+msgid "order-complete page"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:50
+msgid "orders processed"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:60
+msgid "product grid"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:251
+msgid "product_id (or sku) required"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:51
+msgid "published products"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:308
+msgid "quantity exceeds max of %d"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:575
+msgid "refund created at DeloPay but would over-refund locally; reconcile manually"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:494
+msgid "refund exceeds remaining %d"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php:61
+msgid "single product card"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:262
+msgid "too many line items (max %d)"
+msgstr ""
+
+#: /plugin/includes/class-delopay-rest.php:316
+msgid "unknown product: %s"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:299
+msgid "— Uncategorized —"
+msgstr ""
+
