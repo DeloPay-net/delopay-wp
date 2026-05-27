@@ -1,0 +1,67 @@
+{
+    "version": 1,
+    "exported_at": "2026-05-06T00:00:00+00:00",
+    "site_url": "https://example.com/",
+    "products": [
+        {
+            "name": "Ethiopia Yirgacheffe",
+            "sku": "beans-ethiopia",
+            "description": "<p>Floral, bright, citrus notes. 250 g whole bean.</p>",
+            "price_minor": 1800,
+            "currency": "USD",
+            "status": "active",
+            "sort_order": 10,
+            "image_url": "https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=1200&q=70&auto=format&fit=crop"
+        },
+        {
+            "name": "Colombia Huila",
+            "sku": "beans-colombia",
+            "description": "<p>Caramel, milk chocolate, balanced body. 250 g.</p>",
+            "price_minor": 1600,
+            "currency": "USD",
+            "status": "active",
+            "sort_order": 20,
+            "image_url": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1200&q=70&auto=format&fit=crop"
+        },
+        {
+            "name": "Ceramic Mug",
+            "sku": "mug-ceramic",
+            "description": "<p>Matte stoneware, 350 ml. Dishwasher safe.</p>",
+            "price_minor": 1400,
+            "currency": "USD",
+            "status": "active",
+            "sort_order": 30,
+            "image_url": "https://images.unsplash.com/photo-1577937927133-66ef06acdf18?w=1200&q=70&auto=format&fit=crop"
+        },
+        {
+            "name": "Hand Grinder",
+            "sku": "grinder-hand",
+            "description": "<p>Stainless burrs, adjustable grind. Travel ready.</p>",
+            "price_minor": 6500,
+            "currency": "USD",
+            "status": "active",
+            "sort_order": 40,
+            "image_url": "https://images.unsplash.com/photo-1573066380308-24ff4c273dbc?w=1200&q=70&auto=format&fit=crop"
+        },
+        {
+            "name": "Gooseneck Kettle",
+            "sku": "kettle-gooseneck",
+            "description": "<p>Precision pour, 1 L, matte black.</p>",
+            "price_minor": 7800,
+            "currency": "USD",
+            "status": "active",
+            "sort_order": 50,
+            "image_url": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=1200&q=70&auto=format&fit=crop"
+        },
+        {
+            "name": "Roaster Tote",
+            "sku": "tote-bag",
+            "description": "<p>Heavy canvas tote with screen-printed logo.</p>",
+            "price_minor": 2200,
+            "currency": "USD",
+            "status": "active",
+            "sort_order": 60,
+            "image_url": "https://images.unsplash.com/photo-1544816155-12df9643f363?w=1200&q=70&auto=format&fit=crop"
+        }
+    ]
+}

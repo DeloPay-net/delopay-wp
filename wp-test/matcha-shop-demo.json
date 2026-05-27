@@ -1,0 +1,67 @@
+{
+    "version": 1,
+    "exported_at": "2026-05-04T00:00:00+00:00",
+    "site_url": "https://example.com/",
+    "products": [
+        {
+            "name": "Ceremonial Grade Matcha — 30 g Tin",
+            "sku": "MATCHA-CER-30",
+            "description": "<p>First-harvest, stone-ground ceremonial matcha from Uji, Kyoto. Vibrant jade colour, naturally sweet and umami-forward — meant to be whisked with water rather than blended into milk.</p><p>Ships in an airtight tin to keep it fresh.</p>",
+            "price_minor": 3400,
+            "currency": "USD",
+            "status": "active",
+            "sort_order": 10,
+            "image_url": "https://images.unsplash.com/photo-1755685977172-213081976785?w=1200&q=70&auto=format&fit=crop"
+        },
+        {
+            "name": "Bamboo Whisk (Chasen) — 80 Prongs",
+            "sku": "MATCHA-CHASEN-80",
+            "description": "<p>Hand-cut from a single piece of Japanese bamboo. The 80-prong head whips matcha into a smooth, frothy crema in seconds. Pair with a whisk holder to keep the prongs in shape between uses.</p>",
+            "price_minor": 2400,
+            "currency": "USD",
+            "status": "active",
+            "sort_order": 20,
+            "image_url": "https://images.unsplash.com/photo-1755685243305-c7a5d2986ecb?w=1200&q=70&auto=format&fit=crop"
+        },
+        {
+            "name": "Bamboo Scoop (Chashaku)",
+            "sku": "MATCHA-CHASHAKU",
+            "description": "<p>The traditional curved bamboo scoop used in Japanese tea ceremony. One scoop holds roughly 1 g of matcha — the standard dose for a single bowl.</p>",
+            "price_minor": 800,
+            "currency": "USD",
+            "status": "active",
+            "sort_order": 30,
+            "image_url": "https://images.unsplash.com/photo-1755184108959-47223012b460?w=1200&q=70&auto=format&fit=crop"
+        },
+        {
+            "name": "Matcha Latte Cup — 250 ml",
+            "sku": "MATCHA-LATTE-CUP",
+            "description": "<p>Smooth porcelain cup sized for a generous double-shot matcha latte. Comfortable handle, dishwasher safe, and it stacks neatly on the saucer.</p>",
+            "price_minor": 2200,
+            "currency": "USD",
+            "status": "active",
+            "sort_order": 40,
+            "image_url": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=1200&q=70&auto=format&fit=crop"
+        },
+        {
+            "name": "Handcrafted Chawan (Matcha Bowl)",
+            "sku": "MATCHA-CHAWAN",
+            "description": "<p>Wide, hand-thrown stoneware bowl in the traditional Japanese style. The shallow profile gives the chasen room to move; the textured interior helps emulsify the matcha cleanly.</p><p>Each piece is unique — small variations in glaze and form are part of the character.</p>",
+            "price_minor": 5800,
+            "currency": "USD",
+            "status": "active",
+            "sort_order": 50,
+            "image_url": "https://images.unsplash.com/photo-1619745445488-9c9cc94a4b14?w=1200&q=70&auto=format&fit=crop"
+        },
+        {
+            "name": "Cast Iron Tetsubin Kettle — 1.2 L",
+            "sku": "MATCHA-TETSUBIN",
+            "description": "<p>Traditional Japanese cast iron kettle, enamel-lined to keep the inside rust-free and your water clean-tasting. Holds heat beautifully and pours without dripping — a centrepiece for any tea bar.</p>",
+            "price_minor": 14500,
+            "currency": "USD",
+            "status": "active",
+            "sort_order": 60,
+            "image_url": "https://images.unsplash.com/photo-1559484379-68a6d9c90c73?w=1200&q=70&auto=format&fit=crop"
+        }
+    ]
+}
