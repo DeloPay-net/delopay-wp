@@ -1,0 +1,83 @@
+# Local WordPress for testing the wp-delopay plugin + theme.
+#
+# WordPress is on http://localhost:7200.
+# Two bind mounts wire the source folders into the container:
+#   ../plugin → /var/www/html/wp-content/plugins/wp-delopay
+#   ../theme  → /var/www/html/wp-content/themes/delopay-shop
+# Edits to either folder show up on the next page load — no rebuild.
+#
+# Bring up:   docker compose up -d
+# Stop:       docker compose down
+# Wipe DB:    docker compose down -v   (also resets WP install + uploads)
+# Logs:       docker compose logs -f wordpress
+
+services:
+  db:
+    image: docker.io/library/mariadb:11
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpw
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: wordpress
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  wordpress:
+    image: docker.io/library/wordpress:latest
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "7200:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      # Surface plugin errors in the browser instead of white-screening.
+      WORDPRESS_DEBUG: "1"
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_DEBUG_LOG', true);
+        define('WP_DEBUG_DISPLAY', true);
+        define('FS_METHOD', 'direct');
+    volumes:
+      - wp_data:/var/www/html
+      - ../plugin:/var/www/html/wp-content/plugins/wp-delopay:z
+      - ../theme:/var/www/html/wp-content/themes/delopay-shop:z
+
+  # Run wp-cli against the same WP install. Use:
+  #   docker compose run --rm wpcli plugin activate wp-delopay
+  #   docker compose run --rm wpcli theme activate delopay-shop
+  #   docker compose run --rm wpcli option get wp_delopay_settings
+  wpcli:
+    image: docker.io/library/wordpress:cli
+    depends_on:
+      db:
+        condition: service_healthy
+      wordpress:
+        condition: service_started
+    user: "33:33"  # www-data — matches the wordpress container's file owner
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+    volumes:
+      - wp_data:/var/www/html
+      - ../plugin:/var/www/html/wp-content/plugins/wp-delopay:z
+      - ../theme:/var/www/html/wp-content/themes/delopay-shop:z
+    entrypoint: ["wp", "--allow-root"]
+    command: ["--info"]
+
+volumes:
+  db_data:
+  wp_data:

@@ -1,0 +1,30 @@
+{
+    "name": "delopay/wp-delopay",
+    "description": "Static analysis tooling for the DeloPay WordPress plugin and theme.",
+    "type": "project",
+    "license": "proprietary",
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "phpcsstandards/phpcsextra": "^1.2",
+        "phpcsstandards/phpcsutils": "^1.0",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan": "^2.1",
+        "squizlabs/php_codesniffer": "^3.10",
+        "szepeviktor/phpstan-wordpress": "^2.0",
+        "wp-coding-standards/wpcs": "^3.1"
+    },
+    "scripts": {
+        "analyze": "phpstan analyse --memory-limit=2G",
+        "analyze:baseline": "phpstan analyse --memory-limit=2G --generate-baseline",
+        "lint": "phpcs",
+        "lint:fix": "phpcbf",
+        "install-hooks": "git config core.hooksPath .githooks"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

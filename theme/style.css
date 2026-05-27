@@ -1,0 +1,22 @@
+/*
+Theme Name:        DeloPay Shop
+Theme URI:         https://delopay.net
+Author:            DeloPay
+Author URI:        https://delopay.net
+Description:       Tailwind-powered storefront theme for the DeloPay plugin. Every visual choice — colors, fonts, hero, product grid, footer — is editable in Appearance → Customize → DeloPay Shop. Requires the DeloPay plugin.
+Version:           0.2.0
+Requires at least: 6.0
+Tested up to:      6.9.4
+Requires PHP:      7.4
+Requires Plugins:  wp-delopay
+License:           MIT
+License URI:       https://opensource.org/licenses/MIT
+Text Domain:       delopay-shop
+Tags:              e-commerce, custom-colors, custom-logo, custom-menu, featured-images, theme-options, threaded-comments, full-width-template
+*/
+
+/* All visual styling lives in the inline Tailwind config + Customizer
+   CSS variables (see theme/inc/customizer-output.php). This file exists
+   only because the platform requires a style.css for the theme header and
+   we want it kept lean. Do not add styles here — use Tailwind utility
+   classes in templates, or extend the design tokens via the Customizer. */

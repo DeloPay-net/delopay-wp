@@ -1,0 +1,4141 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Branding\:\:label\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-branding.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Branding\:\:render\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-branding.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Branding\:\:render_palette_table\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-branding.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Branding\:\:render_palette_table\(\) has parameter \$defaults with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-branding.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Branding\:\:render_palette_table\(\) has parameter \$mode with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-branding.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Branding\:\:render_palette_table\(\) has parameter \$settings with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-branding.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Branding\:\:slug\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-branding.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Business\:\:label\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-business.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Business\:\:render\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-business.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Business\:\:slug\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-business.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Categories\:\:form_data\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Categories\:\:form_data\(\) has parameter \$category with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Categories\:\:label\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Categories\:\:render\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Categories\:\:render_flash\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Categories\:\:render_form\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Categories\:\:render_form\(\) has parameter \$category with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Categories\:\:render_form_main\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Categories\:\:render_form_main\(\) has parameter \$data with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Categories\:\:render_form_side\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Categories\:\:render_form_side\(\) has parameter \$data with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Categories\:\:render_form_side\(\) has parameter \$is_new with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Categories\:\:render_list\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Categories\:\:render_table\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Categories\:\:render_table\(\) has parameter \$categories with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Categories\:\:render_table\(\) has parameter \$counts with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Categories\:\:slug\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Dashboard\:\:label\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Dashboard\:\:render\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Dashboard\:\:slug\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:label\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:render\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:render_lines\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:render_lines\(\) has parameter \$currency with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:render_lines\(\) has parameter \$lines with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:render_order_detail\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:render_order_detail\(\) has parameter \$order_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:render_refund_form\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:render_refund_form\(\) has parameter \$order with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:render_refund_form\(\) has parameter \$remaining with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:render_refunds\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:render_refunds\(\) has parameter \$currency with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:render_refunds\(\) has parameter \$refunds with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:render_table\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:render_table\(\) has parameter \$orders with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:slug\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:form_data\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:form_data\(\) has parameter \$product with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:label\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_filter_toolbar\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_filter_toolbar\(\) has parameter \$category with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_filter_toolbar\(\) has parameter \$search with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_filter_toolbar\(\) has parameter \$status with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_flash\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_form\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_form\(\) has parameter \$product with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_form_main\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_form_main\(\) has parameter \$data with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_form_side\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_form_side\(\) has parameter \$data with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_form_side\(\) has parameter \$is_new with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_import_form\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_import_form\(\) has parameter \$import_action with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_import_form\(\) has parameter \$import_open with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_list\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_status_tabs\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_status_tabs\(\) has parameter \$base_list with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_status_tabs\(\) has parameter \$status with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_table\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:render_table\(\) has parameter \$products with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Products\:\:slug\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-products.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:label\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_branding\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_branding\(\) has parameter \$branding_url with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_connect_card\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_connect_card\(\) has parameter \$connected_at with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_connect_card\(\) has parameter \$env with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_connect_card\(\) has parameter \$is_connected with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_connect_card\(\) has parameter \$settings with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_credentials\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_credentials\(\) has parameter \$option_key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_credentials\(\) has parameter \$settings with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_env_summary\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_env_summary\(\) has parameter \$env with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_environment\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_environment\(\) has parameter \$env with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_environment\(\) has parameter \$env_urls with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_environment\(\) has parameter \$is_custom with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_environment\(\) has parameter \$option_key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_environment\(\) has parameter \$settings with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_identifiers\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_identifiers\(\) has parameter \$option_key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_identifiers\(\) has parameter \$settings with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_input_row\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_input_row\(\) has parameter \$option_key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_input_row\(\) has parameter \$row with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_storefront\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_storefront\(\) has parameter \$option_key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_storefront\(\) has parameter \$pages with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:render_storefront\(\) has parameter \$settings with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Settings\:\:slug\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page\:\:get\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page\:\:get\(\) has parameter \$default_value with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page\:\:get\(\) has parameter \$key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page\:\:get_int\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page\:\:get_int\(\) has parameter \$key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page\:\:get_key\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page\:\:get_key\(\) has parameter \$default_value with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page\:\:get_key\(\) has parameter \$key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page\:\:label\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page\:\:render\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page\:\:slug\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:actions\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:delete_category\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:delete_product\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:export_products\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:import_categories\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:import_categories\(\) has parameter \$cats with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:import_product_rows\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:import_product_rows\(\) has parameter \$items with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:import_products\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:instance\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:read_uploaded_import_file\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:redirect_form_error\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:redirect_form_error\(\) has parameter \$action with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:redirect_form_error\(\) has parameter \$id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:redirect_form_error\(\) has parameter \$kind with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:redirect_form_error\(\) has parameter \$message with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:redirect_import_error\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:redirect_import_error\(\) has parameter \$message with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:save_category\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:save_product\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:shape_category_for_export\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:shape_category_for_export\(\) has parameter \$c with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:shape_product_for_export\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Handlers\:\:shape_product_for_export\(\) has parameter \$p with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Property WP_Delopay_Admin_Handlers\:\:\$instance has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-admin-handlers.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:active_status_badge\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:active_status_badge\(\) has parameter \$status with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:admin_post_url\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:copy_field\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:copy_field\(\) has parameter \$id_suffix with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:copy_field\(\) has parameter \$value with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:delete_url\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:delete_url\(\) has parameter \$action with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:delete_url\(\) has parameter \$id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:delete_url\(\) has parameter \$key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:dim_cell\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:dim_cell\(\) has parameter \$text with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:empty_state\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:empty_state\(\) has parameter \$cta_label with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:empty_state\(\) has parameter \$cta_url with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:empty_state\(\) has parameter \$message with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:flash_notice\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:flash_notice\(\) has parameter \$messages with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:format_money\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:format_money\(\) has parameter \$currency with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:format_money\(\) has parameter \$minor with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:not_found\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:not_found\(\) has parameter \$back_label with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:not_found\(\) has parameter \$back_slug with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:not_found\(\) has parameter \$title with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:page_url\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:page_url\(\) has parameter \$args with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:page_url\(\) has parameter \$slug with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:redirect\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:redirect\(\) has parameter \$args with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:require_cap\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:row_actions\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:row_actions\(\) has parameter \$actions with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:status_badge\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:status_badge\(\) has parameter \$status with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_UI\:\:status_badge\(\) has parameter \$variant with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin-ui.php
+
+		-
+			message: '#^Method WP_Delopay_Admin\:\:admin_i18n\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin.php
+
+		-
+			message: '#^Method WP_Delopay_Admin\:\:config_warning\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin.php
+
+		-
+			message: '#^Method WP_Delopay_Admin\:\:enqueue_assets\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin.php
+
+		-
+			message: '#^Method WP_Delopay_Admin\:\:enqueue_assets\(\) has parameter \$hook with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-admin.php
+
+		-
+			message: '#^Method WP_Delopay_Admin\:\:instance\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin.php
+
+		-
+			message: '#^Method WP_Delopay_Admin\:\:register_menu\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-admin.php
+
+		-
+			message: '#^Property WP_Delopay_Admin\:\:\$instance has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-admin.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:clean_slug\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:clean_slug\(\) has parameter \$input with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:clean_slug\(\) has parameter \$name with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:count_all\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:count_all\(\) has parameter \$status with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:create\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:create\(\) has parameter \$clean with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:delete\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:delete\(\) has parameter \$force with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:delete\(\) has parameter \$id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:find\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:find\(\) has parameter \$only_active with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:find\(\) has parameter \$ref with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:find_for_admin\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:find_for_admin\(\) has parameter \$id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:find_many\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:find_many\(\) has parameter \$ids with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:hydrate\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:hydrate\(\) has parameter \$row with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:instance\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:list_all\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:list_published\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:page_url_for_slug\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:page_url_for_slug\(\) has parameter \$slug with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:product_counts\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:query_all\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:query_all\(\) has parameter \$status with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:sanitize_input\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:sanitize_input\(\) has parameter \$existing_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:sanitize_input\(\) has parameter \$input with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:slug_in_use\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:slug_in_use\(\) has parameter \$exclude_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:slug_in_use\(\) has parameter \$slug with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:update\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:update\(\) has parameter \$clean with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:update\(\) has parameter \$id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:upsert_by_slug\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Categories\:\:upsert_by_slug\(\) has parameter \$data with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Property WP_Delopay_Categories\:\:\$instance has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-categories.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:__construct\(\) has parameter \$api_key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:__construct\(\) has parameter \$base_url with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:__construct\(\) has parameter \$profile_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:create_payment\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:create_payment\(\) has parameter \$params with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:create_refund\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:create_refund\(\) has parameter \$params with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:extract_error_message\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:extract_error_message\(\) has parameter \$code with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:extract_error_message\(\) has parameter \$decoded with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:extract_error_message\(\) has parameter \$raw with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:is_ready\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:probe_credentials\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:profile_id\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:request\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:request\(\) has parameter \$body with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:request\(\) has parameter \$method with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:request\(\) has parameter \$path with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:retrieve_payment\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:retrieve_payment\(\) has parameter \$payment_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:retrieve_refund\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:retrieve_refund\(\) has parameter \$refund_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Property WP_Delopay_Client\:\:\$api_key has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Property WP_Delopay_Client\:\:\$base_url has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Property WP_Delopay_Client\:\:\$profile_id has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:cancel\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:complete\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:connected_at\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:disconnect\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:extract_credentials\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:extract_credentials\(\) has parameter \$body with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:instance\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:is_connected\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:origin_of\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:origin_of\(\) has parameter \$url with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:persist_credentials\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:persist_credentials\(\) has parameter \$creds with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:persist_credentials\(\) has parameter \$pending with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:random_token\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:random_token\(\) has parameter \$bytes with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:read_body\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:register_routes\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:render_complete_page\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:render_complete_page\(\) has parameter \$error_message with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:render_complete_page\(\) has parameter \$ok with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:render_complete_page\(\) has parameter \$opener_origin with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:require_admin\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:resolve_control_center_url\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:resolve_control_center_url\(\) has parameter \$env with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:resolve_control_center_url\(\) has parameter \$param with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:resolve_environment\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:resolve_environment\(\) has parameter \$param with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:revoke_remote_key\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Connect\:\:start\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Property WP_Delopay_Connect\:\:\$instance has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-connect.php
+
+		-
+			message: '#^Method WP_Delopay_Log\:\:error\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-log.php
+
+		-
+			message: '#^Method WP_Delopay_Log\:\:error\(\) has parameter \$context with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-log.php
+
+		-
+			message: '#^Method WP_Delopay_Log\:\:error\(\) has parameter \$message with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-log.php
+
+		-
+			message: '#^Method WP_Delopay_Log\:\:info\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-log.php
+
+		-
+			message: '#^Method WP_Delopay_Log\:\:info\(\) has parameter \$context with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-log.php
+
+		-
+			message: '#^Method WP_Delopay_Log\:\:info\(\) has parameter \$message with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-log.php
+
+		-
+			message: '#^Method WP_Delopay_Log\:\:redact\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-log.php
+
+		-
+			message: '#^Method WP_Delopay_Log\:\:redact\(\) has parameter \$value with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-log.php
+
+		-
+			message: '#^Method WP_Delopay_Log\:\:warning\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-log.php
+
+		-
+			message: '#^Method WP_Delopay_Log\:\:warning\(\) has parameter \$context with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-log.php
+
+		-
+			message: '#^Method WP_Delopay_Log\:\:warning\(\) has parameter \$message with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-log.php
+
+		-
+			message: '#^Method WP_Delopay_Log\:\:write\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-log.php
+
+		-
+			message: '#^Method WP_Delopay_Log\:\:write\(\) has parameter \$context with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-log.php
+
+		-
+			message: '#^Method WP_Delopay_Log\:\:write\(\) has parameter \$level with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-log.php
+
+		-
+			message: '#^Method WP_Delopay_Log\:\:write\(\) has parameter \$message with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-log.php
+
+		-
+			message: '#^Property WP_Delopay_Log\:\:\$redact_keys has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-log.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:acquire_refund_lock\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:acquire_refund_lock\(\) has parameter \$order_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:acquire_refund_lock\(\) has parameter \$timeout with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:attach_payment\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:attach_payment\(\) has parameter \$data with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:build_order_row\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:build_order_row\(\) has parameter \$data with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:build_order_row\(\) has parameter \$merchant_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:build_order_row\(\) has parameter \$payment_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:build_order_row\(\) has parameter \$status with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:count\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:create\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:create\(\) has parameter \$data with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:create_pending\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:create_pending\(\) has parameter \$data with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:delete_pending\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:delete_pending\(\) has parameter \$order_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:find\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:find\(\) has parameter \$id_or_payment with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:get_row\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:get_row\(\) has parameter \$args with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:get_row\(\) has parameter \$table with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:get_row\(\) has parameter \$where_sql with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:hydrate\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:hydrate\(\) has parameter \$row with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:install_schema\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:instance\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:is_terminal\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:is_terminal\(\) has parameter \$status with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:list\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:list\(\) has parameter \$limit with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:list\(\) has parameter \$offset with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:new_order_id\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:now\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:pending_refunds_needing_reconcile\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:pending_refunds_needing_reconcile\(\) has parameter \$age_seconds with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:pending_refunds_needing_reconcile\(\) has parameter \$limit with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:reconcile_pending_refunds\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:reconcile_refund_row\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:reconcile_refund_row\(\) has parameter \$client with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:reconcile_refund_row\(\) has parameter \$row with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:record_refund\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:record_refund\(\) has parameter \$data with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:refund_lock_name\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:refund_lock_name\(\) has parameter \$order_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:refunded_total\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:refunded_total\(\) has parameter \$order_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:refunds_for\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:refunds_for\(\) has parameter \$order_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:release_refund_lock\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:release_refund_lock\(\) has parameter \$order_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:table\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:table\(\) has parameter \$name with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:table_categories\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:table_orders\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:table_products\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:table_refunds\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:terminal_statuses\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:update_status\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:update_status\(\) has parameter \$error_code with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:update_status\(\) has parameter \$error_message with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:update_status\(\) has parameter \$is_webhook with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:update_status\(\) has parameter \$payment_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:update_status\(\) has parameter \$reference_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Orders\:\:update_status\(\) has parameter \$status with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Property WP_Delopay_Orders\:\:\$instance has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin_Details\:\:inject_details_link\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin-details.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin_Details\:\:inject_details_link\(\) has parameter \$meta with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-plugin-details.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin_Details\:\:inject_details_link\(\) has parameter \$plugin_file with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-plugin-details.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin_Details\:\:instance\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin-details.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin_Details\:\:provide_details\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin-details.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin_Details\:\:provide_details\(\) has parameter \$action with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-plugin-details.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin_Details\:\:provide_details\(\) has parameter \$args with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-plugin-details.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin_Details\:\:provide_details\(\) has parameter \$result with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-plugin-details.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin_Details\:\:section_changelog\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin-details.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin_Details\:\:section_description\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin-details.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin_Details\:\:section_external_services\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin-details.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin_Details\:\:section_installation\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin-details.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin_Details\:\:section_shortcodes\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin-details.php
+
+		-
+			message: '#^Property WP_Delopay_Plugin_Details\:\:\$instance has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-plugin-details.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:activate\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:asset_version\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:asset_version\(\) has parameter \$relative_path with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:deactivate\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:design_css\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:enqueue_frontend_assets\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:ensure_category_page\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:ensure_category_page\(\) has parameter \$category with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:ensure_complete_page\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:ensure_home_category\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:ensure_storefront_pages\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:instance\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:load_textdomain\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:maybe_schedule_reconciliation\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:maybe_set_home_as_front_page\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:palette_decls\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:palette_decls\(\) has parameter \$palette with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:register_cron_schedule\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:register_cron_schedule\(\) has parameter \$schedules with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:save_complete_page_id\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:save_complete_page_id\(\) has parameter \$page_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:shortcode_block\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Plugin\:\:shortcode_block\(\) has parameter \$shortcode with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Property WP_Delopay_Plugin\:\:\$instance has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-plugin.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:clean_currency\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:clean_currency\(\) has parameter \$input with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:clean_image\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:clean_image\(\) has parameter \$input with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:clean_price\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:clean_price\(\) has parameter \$input with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:clean_sku\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:clean_sku\(\) has parameter \$input with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:count_all\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:count_all\(\) has parameter \$status with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:create\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:create\(\) has parameter \$clean with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:delete\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:delete\(\) has parameter \$id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:find\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:find\(\) has parameter \$only_active with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:find\(\) has parameter \$product_ref with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:find_for_admin\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:find_for_admin\(\) has parameter \$id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:hydrate\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:hydrate\(\) has parameter \$category_map with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:hydrate\(\) has parameter \$row with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:hydrate_many\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:hydrate_many\(\) has parameter \$rows with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:instance\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:list_all\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:list_all\(\) has parameter \$args with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:list_published\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:list_published\(\) has parameter \$category_filter with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:list_published\(\) has parameter \$limit with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:query_products\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:query_products\(\) has parameter \$opts with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:resolve_category_filter\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:resolve_category_filter\(\) has parameter \$category with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:resolve_category_input\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:resolve_category_input\(\) has parameter \$input with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:sanitize_input\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:sanitize_input\(\) has parameter \$existing_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:sanitize_input\(\) has parameter \$input with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:set_status\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:set_status\(\) has parameter \$id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:set_status\(\) has parameter \$status with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:sku_in_use\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:sku_in_use\(\) has parameter \$exclude_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:sku_in_use\(\) has parameter \$sku with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:update\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:update\(\) has parameter \$clean with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_Products\:\:update\(\) has parameter \$id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Property WP_Delopay_Products\:\:\$instance has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-products.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:admin_error_message\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:admin_error_message\(\) has parameter \$detail with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:admin_error_message\(\) has parameter \$public_message with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:admin_refund\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:build_checkout_url\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:build_checkout_url\(\) has parameter \$order with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:build_create_payment_params\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:build_create_payment_params\(\) has parameter \$order_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:build_create_payment_params\(\) has parameter \$return_url with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:build_create_payment_params\(\) has parameter \$validated with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:call_create_refund\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:call_create_refund\(\) has parameter \$amount with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:call_create_refund\(\) has parameter \$order with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:call_create_refund\(\) has parameter \$reason with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:create_order\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:create_remote_payment\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:create_remote_payment\(\) has parameter \$order_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:create_remote_payment\(\) has parameter \$return_url with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:create_remote_payment\(\) has parameter \$validated with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:detect_over_refund\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:detect_over_refund\(\) has parameter \$booked_amount with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:detect_over_refund\(\) has parameter \$order with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:detect_over_refund\(\) has parameter \$refund_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:detect_over_refund\(\) has parameter \$refund_payload with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:error_response\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:error_response\(\) has parameter \$extra with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:error_response\(\) has parameter \$message with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:error_response\(\) has parameter \$status with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:forbidden\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:forbidden\(\) has parameter \$message with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:get_order\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:instance\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:list_categories\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:list_products\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:maybe_refresh_order_status\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:maybe_refresh_order_status\(\) has parameter \$order with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:normalize_items_input\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:process_refund\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:process_refund\(\) has parameter \$order with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:process_refund\(\) has parameter \$reason_input with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:process_refund\(\) has parameter \$requested with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:register\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:require_admin\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:require_first_party\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:resolve_and_validate_lines\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:route\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:route\(\) has parameter \$args with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:route\(\) has parameter \$callback with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:route\(\) has parameter \$permission with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:route\(\) has parameter \$verb with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:routes\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:safe_return_url\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:safe_return_url\(\) has parameter \$candidate with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:shape_category\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:shape_category\(\) has parameter \$c with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:shape_category\(\) has parameter \$counts with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:shape_order_response\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:shape_order_response\(\) has parameter \$order with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:shape_order_response\(\) has parameter \$return_url with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:shape_order_status\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:shape_order_status\(\) has parameter \$order with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:shape_product\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:shape_product\(\) has parameter \$product with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:validate_lines\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:validate_lines\(\) has parameter \$items_input with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:validate_one_line\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:validate_one_line\(\) has parameter \$current_currency with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:validate_one_line\(\) has parameter \$it with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Property WP_Delopay_REST\:\:\$instance has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:all\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:cart_checkout_mode\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:color_mode\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:defaults\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:env_urls\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:get\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:get\(\) has parameter \$default_value with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:get\(\) has parameter \$key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:get_api_base_url\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:get_branding_url\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:get_complete_url\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:get_environment\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:instance\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:is_configured\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:is_overridden\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:is_overridden\(\) has parameter \$key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:palette\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:palette\(\) has parameter \$mode with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:palette_defaults\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:palette_defaults\(\) has parameter \$mode with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:register\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:sanitize\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:sanitize\(\) has parameter \$input with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:sanitize_hex_color\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:sanitize_hex_color\(\) has parameter \$value with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Settings\:\:seed_defaults\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Property WP_Delopay_Settings\:\:\$defaults has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Property WP_Delopay_Settings\:\:\$env_urls has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Property WP_Delopay_Settings\:\:\$instance has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Property WP_Delopay_Settings\:\:\$palette_defaults has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-settings.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:cart\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:cart\(\) has parameter \$atts with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:categories\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:categories\(\) has parameter \$atts with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:category_hero\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:category_hero\(\) has parameter \$atts with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:checkout\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:checkout\(\) has parameter \$atts with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:complete\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:complete\(\) has parameter \$atts with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:empty_state\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:empty_state\(\) has parameter \$message with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:ensure_assets\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:format_money\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:format_money\(\) has parameter \$currency with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:format_money\(\) has parameter \$minor with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:instance\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:invalidate_page_cache\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:page_with_shortcode\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:page_with_shortcode\(\) has parameter \$shortcode with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:product\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:product\(\) has parameter \$atts with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:products\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:products\(\) has parameter \$atts with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_card\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_card\(\) has parameter \$product with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_cart_row_template\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_cart_widget\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_cart_widget\(\) has parameter \$checkout_url with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_cart_widget\(\) has parameter \$shop_url with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_categories_grid\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_categories_grid\(\) has parameter \$categories with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_categories_grid\(\) has parameter \$columns with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_categories_grid\(\) has parameter \$counts with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_checkout_cart_summary\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_checkout_product_summary\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_checkout_product_summary\(\) has parameter \$product with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_checkout_product_summary\(\) has parameter \$quantity with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_checkout_widget\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_checkout_widget\(\) has parameter \$product with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_checkout_widget\(\) has parameter \$quantity with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_complete_widget\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_complete_widget\(\) has parameter \$order_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_hero\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_hero\(\) has parameter \$active with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_hero\(\) has parameter \$category with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_product_grid\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_product_grid\(\) has parameter \$category_filter with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_product_grid\(\) has parameter \$columns with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Shortcodes\:\:render_product_grid\(\) has parameter \$products with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Property WP_Delopay_Shortcodes\:\:\$instance has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Property WP_Delopay_Shortcodes\:\:\$shortcodes has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-shortcodes.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:apply_payment_update\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:apply_payment_update\(\) has parameter \$data with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:apply_payment_update\(\) has parameter \$fallback_status with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:apply_refund_update\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:apply_refund_update\(\) has parameter \$data with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:apply_refund_update\(\) has parameter \$fallback_status with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:claim_event\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:claim_event\(\) has parameter \$key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:dedup_key_for\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:dedup_key_for\(\) has parameter \$event with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:dedup_key_for\(\) has parameter \$raw_body with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:dispatch\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:dispatch\(\) has parameter \$data with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:dispatch\(\) has parameter \$type with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:handle_request\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:instance\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:maybe_handle\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:maybe_handle\(\) has parameter \$wp with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:process\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:process\(\) has parameter \$raw_body with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:process\(\) has parameter \$signature with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:register_route\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:response\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:response\(\) has parameter \$body with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:response\(\) has parameter \$status with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:rest_handler\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:rest_route\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:signature_from_server\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:verify_signature\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:verify_signature\(\) has parameter \$raw_body with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:verify_signature\(\) has parameter \$signature with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Property WP_Delopay_Webhook\:\:\$instance has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Property WP_Delopay_Webhook\:\:\$payment_event_map has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Property WP_Delopay_Webhook\:\:\$refund_event_map has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Function delopay_shop_assets\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/functions.php
+
+		-
+			message: '#^Function delopay_shop_drop_plugin_frontend_css\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/functions.php
+
+		-
+			message: '#^Function delopay_shop_setup\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/functions.php
+
+		-
+			message: '#^Function delopay_shop_uses_bundled_font\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/functions.php
+
+		-
+			message: '#^Function delopay_shop_uses_bundled_font\(\) has parameter \$family with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/functions.php
+
+		-
+			message: '#^Function delopay_shop_attach_css_vars\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_body_class\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_body_class\(\) has parameter \$classes with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_build_css_vars\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_format_font_family\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_format_font_family\(\) has parameter \$family with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_hex_to_rgb_tuple\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_hex_to_rgb_tuple\(\) has parameter \$hex with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_render_palette\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_render_palette\(\) has parameter \$always_emit with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_render_palette\(\) has parameter \$idx with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_render_palette\(\) has parameter \$schema with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_render_shared_tokens\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_render_shared_tokens\(\) has parameter \$schema with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_token_matches_default\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_token_matches_default\(\) has parameter \$default_value with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_token_matches_default\(\) has parameter \$key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_token_matches_default\(\) has parameter \$value with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer-output.php
+
+		-
+			message: '#^Function delopay_shop_build_color_fields\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_build_color_fields\(\) has parameter \$fields with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_build_color_fields\(\) has parameter \$key_prefix with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_build_color_fields\(\) has parameter \$section with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_build_control\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_build_control\(\) has parameter \$control_args with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_build_control\(\) has parameter \$field with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_build_control\(\) has parameter \$setting_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_customizer_get\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_customizer_get\(\) has parameter \$key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_customizer_schema\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_customizer_sections\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_font_choices\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_font_choices\(\) has parameter \$variant with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_register_customizer\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_register_setting\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_register_setting\(\) has parameter \$field with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_register_setting\(\) has parameter \$key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_sanitize_checkbox\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_sanitize_checkbox\(\) has parameter \$value with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_sanitizer_for\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_sanitizer_for\(\) has parameter \$type with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_schema_brand\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_schema_colors_dark\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_schema_colors_light\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_schema_footer\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_schema_grid\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_schema_layout\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_schema_typography\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/customizer.php
+
+		-
+			message: '#^Function delopay_shop_admin_notices\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/plugin-required.php
+
+		-
+			message: '#^Function delopay_shop_plugin_active\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/plugin-required.php
+
+		-
+			message: '#^Function delopay_shop_brand_name\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/template-helpers.php
+
+		-
+			message: '#^Function delopay_shop_find_page_with_shortcode\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/template-helpers.php
+
+		-
+			message: '#^Function delopay_shop_find_page_with_shortcode\(\) has parameter \$shortcode with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: theme/inc/template-helpers.php
+
+		-
+			message: '#^Function delopay_shop_footer_copy\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/template-helpers.php
+
+		-
+			message: '#^Function delopay_shop_plugin_configured\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: theme/inc/template-helpers.php

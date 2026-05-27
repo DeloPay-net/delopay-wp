@@ -1,0 +1,52 @@
+/**
+ * DeloPay design tokens — port of design-guidelines/theme.css.
+ *
+ * Loaded ahead of every other plugin stylesheet so admin and frontend
+ * share one source of truth for colors. Only the tokens the plugin
+ * actually uses are included; if you reach for a token that isn't here,
+ * port it 1:1 from `design-guidelines/colors.md` rather than inventing
+ * a new value.
+ *
+ * Tokens are scoped to `.wp-delopay-wrap` (admin) and the frontend
+ * shell so we don't leak `--dp-*` into the rest of WP admin or the
+ * theme — that would make every other CSS author's life harder.
+ */
+
+:root,
+.wp-delopay-wrap,
+.wp-delopay-frontend {
+	/* Brand blues */
+	--dp-blue:        #1E4FEB;
+	--dp-blue-mid:    #3561ED;
+	--dp-blue-light:  #4B72EF;
+	--dp-blue-dark:   #0A1130;
+
+	/* Page text + supporting copy */
+	--dp-text:           #0f172a;
+	--dp-text-secondary: #475569;
+	--dp-text-muted:     #94a3b8;
+	--dp-text-inverse:   #ffffff;
+
+	/* Surfaces + borders */
+	--dp-card-bg:     #ffffff;
+	--dp-card-border: #e2e8f0;
+	--dp-border:      #e2e8f0;
+
+	/* Status — drives admin pills + connect card states */
+	--dp-success:    #10b981;
+	--dp-success-bg: #ecfdf5;
+	--dp-warning:    #d63638; /* WP-aligned red so admin notices match */
+	--dp-warning-bg: #fff5f5;
+	--dp-info:       #2271b1;
+	--dp-info-bg:    #eff6ff;
+
+	/* Status pill pairs (payment lifecycle) */
+	--dp-status-green-bg:   #dcfce7;
+	--dp-status-green-text: #15803d;
+	--dp-status-amber-bg:   #fef3c7;
+	--dp-status-amber-text: #92400e;
+	--dp-status-blue-bg:    #dbeafe;
+	--dp-status-blue-text:  #1d4ed8;
+	--dp-status-red-bg:     #fee2e2;
+	--dp-status-red-text:   #b91c1c;
+}
