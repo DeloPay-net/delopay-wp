@@ -1,0 +1,41 @@
+# Node / build
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local secrets / env
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# WordPress test runtime
+wp-test/wp-content/
+wp-test/wp-config.php
+wp-test/.wp-cli/
+
+# Build output (zips produced by bin/build-zips.sh)
+dist/
+*.zip
+theme/assets/css/tailwind.css.map
+
+# Test runners (in case they get added later)
+.phpunit.result.cache
+coverage/
+
+# Composer / PHPStan / PHPCS
+/vendor/
+.phpstan-cache/
+.phpcs-cache

@@ -1,0 +1,18 @@
+includes:
+    - phpstan-baseline.neon
+
+parameters:
+    level: 6
+    bootstrapFiles:
+        - phpstan-bootstrap.php
+    paths:
+        - plugin
+        - theme
+    excludePaths:
+        analyse:
+            - plugin/assets
+            - theme/assets
+            - theme/src
+            - theme/node_modules (?)
+            - wp-test
+    treatPhpDocTypesAsCertain: false

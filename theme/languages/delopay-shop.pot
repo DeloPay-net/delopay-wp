@@ -1,0 +1,303 @@
+# Copyright (C) 2026 DeloPay
+# This file is distributed under the MIT License.
+msgid ""
+msgstr ""
+"Project-Id-Version: DeloPay Shop\n"
+"Report-Msgid-Bugs-To: https://delopay.net\n"
+"POT-Creation-Date: 2026-06-22 22:35+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: delopay-shop\n"
+
+#: /theme/inc/customizer.php:173
+msgid "2"
+msgstr ""
+
+#: /theme/inc/customizer.php:174
+msgid "3"
+msgstr ""
+
+#: /theme/inc/customizer.php:175
+msgid "4"
+msgstr ""
+
+#: /theme/inc/customizer.php:51
+msgid "Accent"
+msgstr ""
+
+#: /theme/inc/customizer.php:71
+msgid "Accent (dark)"
+msgstr ""
+
+#: /theme/inc/plugin-required.php:44
+msgid "Activate now"
+msgstr ""
+
+#: /theme/inc/customizer.php:44
+msgid "Background"
+msgstr ""
+
+#: /theme/inc/customizer.php:64
+msgid "Background (dark)"
+msgstr ""
+
+#: /theme/inc/customizer.php:121
+msgid "Body font"
+msgstr ""
+
+#: /theme/inc/customizer.php:49
+msgid "Border"
+msgstr ""
+
+#: /theme/inc/customizer.php:69
+msgid "Border (dark)"
+msgstr ""
+
+#: /theme/inc/customizer.php:50
+msgid "Border (strong, hover)"
+msgstr ""
+
+#: /theme/inc/customizer.php:70
+msgid "Border strong (dark)"
+msgstr ""
+
+#: /theme/inc/customizer.php:12
+msgid "Brand"
+msgstr ""
+
+#: /theme/header.php:45
+msgid "Buyers can browse, but checkout will fail until you link this site to your DeloPay account."
+msgstr ""
+
+#: /theme/header.php:89
+msgid "Cart"
+msgstr ""
+
+#: /theme/inc/customizer.php:14
+msgid "Colors (dark)"
+msgstr ""
+
+#: /theme/inc/customizer.php:13
+msgid "Colors (light)"
+msgstr ""
+
+#: /theme/inc/customizer.php:170
+msgid "Columns"
+msgstr ""
+
+#: /theme/header.php:48
+msgid "Connect to DeloPay"
+msgstr ""
+
+#: /theme/inc/customizer.php:145
+msgid "Corner radius"
+msgstr ""
+
+#: /theme/inc/customizer.php:54
+msgid "Danger"
+msgstr ""
+
+#: /theme/inc/customizer.php:74
+msgid "Danger (dark)"
+msgstr ""
+
+#: /theme/inc/customizer.php:199
+msgid "Defaults to \"© YEAR Business name\" + the contact info from the plugin."
+msgstr ""
+
+#: /theme/inc/customizer.php:241
+msgid "DeloPay Shop"
+msgstr ""
+
+#: /theme/inc/plugin-required.php:38
+msgid "DeloPay Shop needs the DeloPay plugin."
+msgstr ""
+
+#: /theme/header.php:44
+msgid "DeloPay isn't connected yet"
+msgstr ""
+
+#: /theme/inc/customizer.php:137
+msgid "Demo default (1080px)"
+msgstr ""
+
+#: /theme/inc/customizer.php:151
+msgid "Demo default (12px)"
+msgstr ""
+
+#: /theme/inc/customizer.php:114
+msgid "Display font (headings)"
+msgstr ""
+
+#: /theme/inc/customizer.php:139
+msgid "Extra wide (1440px)"
+msgstr ""
+
+#: /theme/footer.php:9
+#: /theme/inc/customizer.php:18
+#: /theme/functions.php:46
+msgid "Footer"
+msgstr ""
+
+#: /theme/inc/customizer.php:197
+msgid "Footer copy"
+msgstr ""
+
+#: /theme/header.php:85
+msgid "Home"
+msgstr ""
+
+#: /theme/inc/plugin-required.php:48
+msgid "Install and activate the DeloPay plugin to use this theme."
+msgstr ""
+
+#: /theme/inc/customizer.php:181
+msgid "Items per page"
+msgstr ""
+
+#: /theme/inc/customizer.php:16
+msgid "Layout"
+msgstr ""
+
+#: /theme/inc/customizer.php:133
+msgid "Max content width"
+msgstr ""
+
+#: /theme/inc/customizer.php:48
+msgid "Muted text"
+msgstr ""
+
+#: /theme/inc/customizer.php:68
+msgid "Muted text (dark)"
+msgstr ""
+
+#: /theme/inc/customizer.php:136
+msgid "Narrow (960px)"
+msgstr ""
+
+#: /theme/index.php:21
+msgid "Nothing here yet."
+msgstr ""
+
+#: /theme/footer.php:28
+msgid "Payments by DeloPay"
+msgstr ""
+
+#: /theme/inc/customizer.php:153
+msgid "Pill-ish (24px)"
+msgstr ""
+
+#: /theme/inc/plugin-required.php:42
+msgid "Plugin is installed but inactive. %s"
+msgstr ""
+
+#: /theme/functions.php:45
+#: /theme/header.php:69
+msgid "Primary"
+msgstr ""
+
+#: /theme/inc/customizer.php:17
+msgid "Product grid"
+msgstr ""
+
+#: /theme/inc/customizer.php:152
+msgid "Round (16px)"
+msgstr ""
+
+#: /theme/inc/customizer.php:148
+msgid "Sharp (0)"
+msgstr ""
+
+#: /theme/inc/customizer.php:204
+msgid "Show \"Payments by DeloPay\" badge"
+msgstr ""
+
+#: /theme/inc/customizer.php:103
+msgid "Show brand name as text (alongside / instead of logo)"
+msgstr ""
+
+#: /theme/header.php:31
+msgid "Skip to content"
+msgstr ""
+
+#: /theme/inc/customizer.php:150
+msgid "Soft (8px)"
+msgstr ""
+
+#: /theme/inc/customizer.php:159
+msgid "Sticky header"
+msgstr ""
+
+#: /theme/inc/customizer.php:149
+msgid "Subtle (4px)"
+msgstr ""
+
+#: /theme/inc/customizer.php:53
+msgid "Success"
+msgstr ""
+
+#: /theme/inc/customizer.php:73
+msgid "Success (dark)"
+msgstr ""
+
+#: /theme/inc/customizer.php:45
+msgid "Surface (cards)"
+msgstr ""
+
+#: /theme/inc/customizer.php:65
+msgid "Surface (dark)"
+msgstr ""
+
+#: /theme/inc/customizer.php:66
+msgid "Surface alt (dark)"
+msgstr ""
+
+#: /theme/inc/customizer.php:46
+msgid "Surface alt (pills, hovers)"
+msgstr ""
+
+#: /theme/inc/customizer.php:212
+msgid "System sans (Inter-like)"
+msgstr ""
+
+#: /theme/inc/customizer.php:213
+msgid "System serif"
+msgstr ""
+
+#: /theme/inc/customizer.php:97
+msgid "Tagline"
+msgstr ""
+
+#: /theme/inc/customizer.php:47
+msgid "Text"
+msgstr ""
+
+#: /theme/inc/customizer.php:67
+msgid "Text (dark)"
+msgstr ""
+
+#: /theme/inc/customizer.php:52
+msgid "Text on accent"
+msgstr ""
+
+#: /theme/inc/customizer.php:72
+msgid "Text on accent (dark)"
+msgstr ""
+
+#: /theme/inc/customizer.php:15
+msgid "Typography"
+msgstr ""
+
+#: /theme/inc/customizer.php:242
+msgid "Visual options for the DeloPay Shop theme. Business info, products, and payment settings live in the DeloPay plugin menu."
+msgstr ""
+
+#: /theme/inc/customizer.php:138
+msgid "Wide (1200px)"
+msgstr ""
+
+#: /theme/header.php:65
+msgid "powered by DeloPay"
+msgstr ""
+

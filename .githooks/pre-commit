@@ -1,0 +1,21 @@
+#!/bin/sh
+# Block commits that fail phpcs on staged PHP files.
+#
+# Enable: composer run install-hooks   (one-time per clone)
+
+set -e
+
+phpcs_bin="$(git rev-parse --show-toplevel)/vendor/bin/phpcs"
+
+if [ ! -x "$phpcs_bin" ]; then
+	echo "pre-commit: $phpcs_bin missing — run 'composer install' to enable lint checks." >&2
+	exit 0
+fi
+
+staged=$(git diff --cached --name-only --diff-filter=ACM | grep '\.php$' || true)
+if [ -z "$staged" ]; then
+	exit 0
+fi
+
+# shellcheck disable=SC2086
+echo "$staged" | xargs "$phpcs_bin" --standard="$(git rev-parse --show-toplevel)/phpcs.xml.dist"
