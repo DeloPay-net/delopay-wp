@@ -132,6 +132,7 @@ class WP_Delopay_Orders {
 			status VARCHAR(16) NOT NULL DEFAULT 'active',
 			sort_order INT NOT NULL DEFAULT 0,
 			category_id BIGINT UNSIGNED DEFAULT NULL,
+			creem_product_id VARCHAR(128) DEFAULT NULL,
 			created_at DATETIME NOT NULL,
 			updated_at DATETIME NOT NULL,
 			PRIMARY KEY (id),

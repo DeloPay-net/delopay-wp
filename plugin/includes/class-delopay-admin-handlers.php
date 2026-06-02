@@ -101,15 +101,16 @@ class WP_Delopay_Admin_Handlers {
 
 	private function shape_product_for_export( $p ) {
 		return array(
-			'name'          => $p['name'],
-			'sku'           => $p['sku'],
-			'description'   => $p['description'],
-			'price_minor'   => (int) $p['price_minor'],
-			'currency'      => $p['currency'],
-			'status'        => $p['status'],
-			'sort_order'    => (int) $p['sort_order'],
-			'image_url'     => $p['image_url'],
-			'category_slug' => (string) ( $p['category_slug'] ?? '' ),
+			'name'             => $p['name'],
+			'sku'              => $p['sku'],
+			'description'      => $p['description'],
+			'price_minor'      => (int) $p['price_minor'],
+			'currency'         => $p['currency'],
+			'status'           => $p['status'],
+			'sort_order'       => (int) $p['sort_order'],
+			'image_url'        => $p['image_url'],
+			'category_slug'    => (string) ( $p['category_slug'] ?? '' ),
+			'creem_product_id' => (string) ( $p['creem_product_id'] ?? '' ),
 		);
 	}
 

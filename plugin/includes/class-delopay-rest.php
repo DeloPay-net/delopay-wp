@@ -390,6 +390,7 @@ class WP_Delopay_REST {
 			'product_name'     => $product['name'],
 			'quantity'         => $qty,
 			'unit_price_minor' => (int) $product['price_minor'],
+			'creem_product_id' => (string) ( $product['creem_product_id'] ?? '' ),
 			'_currency'        => $product['currency'],
 		);
 	}
@@ -457,6 +458,21 @@ class WP_Delopay_REST {
 			$validated['lines']
 		);
 
+		$metadata = array(
+			'order_id' => $order_id,
+			'site_url' => home_url( '/' ),
+		);
+
+		// Creem's hosted checkout is anchored to a single dashboard product, so
+		// forward `creem_product_id` only for a single-line order — a mixed cart
+		// can't map to one Creem product. The Delopay backend reads this from the
+		// payment metadata first (per-product override), then falls back to the
+		// connector-account default. No effect for non-Creem connectors.
+		$lines = $validated['lines'];
+		if ( 1 === count( $lines ) && ! empty( $lines[0]['creem_product_id'] ) ) {
+			$metadata['creem_product_id'] = (string) $lines[0]['creem_product_id'];
+		}
+
 		return array(
 			'amount'                      => $validated['amount_minor'],
 			'currency'                    => $validated['currency'],
@@ -471,10 +487,7 @@ class WP_Delopay_REST {
 			),
 			'payment_link'                => true,
 			'order_details'               => $order_details,
-			'metadata'                    => array(
-				'order_id' => $order_id,
-				'site_url' => home_url( '/' ),
-			),
+			'metadata'                    => $metadata,
 			'merchant_order_reference_id' => $order_id,
 		);
 	}

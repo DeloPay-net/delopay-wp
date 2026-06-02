@@ -235,17 +235,34 @@ class WP_Delopay_Products {
 		$category_id = self::resolve_category_input( $input );
 
 		return array(
-			'name'        => sanitize_text_field( $name ),
-			'sku'         => '' === $sku ? null : $sku,
-			'description' => isset( $input['description'] ) ? wp_kses_post( wp_unslash( $input['description'] ) ) : '',
-			'price_minor' => $price_minor,
-			'currency'    => $currency,
-			'image_id'    => $image['id'] ? $image['id'] : null,
-			'image_url'   => '' === $image['url'] ? null : $image['url'],
-			'status'      => isset( $input['status'] ) && self::STATUS_DRAFT === $input['status'] ? self::STATUS_DRAFT : self::STATUS_ACTIVE,
-			'sort_order'  => isset( $input['sort_order'] ) ? (int) $input['sort_order'] : 0,
-			'category_id' => $category_id,
+			'name'             => sanitize_text_field( $name ),
+			'sku'              => '' === $sku ? null : $sku,
+			'description'      => isset( $input['description'] ) ? wp_kses_post( wp_unslash( $input['description'] ) ) : '',
+			'price_minor'      => $price_minor,
+			'currency'         => $currency,
+			'image_id'         => $image['id'] ? $image['id'] : null,
+			'image_url'        => '' === $image['url'] ? null : $image['url'],
+			'status'           => isset( $input['status'] ) && self::STATUS_DRAFT === $input['status'] ? self::STATUS_DRAFT : self::STATUS_ACTIVE,
+			'sort_order'       => isset( $input['sort_order'] ) ? (int) $input['sort_order'] : 0,
+			'category_id'      => $category_id,
+			// Optional Creem product id. Forwarded as payment metadata so the
+			// Creem connector charges the matching dashboard product (its
+			// hosted checkout is product-anchored). Null when unset.
+			'creem_product_id' => self::clean_creem_product_id( $input ),
 		);
+	}
+
+	/**
+	 * Pull and sanitize the optional Creem product id from product form input.
+	 *
+	 * @param array<string, mixed> $input Raw product form fields.
+	 * @return string|null Trimmed product id, or null when blank.
+	 */
+	private static function clean_creem_product_id( array $input ): ?string {
+		$value = isset( $input['creem_product_id'] )
+			? trim( sanitize_text_field( wp_unslash( (string) $input['creem_product_id'] ) ) )
+			: '';
+		return '' === $value ? null : $value;
 	}
 
 	private static function clean_sku( $input ) {
@@ -405,6 +422,8 @@ class WP_Delopay_Products {
 		$row['sku']         = isset( $row['sku'] ) ? (string) $row['sku'] : '';
 		$row['currency']    = strtoupper( (string) $row['currency'] );
 		$row['status']      = (string) $row['status'];
+
+		$row['creem_product_id'] = isset( $row['creem_product_id'] ) ? (string) $row['creem_product_id'] : '';
 
 		$row['category_id']   = isset( $row['category_id'] ) && $row['category_id'] ? (int) $row['category_id'] : 0;
 		$row['category_slug'] = '';

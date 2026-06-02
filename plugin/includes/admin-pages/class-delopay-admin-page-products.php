@@ -281,6 +281,7 @@ class WP_Delopay_Admin_Page_Products extends WP_Delopay_Admin_Page {
 			'status'             => $is_new ? 'active' : $product['status'],
 			'sort_order'         => $is_new ? 0 : (int) $product['sort_order'],
 			'category_id'        => $is_new ? 0 : (int) ( $product['category_id'] ?? 0 ),
+			'creem_product_id'   => $is_new ? '' : (string) ( $product['creem_product_id'] ?? '' ),
 		);
 	}
 
@@ -362,6 +363,13 @@ class WP_Delopay_Admin_Page_Products extends WP_Delopay_Admin_Page {
 					</div>
 					<p class="wp-delopay-help">
 						<?php esc_html_e( 'SKU is the unique identifier used by shortcodes and the order API. Lower sort orders appear first in the grid.', 'wp-delopay' ); ?>
+					</p>
+					<div class="wp-delopay-field">
+						<label for="wp-delopay-creem-product-id"><?php esc_html_e( 'Creem product ID', 'wp-delopay' ); ?> <span class="wp-delopay-optional"><?php esc_html_e( '(optional)', 'wp-delopay' ); ?></span></label>
+						<input type="text" id="wp-delopay-creem-product-id" name="creem_product_id" value="<?php echo esc_attr( $data['creem_product_id'] ); ?>" placeholder="prod_...">
+					</div>
+					<p class="wp-delopay-help">
+						<?php esc_html_e( 'Only needed if this product is paid through Creem. Paste the matching Creem product id; it is sent with the payment so Creem charges that product. A single-product order forwards this automatically.', 'wp-delopay' ); ?>
 					</p>
 				</div>
 			</div>
