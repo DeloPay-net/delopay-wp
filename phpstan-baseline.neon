@@ -181,6 +181,66 @@ parameters:
 			path: plugin/includes/admin-pages/class-delopay-admin-page-dashboard.php
 
 		-
+			message: '#^Method WP_Delopay_Admin_Page_Disputes\:\:format_amount\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-disputes.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Disputes\:\:format_amount\(\) has parameter \$d with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-disputes.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Disputes\:\:label\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-disputes.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Disputes\:\:normalize_list\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-disputes.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Disputes\:\:render\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-disputes.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Disputes\:\:render_detail\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-disputes.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Disputes\:\:render_detail\(\) has parameter \$dispute_id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-disputes.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Disputes\:\:render_error\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-disputes.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Disputes\:\:render_list\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-disputes.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Disputes\:\:slug\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-disputes.php
+
+		-
 			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:label\(\) has no return type specified\.$#'
 			identifier: missingType.return
 			count: 1
@@ -189,6 +249,18 @@ parameters:
 		-
 			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:render\(\) has no return type specified\.$#'
 			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:render_capture_controls\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
+
+		-
+			message: '#^Method WP_Delopay_Admin_Page_Orders\:\:render_capture_controls\(\) has parameter \$order with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: plugin/includes/admin-pages/class-delopay-admin-page-orders.php
 
@@ -1345,6 +1417,36 @@ parameters:
 			path: plugin/includes/class-delopay-client.php
 
 		-
+			message: '#^Method WP_Delopay_Client\:\:cancel_payment\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:cancel_subscription\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:cancel_subscription\(\) has parameter \$params with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:capture_payment\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:capture_payment\(\) has parameter \$params with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
 			message: '#^Method WP_Delopay_Client\:\:create_payment\(\) has no return type specified\.$#'
 			identifier: missingType.return
 			count: 1
@@ -1365,6 +1467,18 @@ parameters:
 		-
 			message: '#^Method WP_Delopay_Client\:\:create_refund\(\) has parameter \$params with no type specified\.$#'
 			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:create_subscription\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:create_subscription\(\) has parameter \$params with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: plugin/includes/class-delopay-client.php
 
@@ -1393,8 +1507,62 @@ parameters:
 			path: plugin/includes/class-delopay-client.php
 
 		-
+			message: '#^Method WP_Delopay_Client\:\:get_subscription\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:get_subscription_estimate\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:get_subscription_estimate\(\) has parameter \$query with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:get_subscription_items\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:get_subscription_items\(\) has parameter \$query with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
 			message: '#^Method WP_Delopay_Client\:\:is_ready\(\) has no return type specified\.$#'
 			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:list_disputes\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:list_disputes\(\) has parameter \$query with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:pause_subscription\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:pause_subscription\(\) has parameter \$params with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: plugin/includes/class-delopay-client.php
 
@@ -1405,8 +1573,20 @@ parameters:
 			path: plugin/includes/class-delopay-client.php
 
 		-
+			message: '#^Method WP_Delopay_Client\:\:profile_header\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
 			message: '#^Method WP_Delopay_Client\:\:profile_id\(\) has no return type specified\.$#'
 			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:query_string\(\) has parameter \$query with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: plugin/includes/class-delopay-client.php
 
@@ -1423,6 +1603,12 @@ parameters:
 			path: plugin/includes/class-delopay-client.php
 
 		-
+			message: '#^Method WP_Delopay_Client\:\:request\(\) has parameter \$extra_headers with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
 			message: '#^Method WP_Delopay_Client\:\:request\(\) has parameter \$method with no type specified\.$#'
 			identifier: missingType.parameter
 			count: 1
@@ -1431,6 +1617,24 @@ parameters:
 		-
 			message: '#^Method WP_Delopay_Client\:\:request\(\) has parameter \$path with no type specified\.$#'
 			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:resume_subscription\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:resume_subscription\(\) has parameter \$params with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-client.php
+
+		-
+			message: '#^Method WP_Delopay_Client\:\:retrieve_dispute\(\) has no return type specified\.$#'
+			identifier: missingType.return
 			count: 1
 			path: plugin/includes/class-delopay-client.php
 
@@ -2671,6 +2875,18 @@ parameters:
 			path: plugin/includes/class-delopay-products.php
 
 		-
+			message: '#^Method WP_Delopay_REST\:\:admin_cancel\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
+			message: '#^Method WP_Delopay_REST\:\:admin_capture\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-rest.php
+
+		-
 			message: '#^Method WP_Delopay_REST\:\:admin_error_message\(\) has no return type specified\.$#'
 			identifier: missingType.return
 			count: 1
@@ -3583,6 +3799,18 @@ parameters:
 			path: plugin/includes/class-delopay-shortcodes.php
 
 		-
+			message: '#^Method WP_Delopay_Webhook\:\:apply_dispute_update\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:apply_dispute_update\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
 			message: '#^Method WP_Delopay_Webhook\:\:apply_payment_update\(\) has no return type specified\.$#'
 			identifier: missingType.return
 			count: 1
@@ -3615,6 +3843,18 @@ parameters:
 		-
 			message: '#^Method WP_Delopay_Webhook\:\:apply_refund_update\(\) has parameter \$fallback_status with no type specified\.$#'
 			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:apply_subscription_update\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Method WP_Delopay_Webhook\:\:apply_subscription_update\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: plugin/includes/class-delopay-webhook.php
 
@@ -3765,6 +4005,12 @@ parameters:
 		-
 			message: '#^Method WP_Delopay_Webhook\:\:verify_signature\(\) has parameter \$signature with no type specified\.$#'
 			identifier: missingType.parameter
+			count: 1
+			path: plugin/includes/class-delopay-webhook.php
+
+		-
+			message: '#^Property WP_Delopay_Webhook\:\:\$dispute_event_map has no type specified\.$#'
+			identifier: missingType.property
 			count: 1
 			path: plugin/includes/class-delopay-webhook.php
 

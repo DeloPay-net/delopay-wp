@@ -65,6 +65,7 @@ class WP_Delopay_Settings {
 		'environment'        => 'production',
 		'control_center_url' => 'https://dashboard.delopay.net',
 		'currency'           => 'USD',
+		'capture_method'     => 'automatic',
 		'checkout_base_url'  => 'https://checkout.delopay.net',
 		'complete_page_id'   => 0,
 		'business_name'      => '',
@@ -150,6 +151,10 @@ class WP_Delopay_Settings {
 
 		if ( isset( $input['currency'] ) ) {
 			$out['currency'] = strtoupper( sanitize_text_field( substr( $input['currency'], 0, 3 ) ) );
+		}
+		if ( isset( $input['capture_method'] ) ) {
+			$capture               = sanitize_key( $input['capture_method'] );
+			$out['capture_method'] = 'manual' === $capture ? 'manual' : 'automatic';
 		}
 		if ( isset( $input['complete_page_id'] ) ) {
 			$out['complete_page_id'] = (int) $input['complete_page_id'];

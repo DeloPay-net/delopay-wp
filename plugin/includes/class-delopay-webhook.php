@@ -18,16 +18,20 @@ class WP_Delopay_Webhook {
 	const REFUND_LOCK_TIMEOUT = 5;
 
 	private static $payment_event_map = array(
-		'payment_succeeded'         => 'succeeded',
-		'payment_intent_succeeded'  => 'succeeded',
-		'payment_failed'            => 'failed',
-		'payment_intent_failed'     => 'failed',
-		'payment_processing'        => 'processing',
-		'payment_intent_processing' => 'processing',
-		'payment_cancelled'         => 'cancelled',
-		'payment_intent_cancelled'  => 'cancelled',
-		'payment_expired'           => 'expired',
-		'payment_intent_expired'    => 'expired',
+		'payment_succeeded'              => 'succeeded',
+		'payment_intent_succeeded'       => 'succeeded',
+		'payment_captured'               => 'succeeded',
+		'payment_authorized'             => 'requires_capture',
+		'payment_partially_authorized'   => 'requires_capture',
+		'payment_failed'                 => 'failed',
+		'payment_intent_failed'          => 'failed',
+		'payment_processing'             => 'processing',
+		'payment_intent_processing'      => 'processing',
+		'payment_cancelled'              => 'cancelled',
+		'payment_intent_cancelled'       => 'cancelled',
+		'payment_cancelled_post_capture' => 'cancelled',
+		'payment_expired'                => 'expired',
+		'payment_intent_expired'         => 'expired',
 	);
 
 	private static $refund_event_map = array(
@@ -35,6 +39,16 @@ class WP_Delopay_Webhook {
 		'refund_success'   => 'succeeded',
 		'refund_failed'    => 'failed',
 		'refund_failure'   => 'failed',
+	);
+
+	private static $dispute_event_map = array(
+		'dispute_opened'     => 'opened',
+		'dispute_challenged' => 'challenged',
+		'dispute_won'        => 'won',
+		'dispute_lost'       => 'lost',
+		'dispute_accepted'   => 'accepted',
+		'dispute_cancelled'  => 'cancelled',
+		'dispute_expired'    => 'expired',
 	);
 
 	private static $instance = null;
@@ -200,6 +214,17 @@ class WP_Delopay_Webhook {
 			self::apply_refund_update( $data, self::$refund_event_map[ $type ] );
 			return;
 		}
+		if ( isset( self::$dispute_event_map[ $type ] ) ) {
+			self::apply_dispute_update( $data, self::$dispute_event_map[ $type ] );
+			return;
+		}
+		// Subscription and invoice lifecycle events. The plugin has no recurring
+		// storefront yet, so we record them and fire an action for extensions /
+		// future subscription support rather than mutate order state.
+		if ( 0 === strpos( $type, 'subscription' ) || 0 === strpos( $type, 'invoice' ) ) {
+			self::apply_subscription_update( $type, $data );
+			return;
+		}
 		WP_Delopay_Log::info( 'unhandled webhook event: ' . $type );
 	}
 
@@ -281,6 +306,61 @@ class WP_Delopay_Webhook {
 				WP_Delopay_Orders::release_refund_lock( $order_id );
 			}
 		}
+	}
+
+	/**
+	 * Handle a dispute lifecycle event. The plugin does not yet store disputes,
+	 * so we log a notice (visible to the merchant) and fire an action other code
+	 * can hook. Disputes are also viewable on demand via the admin Disputes page.
+	 *
+	 * @param array  $data   Dispute object from the webhook.
+	 * @param string $status Normalised dispute status.
+	 */
+	private static function apply_dispute_update( $data, $status ) {
+		$dispute_id = isset( $data['dispute_id'] ) ? (string) $data['dispute_id'] : '';
+		$payment_id = isset( $data['payment_id'] ) ? (string) $data['payment_id'] : '';
+
+		WP_Delopay_Log::info(
+			sprintf(
+				'dispute %s is now "%s"%s',
+				'' !== $dispute_id ? $dispute_id : '(unknown)',
+				$status,
+				'' !== $payment_id ? ' (payment ' . $payment_id . ')' : ''
+			)
+		);
+
+		/**
+		 * Fires when a dispute webhook is received.
+		 *
+		 * @param string $status     Normalised dispute status.
+		 * @param array  $data       Dispute object.
+		 * @param string $payment_id Associated payment id, if present.
+		 */
+		do_action( 'wp_delopay_dispute_event', $status, $data, $payment_id );
+	}
+
+	/**
+	 * Handle a subscription / invoice lifecycle event. No recurring storefront
+	 * exists yet, so we log and expose an action hook for extensions.
+	 *
+	 * @param string $type Full event type (e.g. invoice_paid).
+	 * @param array  $data Event object.
+	 */
+	private static function apply_subscription_update( $type, $data ) {
+		$ref = isset( $data['subscription_id'] ) ? (string) $data['subscription_id']
+			: ( isset( $data['id'] ) ? (string) $data['id'] : '' );
+
+		WP_Delopay_Log::info(
+			sprintf( 'subscription/invoice event "%s"%s', $type, '' !== $ref ? ' (' . $ref . ')' : '' )
+		);
+
+		/**
+		 * Fires when a subscription or invoice webhook is received.
+		 *
+		 * @param string $type Full event type.
+		 * @param array  $data Event object.
+		 */
+		do_action( 'wp_delopay_subscription_event', $type, $data );
 	}
 }
 

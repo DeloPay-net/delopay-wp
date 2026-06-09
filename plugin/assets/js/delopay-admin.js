@@ -39,6 +39,7 @@
 		initDeleteConfirms();
 		initConnectControls();
 		initRefundForms();
+		initCaptureControls();
 		initColorSwatches();
 	});
 
@@ -444,6 +445,56 @@
 					disconnectButton.disabled = false;
 					setStatus((I.disconnectFailed || 'Could not disconnect: ') + err.message, 'error');
 				});
+		});
+	}
+
+	function initCaptureControls() {
+		document.querySelectorAll('.wp-delopay-capture-controls').forEach((box) => {
+			const orderId  = box.dataset.orderId;
+			const statusEl = box.querySelector('.wp-delopay-capture-status');
+			const captureB = box.querySelector('[data-delopay-capture]');
+			const cancelB  = box.querySelector('[data-delopay-cancel]');
+
+			function run(path, confirmMsg, busyMsg, okMsg, failMsg, body) {
+				if (!window.confirm(confirmMsg)) return;
+				if (captureB) captureB.disabled = true;
+				if (cancelB) cancelB.disabled = true;
+				statusEl.textContent = busyMsg;
+				restCall(path, { method: 'POST', body: JSON.stringify(body) })
+					.then((res) => {
+						if (!res.ok) {
+							throw new Error((res.body && res.body.error) || failMsg);
+						}
+						statusEl.textContent = okMsg;
+						setTimeout(() => window.location.reload(), 800);
+					})
+					.catch((err) => {
+						statusEl.textContent = failMsg + err.message;
+						if (captureB) captureB.disabled = false;
+						if (cancelB) cancelB.disabled = false;
+					});
+			}
+
+			if (captureB) {
+				captureB.addEventListener('click', () => run(
+					'admin/capture',
+					I.confirmCapture || 'Capture this payment?',
+					I.capturing || 'Capturing…',
+					I.captureOk || 'Captured.',
+					I.captureFail || 'Capture failed: ',
+					{ order_id: orderId }
+				));
+			}
+			if (cancelB) {
+				cancelB.addEventListener('click', () => run(
+					'admin/cancel',
+					I.confirmCancel || 'Cancel this payment? This releases the authorization.',
+					I.cancelling || 'Cancelling…',
+					I.cancelOk || 'Payment cancelled.',
+					I.cancelFail || 'Cancel failed: ',
+					{ order_id: orderId }
+				));
+			}
 		});
 	}
 

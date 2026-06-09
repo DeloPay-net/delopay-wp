@@ -10,6 +10,7 @@ class WP_Delopay_Admin {
 	const SLUG_PRODUCTS   = 'wp-delopay-products';
 	const SLUG_CATEGORIES = 'wp-delopay-categories';
 	const SLUG_ORDERS     = 'wp-delopay-orders';
+	const SLUG_DISPUTES   = 'wp-delopay-disputes';
 	const SLUG_BUSINESS   = 'wp-delopay-business';
 	const SLUG_BRANDING   = 'wp-delopay-branding';
 	const SLUG_SETTINGS   = 'wp-delopay-settings';
@@ -38,6 +39,7 @@ class WP_Delopay_Admin {
 			self::SLUG_PRODUCTS   => new WP_Delopay_Admin_Page_Products(),
 			self::SLUG_CATEGORIES => new WP_Delopay_Admin_Page_Categories(),
 			self::SLUG_ORDERS     => new WP_Delopay_Admin_Page_Orders(),
+			self::SLUG_DISPUTES   => new WP_Delopay_Admin_Page_Disputes(),
 			self::SLUG_BUSINESS   => new WP_Delopay_Admin_Page_Business(),
 			self::SLUG_BRANDING   => new WP_Delopay_Admin_Page_Branding(),
 			self::SLUG_SETTINGS   => new WP_Delopay_Admin_Page_Settings(),
@@ -109,6 +111,14 @@ class WP_Delopay_Admin {
 			'refunding'         => __( 'Refunding…', 'wp-delopay' ),
 			'refundOk'          => __( 'Refund submitted.', 'wp-delopay' ),
 			'refundFail'        => __( 'Refund failed: ', 'wp-delopay' ),
+			'confirmCapture'    => __( 'Capture this payment?', 'wp-delopay' ),
+			'capturing'         => __( 'Capturing…', 'wp-delopay' ),
+			'captureOk'         => __( 'Captured.', 'wp-delopay' ),
+			'captureFail'       => __( 'Capture failed: ', 'wp-delopay' ),
+			'confirmCancel'     => __( 'Cancel this payment? This releases the authorization.', 'wp-delopay' ),
+			'cancelling'        => __( 'Cancelling…', 'wp-delopay' ),
+			'cancelOk'          => __( 'Payment cancelled.', 'wp-delopay' ),
+			'cancelFail'        => __( 'Cancel failed: ', 'wp-delopay' ),
 			'pickImage'         => __( 'Choose product image', 'wp-delopay' ),
 			'useImage'          => __( 'Use this image', 'wp-delopay' ),
 			'imageLoadFailed'   => __( 'Could not load image from that URL.', 'wp-delopay' ),

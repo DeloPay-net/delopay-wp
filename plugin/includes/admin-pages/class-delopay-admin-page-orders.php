@@ -8,6 +8,9 @@ class WP_Delopay_Admin_Page_Orders extends WP_Delopay_Admin_Page {
 
 	const REFUNDABLE_STATUSES = array( 'succeeded', 'partially_captured', 'partially_captured_and_capturable' );
 
+	// Statuses where a manual capture / void is still possible.
+	const CAPTURABLE_STATUSES = array( 'requires_capture', 'authorized', 'partially_captured_and_capturable' );
+
 	public function slug() {
 		return WP_Delopay_Admin::SLUG_ORDERS;
 	}
@@ -110,6 +113,10 @@ class WP_Delopay_Admin_Page_Orders extends WP_Delopay_Admin_Page {
 			<h2><?php esc_html_e( 'Line items', 'wp-delopay' ); ?></h2>
 			<?php $this->render_lines( (array) $order['lines'], $currency ); ?>
 
+			<?php if ( in_array( $order['status'], self::CAPTURABLE_STATUSES, true ) ) : ?>
+				<?php $this->render_capture_controls( $order ); ?>
+			<?php endif; ?>
+
 			<h2><?php esc_html_e( 'Refunds', 'wp-delopay' ); ?></h2>
 			<?php $this->render_refunds( $refunds, $currency ); ?>
 
@@ -117,6 +124,20 @@ class WP_Delopay_Admin_Page_Orders extends WP_Delopay_Admin_Page {
 				<?php $this->render_refund_form( $order, $remaining ); ?>
 			<?php endif; ?>
 		</div>
+		<?php
+	}
+
+	private function render_capture_controls( $order ) {
+		?>
+		<h2><?php esc_html_e( 'Capture / Cancel', 'wp-delopay' ); ?></h2>
+		<p class="description">
+			<?php esc_html_e( 'This payment is authorized but not yet captured. Capture to settle it, or cancel to release the authorization.', 'wp-delopay' ); ?>
+		</p>
+		<p class="wp-delopay-capture-controls" data-order-id="<?php echo esc_attr( $order['order_id'] ); ?>">
+			<button type="button" class="button button-primary" data-delopay-capture><?php esc_html_e( 'Capture', 'wp-delopay' ); ?></button>
+			<button type="button" class="button" data-delopay-cancel style="margin-left:.5em;"><?php esc_html_e( 'Cancel payment', 'wp-delopay' ); ?></button>
+			<span class="wp-delopay-capture-status" style="margin-left:1em;color:#646970;"></span>
+		</p>
 		<?php
 	}
 

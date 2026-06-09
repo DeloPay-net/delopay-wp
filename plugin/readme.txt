@@ -4,7 +4,7 @@ Tags: payments, ecommerce, checkout, hosted-payment
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -81,6 +81,11 @@ By activating and connecting this plugin you acknowledge that order, product and
 * `[delopay_complete]` — post-payment status page.
 
 == Changelog ==
+
+= 1.1.0 =
+* Manual capture mode: authorize at checkout, then capture or cancel each order from the Orders screen (new Capture mode setting).
+* Disputes: new read-only admin screen to list and inspect chargebacks pulled live from DeloPay.
+* Webhooks: handle dispute and subscription/invoice events (with `wp_delopay_dispute_event` / `wp_delopay_subscription_event` action hooks) and additional payment states (authorized, captured).
 
 = 1.0.0 =
 * Initial release.

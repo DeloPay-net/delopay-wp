@@ -86,6 +86,30 @@ class WP_Delopay_REST {
 					)
 				),
 			),
+			array(
+				'path' => '/admin/capture',
+				'args' => $this->route(
+					'POST',
+					'admin_capture',
+					$admin,
+					array(
+						'order_id'     => true,
+						'amount_minor' => false,
+					)
+				),
+			),
+			array(
+				'path' => '/admin/cancel',
+				'args' => $this->route(
+					'POST',
+					'admin_cancel',
+					$admin,
+					array(
+						'order_id' => true,
+						'reason'   => false,
+					)
+				),
+			),
 		);
 	}
 
@@ -477,7 +501,7 @@ class WP_Delopay_REST {
 			'amount'                      => $validated['amount_minor'],
 			'currency'                    => $validated['currency'],
 			'confirm'                     => false,
-			'capture_method'              => 'automatic',
+			'capture_method'              => 'manual' === WP_Delopay_Settings::get( 'capture_method' ) ? 'manual' : 'automatic',
 			'return_url'                  => $return_url,
 			'description'                 => sprintf(
 				/* translators: 1: order id, 2: site name */
@@ -564,6 +588,70 @@ class WP_Delopay_REST {
 		} finally {
 			WP_Delopay_Orders::release_refund_lock( $order['order_id'] );
 		}
+	}
+
+	/**
+	 * Capture a previously authorized payment (manual-capture flow). Supports an
+	 * optional partial `amount_minor`; omit to capture the full authorized amount.
+	 */
+	public function admin_capture( WP_REST_Request $request ) {
+		$order = WP_Delopay_Orders::find( (string) $request->get_param( 'order_id' ) );
+		if ( ! $order ) {
+			return self::error_response( __( 'order not found', 'wp-delopay' ), 404 );
+		}
+
+		$params = array();
+		$amount = $request->get_param( 'amount_minor' );
+		if ( null !== $amount ) {
+			if ( ! is_numeric( $amount ) || $amount <= 0 ) {
+				return self::error_response( __( 'amount_minor must be a positive number', 'wp-delopay' ), 400 );
+			}
+			$params['amount_to_capture'] = (int) $amount;
+		}
+
+		$client = new WP_Delopay_Client();
+		$result = $client->capture_payment( $order['payment_id'], $params );
+		if ( is_wp_error( $result ) ) {
+			return new WP_REST_Response(
+				array(
+					'error'  => $result->get_error_message(),
+					'detail' => $result->get_error_data(),
+				),
+				502
+			);
+		}
+
+		$status = isset( $result['status'] ) ? (string) $result['status'] : 'succeeded';
+		WP_Delopay_Orders::update_status( $order['payment_id'], $status, null, null, false, (string) $order['order_id'] );
+
+		return new WP_REST_Response( $result, 200 );
+	}
+
+	/**
+	 * Cancel/void a payment that has not been captured.
+	 */
+	public function admin_cancel( WP_REST_Request $request ) {
+		$order = WP_Delopay_Orders::find( (string) $request->get_param( 'order_id' ) );
+		if ( ! $order ) {
+			return self::error_response( __( 'order not found', 'wp-delopay' ), 404 );
+		}
+
+		$client = new WP_Delopay_Client();
+		$result = $client->cancel_payment( $order['payment_id'], (string) $request->get_param( 'reason' ) );
+		if ( is_wp_error( $result ) ) {
+			return new WP_REST_Response(
+				array(
+					'error'  => $result->get_error_message(),
+					'detail' => $result->get_error_data(),
+				),
+				502
+			);
+		}
+
+		$status = isset( $result['status'] ) ? (string) $result['status'] : 'cancelled';
+		WP_Delopay_Orders::update_status( $order['payment_id'], $status, null, null, false, (string) $order['order_id'] );
+
+		return new WP_REST_Response( $result, 200 );
 	}
 
 	private function process_refund( $order, $requested, $reason_input ) {

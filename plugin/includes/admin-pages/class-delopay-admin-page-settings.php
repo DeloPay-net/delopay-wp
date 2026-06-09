@@ -291,6 +291,17 @@ class WP_Delopay_Admin_Page_Settings extends WP_Delopay_Admin_Page {
 					</td>
 				</tr>
 				<tr>
+					<th><label for="wp_delopay_capture_method"><?php esc_html_e( 'Capture mode', 'wp-delopay' ); ?></label></th>
+					<td>
+						<?php $capture_method = isset( $settings['capture_method'] ) ? $settings['capture_method'] : 'automatic'; ?>
+						<select id="wp_delopay_capture_method" name="<?php echo esc_attr( $option_key ); ?>[capture_method]">
+							<option value="automatic" <?php selected( $capture_method, 'automatic' ); ?>><?php esc_html_e( 'Automatic — capture immediately on payment', 'wp-delopay' ); ?></option>
+							<option value="manual" <?php selected( $capture_method, 'manual' ); ?>><?php esc_html_e( 'Manual — authorize now, capture later from the order', 'wp-delopay' ); ?></option>
+						</select>
+						<p class="description"><?php esc_html_e( 'Manual mode authorizes the card at checkout; you then capture or cancel each order from the Orders screen.', 'wp-delopay' ); ?></p>
+					</td>
+				</tr>
+				<tr>
 					<th><label for="wp_delopay_complete_page_id"><?php esc_html_e( 'Order-complete page', 'wp-delopay' ); ?></label></th>
 					<td>
 						<select id="wp_delopay_complete_page_id" name="<?php echo esc_attr( $option_key ); ?>[complete_page_id]">
