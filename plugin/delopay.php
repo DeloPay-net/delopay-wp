@@ -3,7 +3,7 @@
  * Plugin Name:       DeloPay
  * Plugin URI:        https://delopay.net/docs/
  * Description:       Take online payments through DeloPay's hosted checkout. Manage products, orders and refunds from one admin panel without handling card data.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            DeloPay
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'DELOPAY_VERSION', '1.0.0' );
+define( 'DELOPAY_VERSION', '1.0.1' );
 define( 'DELOPAY_FILE', __FILE__ );
 define( 'DELOPAY_DIR', plugin_dir_path( __FILE__ ) );
 define( 'DELOPAY_URL', plugin_dir_url( __FILE__ ) );

@@ -26,8 +26,9 @@ backend.
   - `POST /webhook` — DeloPay → here, HMAC-SHA512 verified
   - `POST /admin/refund` — admin-only refunds
 - **Shortcodes**:
-  - `[delopay_products columns="3" limit="24"]`
-  - `[delopay_product id="123"]` or `sku="…"`
+  - `[delopay_products columns="3" limit="24" excerpt_length="30"]`
+    (`excerpt_length` in words, `0` = full description)
+  - `[delopay_product id="123"]` or `sku="…"` (also takes `excerpt_length`)
   - `[delopay_checkout]` — reads `?product_id=…&quantity=…`, creates the
     order, embeds the iframe at `${checkout_origin}/pay/{merchant}/{payment}`
   - `[delopay_complete]` — reads `?order_id=…`, polls the REST endpoint,

@@ -4,7 +4,7 @@ Tags: payments, ecommerce, checkout, hosted-payment
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -13,6 +13,8 @@ Take online payments through DeloPay's hosted checkout. Manage products, orders 
 == Description ==
 
 DeloPay turns your site into a merchant storefront. Shoppers complete payment inside an iframe served by DeloPay, so card data never reaches your server.
+
+**Licensing note:** only this plugin — the WordPress integration code — is open source (MIT), as required for everything hosted in the WordPress.org directory. The DeloPay platform itself (the payment service, hosted checkout and APIs it connects to) is a proprietary commercial service operated by DeloPay and is not open source. A DeloPay merchant account is required.
 
 = Why DeloPay =
 
@@ -72,8 +74,8 @@ By activating and connecting this plugin you acknowledge that order, product and
 
 == Shortcodes ==
 
-* `[delopay_products limit="24" columns="3" category="home"]` — product grid (filter optional).
-* `[delopay_product id="123"]` — single product card.
+* `[delopay_products limit="24" columns="3" category="home" excerpt_length="30"]` — product grid (filter optional; `excerpt_length` is in words, `0` shows the full description).
+* `[delopay_product id="123" excerpt_length="30"]` — single product card.
 * `[delopay_categories]` — index of all active categories.
 * `[delopay_category_hero category="<slug>"]` — eyebrow / title / subtitle hero for a category page (auto-injected into seeded category pages; falls back to a spacing-only block when the hero is empty).
 * `[delopay_cart]` — shopper's cart with line items, subtotal and a checkout button.
@@ -81,6 +83,9 @@ By activating and connecting this plugin you acknowledge that order, product and
 * `[delopay_complete]` — post-payment status page.
 
 == Changelog ==
+
+= 1.0.1 =
+* New `excerpt_length` attribute on `[delopay_products]` and `[delopay_product]` — number of words to show in the product card description; `0` shows the full untruncated description.
 
 = 1.0.0 =
 * Initial release.

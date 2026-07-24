@@ -8,6 +8,8 @@ class Delopay_Shortcodes {
 
 	const PAGE_CACHE_GROUP = 'delopay_pages';
 
+	const DEFAULT_EXCERPT_LENGTH = 30;
+
 	private static $shortcodes = array(
 		'delopay_products'      => 'products',
 		'delopay_product'       => 'product',
@@ -64,9 +66,10 @@ class Delopay_Shortcodes {
 		$this->ensure_assets();
 		$atts = shortcode_atts(
 			array(
-				'limit'    => 24,
-				'columns'  => 3,
-				'category' => '',
+				'limit'          => 24,
+				'columns'        => 3,
+				'category'       => '',
+				'excerpt_length' => self::DEFAULT_EXCERPT_LENGTH,
 			),
 			$atts,
 			'delopay_products'
@@ -82,12 +85,12 @@ class Delopay_Shortcodes {
 
 		return $this->render(
 			function () use ( $products, $atts, $category_filter ) {
-				$this->render_product_grid( $products, (int) $atts['columns'], $category_filter );
+				$this->render_product_grid( $products, (int) $atts['columns'], $category_filter, (int) $atts['excerpt_length'] );
 			}
 		);
 	}
 
-	private function render_product_grid( array $products, $columns, $category_filter ) {
+	private function render_product_grid( array $products, $columns, $category_filter, int $excerpt_length = self::DEFAULT_EXCERPT_LENGTH ) {
 		$grid_class = 'delopay-grid' . ( null !== $category_filter ? ' delopay-grid-category' : '' );
 		?>
 		<div class="<?php echo esc_attr( $grid_class ); ?>"
@@ -99,7 +102,7 @@ class Delopay_Shortcodes {
 			<?php foreach ( $products as $product ) : ?>
 				<?php
 				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- render_card emits pre-escaped HTML.
-				echo $this->render_card( $product );
+				echo $this->render_card( $product, $excerpt_length );
 				?>
 			<?php endforeach; ?>
 		</div>
@@ -207,8 +210,9 @@ class Delopay_Shortcodes {
 		$this->ensure_assets();
 		$atts = shortcode_atts(
 			array(
-				'id'  => 0,
-				'sku' => '',
+				'id'             => 0,
+				'sku'            => '',
+				'excerpt_length' => self::DEFAULT_EXCERPT_LENGTH,
 			),
 			$atts,
 			'delopay_product'
@@ -224,7 +228,7 @@ class Delopay_Shortcodes {
 			return self::empty_state( __( 'Product not found.', 'delopay' ) );
 		}
 
-		return '<div class="delopay-grid delopay-grid-single">' . $this->render_card( $product ) . '</div>';
+		return '<div class="delopay-grid delopay-grid-single">' . $this->render_card( $product, (int) $atts['excerpt_length'] ) . '</div>';
 	}
 
 	public function cart( $atts ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found -- WP shortcode callback signature.
@@ -453,9 +457,24 @@ class Delopay_Shortcodes {
 		<?php
 	}
 
-	private function render_card( $product ) {
+	/**
+	 * Trim the product description to a word count; 0 or less means the full text.
+	 *
+	 * @param array<string, mixed> $product        Hydrated product row.
+	 * @param int                  $excerpt_length Maximum number of words.
+	 */
+	private static function product_excerpt( array $product, int $excerpt_length ): string {
+		$text = wp_strip_all_tags( (string) $product['description'] );
+		if ( $excerpt_length <= 0 ) {
+			return $text;
+		}
+		return wp_trim_words( $text, $excerpt_length, '…' );
+	}
+
+	private function render_card( $product, int $excerpt_length = self::DEFAULT_EXCERPT_LENGTH ) {
+		$excerpt = self::product_excerpt( $product, $excerpt_length );
 		return $this->render(
-			function () use ( $product ) {
+			function () use ( $product, $excerpt ) {
 				?>
 			<article class="delopay-product" data-product-id="<?php echo esc_attr( $product['id'] ); ?>">
 				<div class="delopay-product-image">
@@ -465,8 +484,8 @@ class Delopay_Shortcodes {
 				</div>
 				<div class="delopay-product-body">
 					<h2 class="delopay-product-name"><?php echo esc_html( $product['name'] ); ?></h2>
-					<?php if ( $product['excerpt'] ) : ?>
-						<p class="delopay-product-excerpt"><?php echo esc_html( $product['excerpt'] ); ?></p>
+					<?php if ( $excerpt ) : ?>
+						<p class="delopay-product-excerpt"><?php echo esc_html( $excerpt ); ?></p>
 					<?php endif; ?>
 					<div class="delopay-product-row">
 						<span class="delopay-product-price">
