@@ -4,7 +4,7 @@ Tags: payments, ecommerce, checkout, hosted-payment
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -83,6 +83,14 @@ By activating and connecting this plugin you acknowledge that order, product and
 * `[delopay_complete]` — post-payment status page.
 
 == Changelog ==
+
+= 1.1.0 =
+* Checkout metadata on products and categories — key/value pairs sent with the payment when that product is bought. A category's pairs apply to every product in it; a product's own keys win on collision.
+* Use them with DeloPay's checkout custom-field rules to show a field only for certain products: give a product `product_type` = `spotify`, then set the account-login fields to appear only when that matches. Previously every buyer saw every custom field.
+* Product SKUs, ids, category slugs and item count are now always sent as payment metadata, so rules work without configuring anything by hand.
+* Reserved keys (`order_id`, `site_url`, and the automatic ones above) can no longer be overwritten by product or category metadata.
+* Checkout metadata is included in product export/import, so a transferred catalog keeps working against the same rules.
+* Fix: database schema upgrades now run on plugin update. Previously they only ran on activation, so a new column never reached an already-active install.
 
 = 1.0.1 =
 * New `excerpt_length` attribute on `[delopay_products]` and `[delopay_product]` — number of words to show in the product card description; `0` shows the full untruncated description.

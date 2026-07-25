@@ -111,6 +111,9 @@ class Delopay_Admin_Handlers {
 			'image_url'        => $p['image_url'],
 			'category_slug'    => (string) ( $p['category_slug'] ?? '' ),
 			'creem_product_id' => (string) ( $p['creem_product_id'] ?? '' ),
+			// Checkout metadata round-trips so an exported catalog keeps
+			// working against the shop's custom-field rules.
+			'metadata'         => is_array( $p['metadata'] ?? null ) ? $p['metadata'] : array(),
 		);
 	}
 
@@ -121,6 +124,7 @@ class Delopay_Admin_Handlers {
 			'description' => $c['description'],
 			'status'      => $c['status'],
 			'sort_order'  => (int) $c['sort_order'],
+			'metadata'    => is_array( $c['metadata'] ?? null ) ? $c['metadata'] : array(),
 		);
 	}
 

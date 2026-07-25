@@ -42,6 +42,12 @@ class Delopay_Plugin {
 		add_filter( 'cron_schedules', array( $this, 'register_cron_schedule' ) ); // phpcs:ignore WordPress.WP.CronInterval.ChangeDetected
 		add_action( self::RECONCILE_HOOK, array( 'Delopay_Orders', 'reconcile_pending_refunds' ) );
 		add_action( 'init', array( $this, 'maybe_schedule_reconciliation' ) );
+
+		// A plugin update that adds a column never re-runs the activation
+		// hook, so bring the schema forward on the first admin request after
+		// an upgrade. Guarded by a stored revision — normally a single
+		// get_option().
+		add_action( 'admin_init', array( 'Delopay_Orders', 'maybe_upgrade_schema' ) );
 	}
 
 	public function register_cron_schedule( $schedules ) {

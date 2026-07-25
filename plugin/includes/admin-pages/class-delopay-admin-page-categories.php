@@ -184,6 +184,7 @@ class Delopay_Admin_Page_Categories extends Delopay_Admin_Page {
 			'hero_subtitle' => $is_new ? '' : (string) ( $category['hero_subtitle'] ?? '' ),
 			'status'        => $is_new ? 'active' : $category['status'],
 			'sort_order'    => $is_new ? 0 : (int) $category['sort_order'],
+			'metadata'      => $is_new || ! is_array( $category['metadata'] ?? null ) ? array() : $category['metadata'],
 		);
 	}
 
@@ -234,6 +235,18 @@ class Delopay_Admin_Page_Categories extends Delopay_Admin_Page {
 						<label for="delopay-cat-hero-subtitle"><?php esc_html_e( 'Subtitle', 'delopay' ); ?></label>
 						<textarea id="delopay-cat-hero-subtitle" name="hero_subtitle" rows="3"><?php echo esc_textarea( $data['hero_subtitle'] ); ?></textarea>
 					</div>
+				</div>
+				<div class="delopay-section">
+					<h3 class="delopay-section-title"><?php esc_html_e( 'Checkout metadata', 'delopay' ); ?></h3>
+					<p class="delopay-help">
+						<?php esc_html_e( 'Sent with the payment for every product in this category. Use it in DeloPay → Shop → Checkout → Custom fields to show a checkout field only for certain categories.', 'delopay' ); ?>
+					</p>
+					<?php
+					Delopay_Admin_UI::metadata_repeater(
+						$data['metadata'],
+						__( 'A product can add its own keys, and overrides these on collision.', 'delopay' )
+					);
+					?>
 				</div>
 				<div class="delopay-section">
 					<h3 class="delopay-section-title"><?php esc_html_e( 'Layout', 'delopay' ); ?></h3>

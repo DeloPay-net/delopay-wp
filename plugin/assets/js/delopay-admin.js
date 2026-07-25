@@ -41,7 +41,46 @@
 		initRefundForms();
 		initCaptureControls();
 		initColorSwatches();
+		initMetadataRepeaters();
 	});
+
+	// Checkout-metadata key/value repeater on the product and category forms.
+	// Rows post as parallel metadata_keys[] / metadata_values[] arrays; the
+	// server drops blank-key rows, so removal without JS works too (clear the
+	// key and save).
+	function initMetadataRepeaters() {
+		document.querySelectorAll('[data-delopay-metadata]').forEach(initMetadataRepeater);
+	}
+
+	function initMetadataRepeater(root) {
+		const rows = root.querySelector('[data-delopay-metadata-rows]');
+		const add  = root.querySelector('.delopay-metadata-add');
+		if (!rows || !add) return;
+
+		add.addEventListener('click', () => {
+			const last = rows.lastElementChild;
+			if (!last) return;
+			const clone = last.cloneNode(true);
+			clone.querySelectorAll('input').forEach((input) => { input.value = ''; });
+			rows.appendChild(clone);
+			const key = clone.querySelector('.delopay-metadata-key');
+			if (key) key.focus();
+		});
+
+		rows.addEventListener('click', (e) => {
+			const btn = e.target.closest('.delopay-metadata-remove');
+			if (!btn) return;
+			const row = btn.closest('.delopay-metadata-row');
+			if (!row) return;
+			// Never leave the control with zero rows — blank the last one
+			// instead so there is always something to type into.
+			if (rows.children.length === 1) {
+				row.querySelectorAll('input').forEach((input) => { input.value = ''; });
+				return;
+			}
+			row.remove();
+		});
+	}
 
 	function initColorSwatches() {
 		document.querySelectorAll('.delopay-color-input').forEach((input) => {

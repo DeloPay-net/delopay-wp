@@ -282,6 +282,7 @@ class Delopay_Admin_Page_Products extends Delopay_Admin_Page {
 			'sort_order'         => $is_new ? 0 : (int) $product['sort_order'],
 			'category_id'        => $is_new ? 0 : (int) ( $product['category_id'] ?? 0 ),
 			'creem_product_id'   => $is_new ? '' : (string) ( $product['creem_product_id'] ?? '' ),
+			'metadata'           => $is_new || ! is_array( $product['metadata'] ?? null ) ? array() : $product['metadata'],
 		);
 	}
 
@@ -371,6 +372,19 @@ class Delopay_Admin_Page_Products extends Delopay_Admin_Page {
 					<p class="delopay-help">
 						<?php esc_html_e( 'Only needed if this product is paid through Creem. Paste the matching Creem product id; it is sent with the payment so Creem charges that product. A single-product order forwards this automatically.', 'delopay' ); ?>
 					</p>
+				</div>
+
+				<div class="delopay-section">
+					<h3 class="delopay-section-title"><?php esc_html_e( 'Checkout metadata', 'delopay' ); ?></h3>
+					<p class="delopay-help">
+						<?php esc_html_e( 'Sent with the payment when this product is bought. Use it in DeloPay → Shop → Checkout → Custom fields to show a field only for certain products — for example a "product_type" of "spotify" that reveals the account-login fields.', 'delopay' ); ?>
+					</p>
+					<?php
+					Delopay_Admin_UI::metadata_repeater(
+						$data['metadata'],
+						__( 'The category\'s metadata is sent too; keys set here win. Product SKU, ids, category slugs and item count are always sent automatically.', 'delopay' )
+					);
+					?>
 				</div>
 			</div>
 		</div>

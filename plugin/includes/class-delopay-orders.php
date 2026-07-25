@@ -64,6 +64,28 @@ class Delopay_Orders {
 		return $wpdb->get_row( $wpdb->prepare( $sql, ...$args ), ARRAY_A );
 	}
 
+	/**
+	 * Option holding the schema revision the DB was last brought up to.
+	 * `install_schema()` only runs on activation, so a plugin update that
+	 * adds a column would otherwise never reach an already-active install —
+	 * `maybe_upgrade_schema()` closes that gap. Bump the constant whenever
+	 * the CREATE TABLE statements below change.
+	 */
+	const SCHEMA_OPTION  = 'delopay_schema_version';
+	const SCHEMA_VERSION = 2;
+
+	/**
+	 * Re-run dbDelta when the stored revision is behind. dbDelta is
+	 * idempotent (it diffs against the live table), so this is a cheap
+	 * no-op once the option is current.
+	 */
+	public static function maybe_upgrade_schema(): void {
+		if ( (int) get_option( self::SCHEMA_OPTION, 0 ) >= self::SCHEMA_VERSION ) {
+			return;
+		}
+		self::install_schema();
+	}
+
 	public static function install_schema() {
 		global $wpdb;
 		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
@@ -133,6 +155,7 @@ class Delopay_Orders {
 			sort_order INT NOT NULL DEFAULT 0,
 			category_id BIGINT UNSIGNED DEFAULT NULL,
 			creem_product_id VARCHAR(128) DEFAULT NULL,
+			metadata LONGTEXT DEFAULT NULL,
 			created_at DATETIME NOT NULL,
 			updated_at DATETIME NOT NULL,
 			PRIMARY KEY (id),
@@ -154,6 +177,7 @@ class Delopay_Orders {
 			hero_subtitle TEXT DEFAULT NULL,
 			status VARCHAR(16) NOT NULL DEFAULT 'active',
 			sort_order INT NOT NULL DEFAULT 0,
+			metadata LONGTEXT DEFAULT NULL,
 			created_at DATETIME NOT NULL,
 			updated_at DATETIME NOT NULL,
 			PRIMARY KEY (id),
@@ -162,6 +186,11 @@ class Delopay_Orders {
 			KEY sort_order (sort_order)
 		) {$charset_collate};"
 		);
+
+		// Autoloaded: `maybe_upgrade_schema()` reads it on every admin request,
+		// so keeping it in the alloptions cache avoids a query per request on
+		// sites without a persistent object cache.
+		update_option( self::SCHEMA_OPTION, self::SCHEMA_VERSION, true );
 	}
 
 	public static function new_order_id() {

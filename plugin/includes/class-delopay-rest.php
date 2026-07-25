@@ -262,10 +262,9 @@ class Delopay_REST {
 				'amount_minor' => $validated['amount_minor'],
 				'currency'     => $validated['currency'],
 				'lines'        => $validated['lines'],
-				'metadata'     => array(
-					'order_id' => $order_id,
-					'site_url' => home_url( '/' ),
-				),
+				// Same map the payment gets, so the local order record shows
+				// what the checkout rules were actually evaluated against.
+				'metadata'     => $this->build_checkout_metadata( $order_id, $validated['lines'] ),
 				'return_url'   => $return_url,
 			)
 		);
@@ -412,9 +411,17 @@ class Delopay_REST {
 		return array(
 			'product_id'       => $product['id'],
 			'product_name'     => $product['name'],
+			'product_sku'      => (string) ( $product['sku'] ?? '' ),
 			'quantity'         => $qty,
 			'unit_price_minor' => (int) $product['price_minor'],
 			'creem_product_id' => (string) ( $product['creem_product_id'] ?? '' ),
+			'category_slug'    => (string) ( $product['category_slug'] ?? '' ),
+			// Checkout metadata, category first so the product's own keys
+			// win — see build_checkout_metadata().
+			'metadata'         => array_merge(
+				is_array( $product['category_metadata'] ?? null ) ? $product['category_metadata'] : array(),
+				is_array( $product['metadata'] ?? null ) ? $product['metadata'] : array()
+			),
 			'_currency'        => $product['currency'],
 		);
 	}
@@ -482,17 +489,14 @@ class Delopay_REST {
 			$validated['lines']
 		);
 
-		$metadata = array(
-			'order_id' => $order_id,
-			'site_url' => home_url( '/' ),
-		);
+		$lines    = $validated['lines'];
+		$metadata = $this->build_checkout_metadata( $order_id, $lines );
 
 		// Creem's hosted checkout is anchored to a single dashboard product, so
 		// forward `creem_product_id` only for a single-line order — a mixed cart
 		// can't map to one Creem product. The Delopay backend reads this from the
 		// payment metadata first (per-product override), then falls back to the
 		// connector-account default. No effect for non-Creem connectors.
-		$lines = $validated['lines'];
 		if ( 1 === count( $lines ) && ! empty( $lines[0]['creem_product_id'] ) ) {
 			$metadata['creem_product_id'] = (string) $lines[0]['creem_product_id'];
 		}
@@ -514,6 +518,77 @@ class Delopay_REST {
 			'metadata'                    => $metadata,
 			'merchant_order_reference_id' => $order_id,
 		);
+	}
+
+	/**
+	 * Metadata sent with the payment.
+	 *
+	 * Three layers, later wins:
+	 *
+	 *  1. merchant-defined per-category and per-product pairs (already
+	 *     merged per line in validate_one_line());
+	 *  2. keys the plugin derives from the cart itself — so a shop gets
+	 *     usable checkout rules without configuring anything;
+	 *  3. the reserved order keys, which nothing may override because the
+	 *     webhook join depends on `order_id`.
+	 *
+	 * Derived list keys are comma-joined and deduplicated, which is the shape
+	 * DeloPay's rule operators (`contains`, `is one of`) read.
+	 *
+	 * @param string                   $order_id Minted order id.
+	 * @param array<int, array<mixed>> $lines    Validated line items.
+	 * @return array<string, string>
+	 */
+	private function build_checkout_metadata( $order_id, array $lines ) {
+		$metadata = array();
+		foreach ( $lines as $line ) {
+			if ( ! empty( $line['metadata'] ) && is_array( $line['metadata'] ) ) {
+				// A mixed cart merges in line order: the last product that
+				// sets a key wins. Single-product orders — the case the rule
+				// builder is aimed at — are unambiguous.
+				$metadata = array_merge( $metadata, $line['metadata'] );
+			}
+		}
+
+		$metadata = array_merge(
+			$metadata,
+			array(
+				'product_skus'   => self::join_unique( wp_list_pluck( $lines, 'product_sku' ) ),
+				'product_ids'    => self::join_unique( wp_list_pluck( $lines, 'product_id' ) ),
+				'category_slugs' => self::join_unique( wp_list_pluck( $lines, 'category_slug' ) ),
+				'item_count'     => (string) array_sum( wp_list_pluck( $lines, 'quantity' ) ),
+			)
+		);
+
+		// Drop derived keys that resolved to nothing (a catalog with no SKUs
+		// or no categories) so `is not set` rules stay meaningful.
+		$metadata = array_filter(
+			$metadata,
+			static function ( $value ) {
+				return '' !== (string) $value;
+			}
+		);
+
+		$metadata['order_id'] = $order_id;
+		$metadata['site_url'] = home_url( '/' );
+
+		return $metadata;
+	}
+
+	/**
+	 * Comma-join non-empty values, keeping first occurrence order.
+	 *
+	 * @param array<int, mixed> $values Raw values.
+	 */
+	private static function join_unique( array $values ): string {
+		$clean = array();
+		foreach ( $values as $value ) {
+			$value = trim( (string) $value );
+			if ( '' !== $value && ! in_array( $value, $clean, true ) ) {
+				$clean[] = $value;
+			}
+		}
+		return implode( ',', $clean );
 	}
 
 	public function get_order( WP_REST_Request $request ) {
