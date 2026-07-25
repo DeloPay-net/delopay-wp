@@ -50,6 +50,14 @@ DeloPay is a composable payments orchestrator that connects to multiple payment 
 * PHP 7.4+ (the version-floor headers above cover the rest).
 * HTTPS on the front-end (required for the hosted checkout iframe to embed).
 
+= Wallets in the embedded checkout =
+
+Stripe only offers Apple Pay, Google Pay and Link when the *top-level* page's domain is registered as a payment method domain on your Stripe account. The plugin renders the checkout in an iframe, so that top-level page is your WordPress site — and Stripe hides those wallets without an error.
+
+Turn the affected methods into **native panes** on your Stripe connector in the DeloPay dashboard (Connectors → Stripe → Native payment panes). The checkout then draws its own tile for each; clicking a tile opens the DeloPay checkout in a new tab, at the top level, showing only that method. The same mechanism works for non-wallet methods such as Klarna and iDEAL.
+
+The iframe this plugin renders already supports it: it carries `allow="payment *"` and no `sandbox` attribute, so the new tab is permitted. If your theme or a page builder wraps `[delopay_checkout]` in its own sandboxed frame, that frame must include `allow-popups`, `allow-popups-to-escape-sandbox` and `allow-top-navigation-by-user-activation` — the first two so the tab opens at all, the last one because redirect methods such as PayPal and Klarna hand off with a top-level navigation. An incomplete sandbox blocks the tab and shoppers get a fallback link instead of a working tile.
+
 == External services ==
 
 This plugin connects to the DeloPay payment platform (https://delopay.net) so the site can accept payments and stay in sync with the merchant catalog. Specifically:

@@ -56,6 +56,27 @@ Then activate from **Plugins** in the WP admin.
    `https://your-site.tld/wp-json/delopay/v1/webhook` and copy the
    matching webhook secret into the plugin Settings.
 
+## Wallets inside the checkout iframe
+
+The checkout renders in an iframe, and Stripe only offers Apple Pay / Google Pay
+/ Link when the **top-level** page's domain is a registered payment method
+domain — which, inside an iframe, is this WordPress site rather than the DeloPay
+checkout. Stripe hides them with no error.
+
+Fix it in the DeloPay dashboard, not here: mark those methods as **native panes**
+on the Stripe connector (Connectors → Stripe → Native payment panes). The
+checkout then draws its own tile and opens a focused single-method checkout in a
+new tab, at the top level. Works the same for Klarna, iDEAL and the other
+redirect methods.
+
+The iframe rendered by `class-delopay-shortcodes.php` already permits that tab:
+`allow="payment *"` and **no `sandbox` attribute**. Keep it that way — adding a
+`sandbox` is what breaks this. If you must have one, it needs `allow-popups`
+and `allow-popups-to-escape-sandbox` (so the tab opens) plus
+`allow-top-navigation-by-user-activation` (so redirect methods like PayPal and
+Klarna can still hand off). An incomplete set blocks the tab, and shoppers get a
+fallback link instead of a working tile.
+
 ## Why this layout
 
 Same reasoning as the demo:
