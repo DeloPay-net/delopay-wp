@@ -4,7 +4,7 @@ Tags: payments, ecommerce, checkout, hosted-payment
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -83,6 +83,12 @@ By activating and connecting this plugin you acknowledge that order, product and
 * `[delopay_complete]` — post-payment status page.
 
 == Changelog ==
+
+= 1.2.0 =
+* New **Test mode** setting. Every order is sent to DeloPay as a test payment: it runs against your payment processors' sandbox and stays out of your live transactions and analytics. Previously the only way to test was to switch each processor into test mode in the DeloPay dashboard and remember to switch it back.
+* A warning appears on every admin screen while test mode is on, because a store left in it takes orders that never get paid.
+* Off by default, and updating the plugin never changes what your store does today.
+* Note: a processor with no sandbox credentials stored in DeloPay is used with its live credentials, so it will charge for real even in test mode. Add sandbox credentials for the processors that offer them.
 
 = 1.1.0 =
 * Checkout metadata on products and categories — key/value pairs sent with the payment when that product is bought. A category's pairs apply to every product in it; a product's own keys win on collision.
