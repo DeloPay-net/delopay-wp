@@ -66,6 +66,7 @@ class Delopay_Settings {
 		'control_center_url' => 'https://dashboard.delopay.net',
 		'currency'           => 'USD',
 		'capture_method'     => 'automatic',
+		'test_mode'          => false,
 		'checkout_base_url'  => 'https://checkout.delopay.net',
 		'complete_page_id'   => 0,
 		'business_name'      => '',
@@ -156,6 +157,13 @@ class Delopay_Settings {
 			$capture               = sanitize_key( $input['capture_method'] );
 			$out['capture_method'] = 'manual' === $capture ? 'manual' : 'automatic';
 		}
+		// A checkbox posts nothing when unticked, so the hidden companion field
+		// below it is what distinguishes "unticked" from "this form doesn't carry
+		// the setting at all" — without it, saving any other section would clear
+		// test mode.
+		if ( isset( $input['test_mode_present'] ) ) {
+			$out['test_mode'] = ! empty( $input['test_mode'] );
+		}
 		if ( isset( $input['complete_page_id'] ) ) {
 			$out['complete_page_id'] = (int) $input['complete_page_id'];
 		}
@@ -233,6 +241,17 @@ class Delopay_Settings {
 	public static function cart_checkout_mode() {
 		$mode = (string) self::get( 'cart_checkout_mode' );
 		return in_array( $mode, array( 'both', 'embedded', 'external' ), true ) ? $mode : 'both';
+	}
+
+	/**
+	 * Whether this store sends `test_mode: true` with every payment it creates.
+	 *
+	 * Off by default and never inferred: the payment's own flag decides the
+	 * environment, and a store that has not turned this on keeps whatever its
+	 * processors are configured to do.
+	 */
+	public static function test_mode(): bool {
+		return ! empty( self::get( 'test_mode' ) );
 	}
 
 	public static function get_environment() {

@@ -285,6 +285,10 @@ class Delopay_REST {
 				'payment_id'  => $payment['payment_id'],
 				'merchant_id' => $payment['merchant_id'],
 				'status'      => $payment['status'] ?? Delopay_Orders::STATUS_DEFAULT,
+				// What DeloPay says the environment is, which can differ from
+				// what this store asked for — a processor still carrying the
+				// account-level test-mode toggle makes every payment a test.
+				'test_mode'   => $payment['test_mode'] ?? null,
 			)
 		);
 		if ( ! $order ) {
@@ -501,7 +505,7 @@ class Delopay_REST {
 			$metadata['creem_product_id'] = (string) $lines[0]['creem_product_id'];
 		}
 
-		return array(
+		$params = array(
 			'amount'                      => $validated['amount_minor'],
 			'currency'                    => $validated['currency'],
 			'confirm'                     => false,
@@ -518,6 +522,16 @@ class Delopay_REST {
 			'metadata'                    => $metadata,
 			'merchant_order_reference_id' => $order_id,
 		);
+
+		// Only sent when the store turned test mode on. Omitting it leaves the
+		// environment to the processor's own setting, which is how every store
+		// running an older plugin behaves — a plugin update must never move a
+		// live store into (or out of) test mode on its own.
+		if ( Delopay_Settings::test_mode() ) {
+			$params['test_mode'] = true;
+		}
+
+		return $params;
 	}
 
 	/**
