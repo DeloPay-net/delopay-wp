@@ -62,6 +62,7 @@ class Delopay_Admin_Page_Orders extends Delopay_Admin_Page {
 				<tr>
 					<td>
 						<a href="<?php echo esc_url( $detail ); ?>"><code><?php echo esc_html( $o['order_id'] ); ?></code></a>
+						<?php self::test_mode_badge( $o ); ?>
 						<br><small><?php echo esc_html( $o['payment_id'] ); ?></small>
 					</td>
 					<td><?php echo esc_html( $o['created_at'] ); ?></td>
@@ -101,6 +102,10 @@ class Delopay_Admin_Page_Orders extends Delopay_Admin_Page {
 			<table class="form-table">
 				<tr><th><?php esc_html_e( 'Payment ID', 'delopay' ); ?></th><td><code><?php echo esc_html( $order['payment_id'] ); ?></code></td></tr>
 				<tr><th><?php esc_html_e( 'Status', 'delopay' ); ?></th><td><?php Delopay_Admin_UI::status_badge( $order['status'] ); ?></td></tr>
+				<tr>
+					<th><?php esc_html_e( 'Environment', 'delopay' ); ?></th>
+					<td><?php self::render_environment_cell( $order ); ?></td>
+				</tr>
 				<tr><th><?php esc_html_e( 'Amount', 'delopay' ); ?></th><td><?php echo esc_html( Delopay_Admin_UI::format_money( $order['amount_minor'], $currency ) ); ?></td></tr>
 				<tr><th><?php esc_html_e( 'Refunded', 'delopay' ); ?></th><td><?php echo esc_html( Delopay_Admin_UI::format_money( $refunded_total, $currency ) ); ?></td></tr>
 				<tr><th><?php esc_html_e( 'Created', 'delopay' ); ?></th><td><?php echo esc_html( $order['created_at'] ); ?></td></tr>
@@ -125,6 +130,57 @@ class Delopay_Admin_Page_Orders extends Delopay_Admin_Page {
 			<?php endif; ?>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Amber "Test" chip for a test order, nothing for a live one, and nothing for
+	 * an order whose environment was never recorded.
+	 *
+	 * The three-way distinction is the point: `null` means the order predates the
+	 * column (or came from a backend that did not return the field), and marking
+	 * it "Live" would be a claim about someone's books that nothing here can
+	 * support. Silence is the honest answer — the detail view spells it out.
+	 *
+	 * @param array<string, mixed> $order Hydrated order row.
+	 */
+	private static function test_mode_badge( array $order ): void {
+		if ( true !== ( $order['test_mode'] ?? null ) ) {
+			return;
+		}
+		printf(
+			'<span class="delopay-status delopay-status-requires_payment_method" title="%s">%s</span>',
+			esc_attr__( 'Processed against your payment provider\'s sandbox. No real money moved.', 'delopay' ),
+			esc_html__( 'Test', 'delopay' )
+		);
+	}
+
+	/**
+	 * The Environment row on the order detail. Says all three answers out loud,
+	 * because this is the screen a merchant reconciles against.
+	 *
+	 * @param array<string, mixed> $order Hydrated order row.
+	 */
+	private static function render_environment_cell( array $order ): void {
+		$test_mode = $order['test_mode'] ?? null;
+
+		if ( null === $test_mode ) {
+			echo '<span>' . esc_html__( 'Unknown', 'delopay' ) . '</span> ';
+			echo '<span class="description">'
+				. esc_html__( 'This order was placed before the plugin recorded which environment an order ran in. Check it in the DeloPay dashboard.', 'delopay' )
+				. '</span>';
+			return;
+		}
+
+		if ( $test_mode ) {
+			self::test_mode_badge( $order );
+			echo ' <span class="description">'
+				. esc_html__( 'Processed against your payment provider\'s sandbox — no real money moved. Excluded from live reporting in DeloPay.', 'delopay' )
+				. '</span>';
+			return;
+		}
+
+		echo '<span>' . esc_html__( 'Live', 'delopay' ) . '</span> ';
+		echo '<span class="description">' . esc_html__( 'A real payment.', 'delopay' ) . '</span>';
 	}
 
 	private function render_capture_controls( $order ) {

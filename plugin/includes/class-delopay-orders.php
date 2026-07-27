@@ -72,7 +72,7 @@ class Delopay_Orders {
 	 * the CREATE TABLE statements below change.
 	 */
 	const SCHEMA_OPTION  = 'delopay_schema_version';
-	const SCHEMA_VERSION = 2;
+	const SCHEMA_VERSION = 3;
 
 	/**
 	 * Re-run dbDelta when the stored revision is behind. dbDelta is
@@ -113,6 +113,7 @@ class Delopay_Orders {
 			created_at DATETIME NOT NULL,
 			updated_at DATETIME NOT NULL,
 			last_webhook_at DATETIME DEFAULT NULL,
+			test_mode TINYINT(1) DEFAULT NULL,
 			PRIMARY KEY (id),
 			UNIQUE KEY order_id (order_id),
 			KEY payment_id (payment_id),
@@ -232,6 +233,14 @@ class Delopay_Orders {
 			'created_at'      => $now,
 			'updated_at'      => $now,
 			'last_webhook_at' => null,
+			// The environment this order was created in, recorded per order
+			// rather than read from the store setting at display time. The
+			// setting is a switch a merchant flips; an order is a historical
+			// fact. Reading the switch later would relabel every past order
+			// with today's answer, which is the bookkeeping bug this column
+			// exists to prevent. Overwritten by DeloPay's own answer once the
+			// payment comes back — see attach_payment().
+			'test_mode'       => Delopay_Settings::test_mode() ? 1 : 0,
 		);
 	}
 
@@ -252,6 +261,15 @@ class Delopay_Orders {
 
 		if ( ! self::is_terminal( $current['status'] ) ) {
 			$update['status'] = (string) ( $data['status'] ?? self::STATUS_DEFAULT );
+		}
+
+		// DeloPay's answer beats ours. We record what the store *asked for* at
+		// insert; this is what actually happened — which differs when the
+		// processor itself still carries the deprecated account-level test-mode
+		// toggle, in which case a store that asked for nothing still gets a test
+		// payment. Absent on older backends, which leaves our value standing.
+		if ( null !== ( $data['test_mode'] ?? null ) ) {
+			$update['test_mode'] = $data['test_mode'] ? 1 : 0;
 		}
 
 		$wpdb->update( $table, $update, array( 'order_id' => $data['order_id'] ) );
@@ -291,7 +309,12 @@ class Delopay_Orders {
 		return in_array( (string) $status, self::terminal_statuses(), true );
 	}
 
-	public static function update_status( $payment_id, $status, $error_code = null, $error_message = null, $is_webhook = false, $reference_id = null ) {
+	/**
+	 * @param bool|null $test_mode DeloPay's answer for the environment, when the
+	 *                             event carried one. `null` leaves any recorded
+	 *                             value alone.
+	 */
+	public static function update_status( $payment_id, $status, $error_code = null, $error_message = null, $is_webhook = false, $reference_id = null, ?bool $test_mode = null ) {
 		global $wpdb;
 		$table = self::table_orders();
 
@@ -331,6 +354,13 @@ class Delopay_Orders {
 		}
 		if ( '' === (string) $current['payment_id'] && '' !== (string) $payment_id ) {
 			$update['payment_id'] = (string) $payment_id;
+		}
+		// Fills the environment in for an order that never learned it — one
+		// created before this column existed, or one whose create response
+		// predates the field. DeloPay is the authority; a webhook carrying it is
+		// as good an answer as the create response.
+		if ( null !== $test_mode ) {
+			$update['test_mode'] = $test_mode ? 1 : 0;
 		}
 
 		$wpdb->update( $table, $update, array( 'id' => (int) $current['id'] ) );
@@ -517,6 +547,10 @@ class Delopay_Orders {
 		$row['lines']        = ! empty( $row['line_items'] ) ? json_decode( $row['line_items'], true ) : array();
 		unset( $row['line_items'] );
 		$row['metadata'] = $row['metadata'] ? json_decode( $row['metadata'], true ) : array();
+		// Nullable on purpose: orders created before this column existed have no
+		// recorded environment, and `null` says "unknown" where `false` would
+		// claim "live" about an order nothing here can vouch for.
+		$row['test_mode'] = isset( $row['test_mode'] ) ? (bool) $row['test_mode'] : null;
 		return $row;
 	}
 }

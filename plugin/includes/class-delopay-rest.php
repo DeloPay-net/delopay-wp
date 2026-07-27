@@ -285,6 +285,10 @@ class Delopay_REST {
 				'payment_id'  => $payment['payment_id'],
 				'merchant_id' => $payment['merchant_id'],
 				'status'      => $payment['status'] ?? Delopay_Orders::STATUS_DEFAULT,
+				// What DeloPay says the environment is, which can differ from
+				// what this store asked for — a processor still carrying the
+				// account-level test-mode toggle makes every payment a test.
+				'test_mode'   => $payment['test_mode'] ?? null,
 			)
 		);
 		if ( ! $order ) {

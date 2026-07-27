@@ -4,13 +4,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP DeloPay\n"
 "Report-Msgid-Bugs-To: https://delopay.net\n"
-"POT-Creation-Date: 2026-07-26 20:25+0000\n"
+"POT-Creation-Date: 2026-07-27 05:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Domain: delopay\n"
 
-#: /plugin/includes/class-delopay-rest.php:477
+#: /plugin/includes/class-delopay-rest.php:481
 msgid "%1$s (admin: %2$s)"
 msgstr ""
 
@@ -63,6 +63,10 @@ msgstr ""
 
 #: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:247
 msgid "A product can add its own keys, and overrides these on collision."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:183
+msgid "A real payment."
 msgstr ""
 
 #: /plugin/includes/class-delopay-plugin.php:198
@@ -174,7 +178,7 @@ msgstr ""
 msgid "All disputes"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:99
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:100
 msgid "All orders"
 msgstr ""
 
@@ -184,14 +188,22 @@ msgid "All products"
 msgstr ""
 
 #: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:49
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:104
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:181
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:109
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:237
 #: /plugin/includes/admin-pages/class-delopay-admin-page-disputes.php:62
 msgid "Amount"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:210
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:266
 msgid "Amount (decimal):"
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin-handlers.php:277
+msgid "An entry in \"categories\" is not an object."
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin-handlers.php:310
+msgid "An entry in \"products\" is not an object."
 msgstr ""
 
 #: /plugin/includes/class-delopay-plugin-details.php:166
@@ -251,7 +263,7 @@ msgstr ""
 msgid "Cancel failed: "
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:138
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:194
 msgid "Cancel payment"
 msgstr ""
 
@@ -269,11 +281,11 @@ msgid_plural "Cannot delete: %d products still use this category. Reassign them 
 msgstr[0] ""
 msgstr[1] ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:137
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:193
 msgid "Capture"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:132
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:188
 msgid "Capture / Cancel"
 msgstr ""
 
@@ -463,11 +475,15 @@ msgstr ""
 msgid "Could not load your cart."
 msgstr ""
 
+#: /plugin/includes/class-delopay-admin-handlers.php:288
+msgid "Could not save category."
+msgstr ""
+
 #: /plugin/includes/class-delopay-plugin.php:138
 msgid "Could not start payment."
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:446
+#: /plugin/includes/class-delopay-rest.php:450
 msgid "Could not start payment. Please try again."
 msgstr ""
 
@@ -492,7 +508,7 @@ msgid "Create product"
 msgstr ""
 
 #: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:48
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:106
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:111
 #: /plugin/includes/admin-pages/class-delopay-admin-page-disputes.php:65
 msgid "Created"
 msgstr ""
@@ -584,7 +600,7 @@ msgstr ""
 msgid "DeloPay Settings"
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:770
+#: /plugin/includes/class-delopay-rest.php:774
 msgid "DeloPay accepted the refund but returned no refund_id; not recorded locally. Reconcile manually from the DeloPay dashboard."
 msgstr ""
 
@@ -617,7 +633,7 @@ msgstr ""
 msgid "DeloPay rejected the credentials returned by the control center. Please retry the Connect flow."
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:461
+#: /plugin/includes/class-delopay-rest.php:465
 msgid "DeloPay response missing payment_id/merchant_id"
 msgstr ""
 
@@ -689,12 +705,13 @@ msgstr ""
 msgid "Embedded sends the buyer to your [delopay_checkout] page with the iframe. External redirects straight to DeloPay's hosted checkout. When only one is shown, it becomes the primary CTA."
 msgstr ""
 
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:106
 #: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:221
 #: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:226
 msgid "Environment"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:109
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:114
 msgid "Error"
 msgstr ""
 
@@ -714,11 +731,11 @@ msgstr ""
 msgid "Eyebrow / title / subtitle shown above the product grid on this category's page (via <code>[delopay_category_hero]</code>). Leave empty for a clean grid — the shortcode keeps the same vertical spacing either way."
 msgstr ""
 
-#: /plugin/includes/class-delopay-admin-handlers.php:207
+#: /plugin/includes/class-delopay-admin-handlers.php:216
 msgid "File is too large or empty (max %s)."
 msgstr ""
 
-#: /plugin/includes/class-delopay-admin-handlers.php:219
+#: /plugin/includes/class-delopay-admin-handlers.php:228
 msgid "File must be a .json export."
 msgstr ""
 
@@ -728,6 +745,10 @@ msgstr ""
 
 #: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:137
 msgid "Filter by category"
+msgstr ""
+
+#: /plugin/includes/class-delopay-admin-handlers.php:183
+msgid "First error: %s"
 msgstr ""
 
 #: /plugin/includes/class-delopay-plugin-details.php:95
@@ -818,7 +839,7 @@ msgstr ""
 msgid "Integration links"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:204
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:260
 msgid "Issue refund"
 msgstr ""
 
@@ -830,7 +851,7 @@ msgstr ""
 msgid "Key"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:107
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:112
 msgid "Last webhook"
 msgstr ""
 
@@ -850,8 +871,12 @@ msgstr ""
 msgid "Light mode colors"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:113
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:118
 msgid "Line items"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:182
+msgid "Live"
 msgstr ""
 
 #: /plugin/includes/class-delopay-shortcodes.php:256
@@ -942,7 +967,7 @@ msgstr ""
 msgid "No disputes."
 msgstr ""
 
-#: /plugin/includes/class-delopay-admin-handlers.php:198
+#: /plugin/includes/class-delopay-admin-handlers.php:207
 msgid "No file uploaded or upload failed."
 msgstr ""
 
@@ -975,7 +1000,7 @@ msgstr ""
 msgid "No products yet. Add your first one to start selling."
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:172
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:228
 msgid "No refunds yet."
 msgstr ""
 
@@ -995,7 +1020,7 @@ msgstr ""
 msgid "Only needed if this product is paid through Creem. Paste the matching Creem product id; it is sent with the payment so Creem charges that product. A single-product order forwards this automatically."
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:72
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:73
 #: /plugin/includes/admin-pages/class-delopay-admin-page-disputes.php:85
 msgid "Open"
 msgstr ""
@@ -1031,12 +1056,12 @@ msgid "Optional: add more categories under <strong>DeloPay → Categories</stron
 msgstr ""
 
 #: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:47
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:96
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:97
 #: /plugin/includes/class-delopay-shortcodes.php:443
 msgid "Order"
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:512
+#: /plugin/includes/class-delopay-rest.php:516
 msgid "Order %1$s on %2$s"
 msgstr ""
 
@@ -1044,7 +1069,7 @@ msgstr ""
 msgid "Order complete"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:83
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:84
 msgid "Order not found"
 msgstr ""
 
@@ -1100,7 +1125,7 @@ msgstr ""
 msgid "Payment"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:102
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:103
 msgid "Payment ID"
 msgstr ""
 
@@ -1159,7 +1184,15 @@ msgstr ""
 msgid "Proceed to external checkout"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:149
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:177
+msgid "Processed against your payment provider's sandbox — no real money moved. Excluded from live reporting in DeloPay."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:152
+msgid "Processed against your payment provider's sandbox. No real money moved."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:205
 #: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:294
 msgid "Product"
 msgstr ""
@@ -1216,7 +1249,7 @@ msgstr ""
 msgid "Publish"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:150
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:206
 msgid "Qty"
 msgstr ""
 
@@ -1224,11 +1257,11 @@ msgstr ""
 msgid "Read-only references you wire into the DeloPay control center."
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:183
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:239
 msgid "Reason"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:216
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:272
 msgid "Reason:"
 msgstr ""
 
@@ -1236,11 +1269,11 @@ msgstr ""
 msgid "Reconnect"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:223
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:279
 msgid "Refund"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:180
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:236
 msgid "Refund ID"
 msgstr ""
 
@@ -1257,7 +1290,7 @@ msgid "Refund this order? This cannot be undone."
 msgstr ""
 
 #: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:51
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:105
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:110
 msgid "Refunded"
 msgstr ""
 
@@ -1265,7 +1298,7 @@ msgstr ""
 msgid "Refunding…"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:120
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:125
 msgid "Refunds"
 msgstr ""
 
@@ -1425,8 +1458,8 @@ msgid "Standalone admin pages"
 msgstr ""
 
 #: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:50
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:103
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:182
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:104
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:238
 #: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:81
 #: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:273
 #: /plugin/includes/admin-pages/class-delopay-admin-page-disputes.php:64
@@ -1456,7 +1489,7 @@ msgstr ""
 msgid "Subtitle"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:152
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:208
 #: /plugin/includes/class-delopay-shortcodes.php:268
 msgid "Subtotal"
 msgstr ""
@@ -1471,6 +1504,10 @@ msgstr ""
 
 #: /plugin/includes/class-delopay-plugin-details.php:73
 msgid "Take online payments through DeloPay's hosted checkout. Manage products, orders and refunds from one admin panel without handling card data."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:153
+msgid "Test"
 msgstr ""
 
 #: /plugin/includes/admin-pages/class-delopay-admin-page-settings.php:305
@@ -1513,7 +1550,7 @@ msgstr ""
 msgid "The shop / business profile id (pro_…). Required if your account has more than one profile."
 msgstr ""
 
-#: /plugin/includes/class-delopay-admin-handlers.php:225
+#: /plugin/includes/class-delopay-admin-handlers.php:234
 msgid "The uploaded file is empty."
 msgstr ""
 
@@ -1521,7 +1558,11 @@ msgstr ""
 msgid "This endpoint requires a same-origin request with a valid REST nonce."
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:134
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:169
+msgid "This order was placed before the plugin recorded which environment an order ran in. Check it in the DeloPay dashboard."
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:190
 msgid "This payment is authorized but not yet captured. Capture to settle it, or cancel to release the authorization."
 msgstr ""
 
@@ -1548,11 +1589,15 @@ msgstr ""
 msgid "Uncategorized"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:151
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:207
 msgid "Unit price"
 msgstr ""
 
-#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:184
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:167
+msgid "Unknown"
+msgstr ""
+
+#: /plugin/includes/admin-pages/class-delopay-admin-page-orders.php:240
 #: /plugin/includes/admin-pages/class-delopay-admin-page-categories.php:82
 #: /plugin/includes/admin-pages/class-delopay-admin-page-products.php:169
 msgid "Updated"
@@ -1647,12 +1692,12 @@ msgstr ""
 msgid "all prices stored as integer minor units, formatted server-side in the buyer's locale."
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:661
-#: /plugin/includes/class-delopay-rest.php:692
+#: /plugin/includes/class-delopay-rest.php:665
+#: /plugin/includes/class-delopay-rest.php:696
 msgid "amount_minor must be a positive number"
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:666
+#: /plugin/includes/class-delopay-rest.php:670
 msgid "another refund is in progress for this order; try again in a moment"
 msgstr ""
 
@@ -1660,7 +1705,7 @@ msgstr ""
 msgid "auto-generated from name"
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:408
+#: /plugin/includes/class-delopay-rest.php:412
 msgid "cannot mix currencies in a single order"
 msgstr ""
 
@@ -1700,7 +1745,7 @@ msgstr ""
 msgid "failed to create local order"
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:292
+#: /plugin/includes/class-delopay-rest.php:296
 msgid "failed to finalize local order"
 msgstr ""
 
@@ -1720,7 +1765,7 @@ msgstr ""
 msgid "index of all active categories."
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:388
+#: /plugin/includes/class-delopay-rest.php:392
 msgid "invalid line item"
 msgstr ""
 
@@ -1732,15 +1777,15 @@ msgstr ""
 msgid "or paste image URL"
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:746
+#: /plugin/includes/class-delopay-rest.php:750
 msgid "order already fully refunded"
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:373
+#: /plugin/includes/class-delopay-rest.php:377
 msgid "order amount exceeds the per-order maximum"
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:370
+#: /plugin/includes/class-delopay-rest.php:374
 msgid "order amount must be greater than zero"
 msgstr ""
 
@@ -1748,10 +1793,10 @@ msgstr ""
 msgid "order creation + checkout iframe."
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:608
-#: /plugin/includes/class-delopay-rest.php:656
-#: /plugin/includes/class-delopay-rest.php:685
-#: /plugin/includes/class-delopay-rest.php:721
+#: /plugin/includes/class-delopay-rest.php:612
+#: /plugin/includes/class-delopay-rest.php:660
+#: /plugin/includes/class-delopay-rest.php:689
+#: /plugin/includes/class-delopay-rest.php:725
 msgid "order not found"
 msgstr ""
 
@@ -1775,7 +1820,7 @@ msgstr ""
 msgid "product grid (filter optional)."
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:328
+#: /plugin/includes/class-delopay-rest.php:332
 msgid "product_id (or sku) required"
 msgstr ""
 
@@ -1787,15 +1832,15 @@ msgstr ""
 msgid "published products"
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:393
+#: /plugin/includes/class-delopay-rest.php:397
 msgid "quantity exceeds max of %d"
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:841
+#: /plugin/includes/class-delopay-rest.php:845
 msgid "refund created at DeloPay but would over-refund locally; reconcile manually"
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:753
+#: /plugin/includes/class-delopay-rest.php:757
 msgid "refund exceeds remaining %d"
 msgstr ""
 
@@ -1819,11 +1864,11 @@ msgstr ""
 msgid "spotify"
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:343
+#: /plugin/includes/class-delopay-rest.php:347
 msgid "too many line items (max %d)"
 msgstr ""
 
-#: /plugin/includes/class-delopay-rest.php:402
+#: /plugin/includes/class-delopay-rest.php:406
 msgid "unknown product: %s"
 msgstr ""
 
