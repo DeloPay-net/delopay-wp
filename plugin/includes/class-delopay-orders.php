@@ -309,12 +309,9 @@ class Delopay_Orders {
 		return in_array( (string) $status, self::terminal_statuses(), true );
 	}
 
-	/**
-	 * @param bool|null $test_mode DeloPay's answer for the environment, when the
-	 *                             event carried one. `null` leaves any recorded
-	 *                             value alone.
-	 */
 	public static function update_status( $payment_id, $status, $error_code = null, $error_message = null, $is_webhook = false, $reference_id = null, ?bool $test_mode = null ) {
+		// $test_mode: DeloPay's answer for the environment when the event carried
+		// one; null leaves any recorded value alone.
 		global $wpdb;
 		$table = self::table_orders();
 
