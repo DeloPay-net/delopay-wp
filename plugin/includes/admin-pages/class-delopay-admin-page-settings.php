@@ -302,6 +302,24 @@ class Delopay_Admin_Page_Settings extends Delopay_Admin_Page {
 					</td>
 				</tr>
 				<tr>
+					<th><label for="delopay_test_mode"><?php esc_html_e( 'Test mode', 'delopay' ); ?></label></th>
+					<td>
+						<input type="hidden" name="<?php echo esc_attr( $option_key ); ?>[test_mode_present]" value="1">
+						<label>
+							<input type="checkbox" id="delopay_test_mode" value="1"
+								name="<?php echo esc_attr( $option_key ); ?>[test_mode]"
+								<?php checked( Delopay_Settings::test_mode() ); ?>>
+							<?php esc_html_e( 'Send every order as a test payment', 'delopay' ); ?>
+						</label>
+						<p class="description">
+							<?php esc_html_e( 'Orders are processed against your payment processors\' sandbox and are kept out of your live transactions and analytics in the DeloPay dashboard. Turn this off before you start selling.', 'delopay' ); ?>
+						</p>
+						<p class="description">
+							<?php esc_html_e( 'A processor with no sandbox credentials stored in DeloPay is used with its live credentials, which means a real charge recorded as a test. Add sandbox credentials for the processors that offer them.', 'delopay' ); ?>
+						</p>
+					</td>
+				</tr>
+				<tr>
 					<th><label for="delopay_complete_page_id"><?php esc_html_e( 'Order-complete page', 'delopay' ); ?></label></th>
 					<td>
 						<select id="delopay_complete_page_id" name="<?php echo esc_attr( $option_key ); ?>[complete_page_id]">

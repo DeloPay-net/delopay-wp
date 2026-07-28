@@ -48,6 +48,7 @@ class Delopay_Admin {
 		add_action( 'admin_menu', array( $this, 'register_menu' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 		add_action( 'admin_notices', array( $this, 'config_warning' ) );
+		add_action( 'admin_notices', array( $this, 'test_mode_notice' ) );
 
 		Delopay_Admin_Handlers::instance();
 	}
@@ -134,6 +135,32 @@ class Delopay_Admin {
 			'disconnecting'     => __( 'Disconnecting…', 'delopay' ),
 			'disconnectFailed'  => __( 'Could not disconnect: ', 'delopay' ),
 		);
+	}
+
+	/**
+	 * Test mode takes no real money, so a store left in it silently takes orders
+	 * it will never be paid for. Shown on every admin screen, not just DeloPay's,
+	 * and not dismissible — the state itself is the warning.
+	 */
+	public function test_mode_notice(): void {
+		if ( ! Delopay_Settings::test_mode() || ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+		$settings_url = Delopay_Admin_UI::page_url( self::SLUG_SETTINGS );
+		?>
+		<div class="notice notice-warning">
+			<p>
+				<strong><?php esc_html_e( 'DeloPay is in test mode.', 'delopay' ); ?></strong>
+				<?php
+				printf(
+					/* translators: %s = link to settings */
+					esc_html__( 'Orders are sent to your payment processors as test payments and take no real money. %s before you start selling.', 'delopay' ),
+					'<a href="' . esc_url( $settings_url ) . '">' . esc_html__( 'Turn test mode off', 'delopay' ) . '</a>'
+				);
+				?>
+			</p>
+		</div>
+		<?php
 	}
 
 	public function config_warning() {

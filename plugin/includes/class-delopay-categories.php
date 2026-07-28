@@ -163,6 +163,9 @@ class Delopay_Categories {
 			'hero_subtitle' => '' === trim( $hero_subtitle ) ? null : $hero_subtitle,
 			'status'        => isset( $input['status'] ) && self::STATUS_DRAFT === $input['status'] ? self::STATUS_DRAFT : self::STATUS_ACTIVE,
 			'sort_order'    => isset( $input['sort_order'] ) ? (int) $input['sort_order'] : 0,
+			// Checkout metadata inherited by every product in the category.
+			// A product's own keys win on collision.
+			'metadata'      => Delopay_Metadata::encode( Delopay_Metadata::from_input( $input ) ),
 		);
 	}
 
@@ -291,6 +294,8 @@ class Delopay_Categories {
 		$row['hero_active']   = '' !== trim( $row['hero_eyebrow'] )
 			|| '' !== trim( $row['hero_title'] )
 			|| '' !== trim( $row['hero_subtitle'] );
+
+		$row['metadata'] = Delopay_Metadata::decode( $row['metadata'] ?? null );
 
 		return $row;
 	}

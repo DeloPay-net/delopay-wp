@@ -274,7 +274,11 @@ class Delopay_Webhook {
 			isset( $data['error_code'] ) ? (string) $data['error_code'] : null,
 			isset( $data['error_message'] ) ? (string) $data['error_message'] : null,
 			true,
-			$reference
+			$reference,
+			// Backfills the environment for an order that never recorded one —
+			// created before the column existed, or against a backend that did
+			// not yet return the field.
+			isset( $data['test_mode'] ) ? (bool) $data['test_mode'] : null
 		);
 	}
 

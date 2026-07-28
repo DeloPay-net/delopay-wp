@@ -249,6 +249,9 @@ class Delopay_Products {
 			// Creem connector charges the matching dashboard product (its
 			// hosted checkout is product-anchored). Null when unset.
 			'creem_product_id' => self::clean_creem_product_id( $input ),
+			// Checkout metadata. Rides along on the payment so DeloPay's
+			// custom-field rules can branch on what was bought.
+			'metadata'         => Delopay_Metadata::encode( Delopay_Metadata::from_input( $input ) ),
 		);
 	}
 
@@ -425,16 +428,20 @@ class Delopay_Products {
 
 		$row['creem_product_id'] = isset( $row['creem_product_id'] ) ? (string) $row['creem_product_id'] : '';
 
-		$row['category_id']   = isset( $row['category_id'] ) && $row['category_id'] ? (int) $row['category_id'] : 0;
-		$row['category_slug'] = '';
-		$row['category_name'] = '';
+		$row['metadata'] = Delopay_Metadata::decode( $row['metadata'] ?? null );
+
+		$row['category_id']       = isset( $row['category_id'] ) && $row['category_id'] ? (int) $row['category_id'] : 0;
+		$row['category_slug']     = '';
+		$row['category_name']     = '';
+		$row['category_metadata'] = array();
 		if ( $row['category_id'] > 0 && class_exists( 'Delopay_Categories' ) ) {
 			$cat = null !== $category_map
 				? ( $category_map[ $row['category_id'] ] ?? null )
 				: Delopay_Categories::find_for_admin( $row['category_id'] );
 			if ( $cat ) {
-				$row['category_slug'] = (string) $cat['slug'];
-				$row['category_name'] = (string) $cat['name'];
+				$row['category_slug']     = (string) $cat['slug'];
+				$row['category_name']     = (string) $cat['name'];
+				$row['category_metadata'] = is_array( $cat['metadata'] ?? null ) ? $cat['metadata'] : array();
 			}
 		}
 		return $row;

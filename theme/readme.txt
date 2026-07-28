@@ -4,7 +4,7 @@ Tags: e-commerce, custom-colors, custom-logo, custom-menu, featured-images, them
 Requires at least: 6.0
 Tested up to: 6.9.4
 Requires PHP: 7.4
-Stable tag: 0.2.0
+Stable tag: 0.2.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -40,6 +40,9 @@ Appearance → Customize → DeloPay Shop. All design tokens are exposed there.
     * Inter, Manrope, DM Sans, Hanken Grotesk, IBM Plex Sans, Source Sans 3, Vollkorn, Lora, Playfair Display, Cormorant Garamond, Fraunces — copyright their respective authors, see https://fonts.google.com for upstream sources.
 
 == Changelog ==
+
+= 0.2.1 =
+* Fall back to the default color mode instead of a fatal error when the plugin is inactive.
 
 = 0.2.0 =
 * Initial public release.

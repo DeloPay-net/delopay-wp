@@ -4,7 +4,7 @@ Tags: payments, ecommerce, checkout, hosted-payment
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.3.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -91,6 +91,26 @@ By activating and connecting this plugin you acknowledge that order, product and
 * `[delopay_complete]` — post-payment status page.
 
 == Changelog ==
+
+= 1.3.0 =
+* Orders now show which environment they ran in. A test order carries a **Test** badge in the Orders list and an Environment row on the order detail; a live order says so explicitly.
+* The environment is recorded per order at the moment it is created, not read from the Test mode setting when the screen is drawn — so turning test mode off does not relabel the test orders you already have. That mix of test and live rows in one list, with no way to tell them apart, is a bookkeeping problem when you reconcile.
+* DeloPay's own answer wins where they differ: a payment processor still set to test mode in the DeloPay dashboard makes an order a test even if this store never asked for one.
+* Orders placed before this version show **Unknown** rather than claiming to be live. The plugin has no way to find out after the fact — check those in the DeloPay dashboard.
+
+= 1.2.0 =
+* New **Test mode** setting. Every order is sent to DeloPay as a test payment: it runs against your payment processors' sandbox and stays out of your live transactions and analytics. Previously the only way to test was to switch each processor into test mode in the DeloPay dashboard and remember to switch it back.
+* A warning appears on every admin screen while test mode is on, because a store left in it takes orders that never get paid.
+* Off by default, and updating the plugin never changes what your store does today.
+* Note: a processor with no sandbox credentials stored in DeloPay is used with its live credentials, so it will charge for real even in test mode. Add sandbox credentials for the processors that offer them.
+
+= 1.1.0 =
+* Checkout metadata on products and categories — key/value pairs sent with the payment when that product is bought. A category's pairs apply to every product in it; a product's own keys win on collision.
+* Use them with DeloPay's checkout custom-field rules to show a field only for certain products: give a product `product_type` = `spotify`, then set the account-login fields to appear only when that matches. Previously every buyer saw every custom field.
+* Product SKUs, ids, category slugs and item count are now always sent as payment metadata, so rules work without configuring anything by hand.
+* Reserved keys (`order_id`, `site_url`, and the automatic ones above) can no longer be overwritten by product or category metadata.
+* Checkout metadata is included in product export/import, so a transferred catalog keeps working against the same rules.
+* Fix: database schema upgrades now run on plugin update. Previously they only ran on activation, so a new column never reached an already-active install.
 
 = 1.0.1 =
 * New `excerpt_length` attribute on `[delopay_products]` and `[delopay_product]` — number of words to show in the product card description; `0` shows the full untruncated description.

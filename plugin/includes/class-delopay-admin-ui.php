@@ -148,4 +148,55 @@ class Delopay_Admin_UI {
 	public static function dim_cell( $text ) {
 		echo '<span class="delopay-cell-dim">' . esc_html( $text ) . '</span>';
 	}
+
+	/**
+	 * Checkout-metadata repeater, shared by the product and category forms.
+	 *
+	 * Posts as parallel `metadata_keys[]` / `metadata_values[]` arrays, which
+	 * `Delopay_Metadata::from_input()` zips back together. Rows are added and
+	 * removed client-side (`delopay-admin.js`); a row with a blank key is
+	 * dropped on save, which is also how deletion works without JS.
+	 *
+	 * @param array<string, string> $metadata Existing pairs.
+	 * @param string                $help     Context line under the table.
+	 */
+	public static function metadata_repeater( array $metadata, $help = '' ): void {
+		$rows = array();
+		foreach ( $metadata as $key => $value ) {
+			$rows[] = array( (string) $key, (string) $value );
+		}
+		// One empty row so the control is usable on a fresh record.
+		$rows[] = array( '', '' );
+		?>
+		<div class="delopay-metadata" data-delopay-metadata>
+			<div class="delopay-metadata-head">
+				<span><?php esc_html_e( 'Key', 'delopay' ); ?></span>
+				<span><?php esc_html_e( 'Value', 'delopay' ); ?></span>
+				<span class="screen-reader-text"><?php esc_html_e( 'Actions', 'delopay' ); ?></span>
+			</div>
+			<div class="delopay-metadata-rows" data-delopay-metadata-rows>
+				<?php foreach ( $rows as $row ) : ?>
+					<div class="delopay-metadata-row">
+						<input type="text" name="metadata_keys[]" value="<?php echo esc_attr( $row[0] ); ?>"
+							placeholder="<?php esc_attr_e( 'product_type', 'delopay' ); ?>"
+							aria-label="<?php esc_attr_e( 'Metadata key', 'delopay' ); ?>"
+							class="delopay-metadata-key code">
+						<input type="text" name="metadata_values[]" value="<?php echo esc_attr( $row[1] ); ?>"
+							placeholder="<?php esc_attr_e( 'spotify', 'delopay' ); ?>"
+							aria-label="<?php esc_attr_e( 'Metadata value', 'delopay' ); ?>"
+							class="delopay-metadata-value">
+						<button type="button" class="button-link delopay-metadata-remove"
+							aria-label="<?php esc_attr_e( 'Remove metadata row', 'delopay' ); ?>">&times;</button>
+					</div>
+				<?php endforeach; ?>
+			</div>
+			<button type="button" class="button delopay-metadata-add">
+				<?php esc_html_e( 'Add metadata', 'delopay' ); ?>
+			</button>
+			<?php if ( '' !== $help ) : ?>
+				<p class="delopay-help"><?php echo esc_html( $help ); ?></p>
+			<?php endif; ?>
+		</div>
+		<?php
+	}
 }

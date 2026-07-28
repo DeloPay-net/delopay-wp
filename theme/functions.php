@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'DELOPAY_SHOP_VERSION', '0.2.0' );
+define( 'DELOPAY_SHOP_VERSION', '0.2.1' );
 define( 'DELOPAY_SHOP_DIR', get_stylesheet_directory() );
 define( 'DELOPAY_SHOP_URL', get_stylesheet_directory_uri() );
 define( 'DELOPAY_SHOP_PLUGIN_FILE', 'delopay/delopay.php' );

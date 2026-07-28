@@ -23,7 +23,7 @@ const DELOPAY_SHOP_PALETTE_DARK  = 1;
 
 function delopay_shop_build_css_vars() {
 	$schema = delopay_shop_customizer_schema();
-	$mode   = Delopay_Settings::color_mode();
+	$mode   = class_exists( 'Delopay_Settings' ) ? Delopay_Settings::color_mode() : 'auto';
 
 	$light_decls = '';
 	$dark_decls  = '';
