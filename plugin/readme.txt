@@ -92,6 +92,9 @@ By activating and connecting this plugin you acknowledge that order, product and
 
 == Changelog ==
 
+= Unreleased =
+* Stripe wallets in the embedded checkout: methods marked as **native panes** on your Stripe connector (Apple Pay, Google Pay, Klarna, …) now render as tiles that open a focused DeloPay checkout in a new tab — see *Wallets in the embedded checkout* above. No plugin change was needed; the checkout iframe already permits the pop-up. The readme now documents the sandbox attributes required if your theme wraps the checkout in its own frame.
+
 = 1.3.0 =
 * Orders now show which environment they ran in. A test order carries a **Test** badge in the Orders list and an Environment row on the order detail; a live order says so explicitly.
 * The environment is recorded per order at the moment it is created, not read from the Test mode setting when the screen is drawn — so turning test mode off does not relabel the test orders you already have. That mix of test and live rows in one list, with no way to tell them apart, is a bookkeeping problem when you reconcile.
