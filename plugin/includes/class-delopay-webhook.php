@@ -171,18 +171,42 @@ class Delopay_Webhook {
 		return self::response( 200, array( 'received' => true ) );
 	}
 
+	/**
+	 * A rejected webhook is silent from the storefront's point of view — orders
+	 * simply never leave "pending" — so each rejection reason gets a log entry
+	 * the merchant can find on the Logs screen.
+	 *
+	 * Throttled because this endpoint is unauthenticated by definition: without
+	 * a window, anyone who knows the URL could push the real entries out of the
+	 * capped log by replaying junk.
+	 */
 	private static function verify_signature( $raw_body, $signature ) {
 		$secret = (string) Delopay_Settings::get( 'webhook_secret' );
 
 		if ( '' === $secret ) {
+			Delopay_Log::throttled(
+				Delopay_Log::LEVEL_ERROR,
+				'webhook_no_secret',
+				'webhook rejected: no webhook secret is configured in DeloPay → Settings'
+			);
 			return self::response( 500, array( 'error' => 'webhook secret not configured' ) );
 		}
 		if ( ! is_string( $signature ) || '' === trim( $signature ) ) {
+			Delopay_Log::throttled(
+				Delopay_Log::LEVEL_WARNING,
+				'webhook_no_signature',
+				'webhook rejected: request carried no X-Webhook-Signature-512 header'
+			);
 			return self::response( 400, array( 'error' => 'missing X-Webhook-Signature-512 header' ) );
 		}
 
 		$expected = hash_hmac( 'sha512', $raw_body, $secret );
 		if ( ! hash_equals( $expected, trim( $signature ) ) ) {
+			Delopay_Log::throttled(
+				Delopay_Log::LEVEL_ERROR,
+				'webhook_bad_signature',
+				'webhook rejected: signature did not match — the webhook secret here differs from the one DeloPay signs with'
+			);
 			return self::response( 400, array( 'error' => 'invalid signature' ) );
 		}
 

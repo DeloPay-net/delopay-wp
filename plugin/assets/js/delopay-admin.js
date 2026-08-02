@@ -37,6 +37,7 @@
 		initEnvironmentSelectors();
 		initImportToggle();
 		initDeleteConfirms();
+		initConfirmButtons();
 		initConnectControls();
 		initRefundForms();
 		initCaptureControls();
@@ -350,7 +351,31 @@
 		});
 	}
 
+	// Generic confirm for destructive buttons that carry their own (already
+	// translated) prompt, e.g. "Clear log" on the Logs screen.
+	function initConfirmButtons() {
+		document.querySelectorAll('[data-delopay-confirm]').forEach((el) => {
+			el.addEventListener('click', (e) => {
+				if (!window.confirm(el.dataset.delopayConfirm)) {
+					e.preventDefault();
+				}
+			});
+		});
+	}
+
+	// Arriving from the "your connection is broken" notice — put the connect
+	// card where the eye already is instead of making them hunt for it.
+	function focusConnectCard() {
+		const card = document.querySelector('[data-delopay-focus-connect]');
+		if (!card) return;
+		card.classList.add('delopay-attention');
+		card.scrollIntoView({ block: 'center' });
+		const button = card.querySelector('[data-delopay-connect-button]');
+		if (button) button.focus();
+	}
+
 	function initConnectControls() {
+		focusConnectCard();
 		const statusEl = document.querySelector('[data-delopay-connect-msg]');
 
 		function setStatus(msg, kind) {

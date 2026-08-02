@@ -14,8 +14,12 @@ class Delopay_Admin {
 	const SLUG_BUSINESS   = 'delopay-business';
 	const SLUG_BRANDING   = 'delopay-branding';
 	const SLUG_SETTINGS   = 'delopay-settings';
+	const SLUG_LOGS       = 'delopay-logs';
 	const CAP             = Delopay_Admin_UI::CAP;
 	const SETTINGS_GROUP  = 'delopay_settings_group';
+
+	/** Query arg that tells the Settings screen to put the connect card front and centre. */
+	const RECONNECT_ARG = 'delopay_reconnect';
 
 	private static $instance = null;
 
@@ -43,10 +47,12 @@ class Delopay_Admin {
 			self::SLUG_BUSINESS   => new Delopay_Admin_Page_Business(),
 			self::SLUG_BRANDING   => new Delopay_Admin_Page_Branding(),
 			self::SLUG_SETTINGS   => new Delopay_Admin_Page_Settings(),
+			self::SLUG_LOGS       => new Delopay_Admin_Page_Logs(),
 		);
 
 		add_action( 'admin_menu', array( $this, 'register_menu' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
+		add_action( 'admin_notices', array( $this, 'connection_invalid_notice' ) );
 		add_action( 'admin_notices', array( $this, 'config_warning' ) );
 		add_action( 'admin_notices', array( $this, 'test_mode_notice' ) );
 
@@ -158,6 +164,44 @@ class Delopay_Admin {
 					'<a href="' . esc_url( $settings_url ) . '">' . esc_html__( 'Turn test mode off', 'delopay' ) . '</a>'
 				);
 				?>
+			</p>
+		</div>
+		<?php
+	}
+
+	/**
+	 * The notice that would have saved a support call: DeloPay is rejecting
+	 * this site's API key, so every payment is failing right now.
+	 *
+	 * Shown on every admin screen — a merchant who never opens DeloPay → Dashboard
+	 * still needs to find out — and not dismissible, because dismissing it would
+	 * not stop the payments from failing. It disappears on its own the moment a
+	 * call succeeds again.
+	 */
+	public function connection_invalid_notice(): void {
+		if ( ! current_user_can( self::CAP ) || ! Delopay_Health::is_invalid() ) {
+			return;
+		}
+
+		$reconnect_url = Delopay_Admin_UI::page_url( self::SLUG_SETTINGS, array( self::RECONNECT_ARG => 1 ) );
+		$logs_url      = Delopay_Admin_UI::page_url( self::SLUG_LOGS );
+		$detail        = Delopay_Health::message();
+		?>
+		<div class="notice notice-error">
+			<p>
+				<strong><?php esc_html_e( 'Your DeloPay connection is not working — payments are failing.', 'delopay' ); ?></strong>
+				<?php esc_html_e( 'DeloPay is rejecting this site\'s API key. Reconnect to fix it; buyers cannot pay until you do.', 'delopay' ); ?>
+			</p>
+			<?php if ( '' !== $detail ) : ?>
+				<p><code><?php echo esc_html( $detail ); ?></code></p>
+			<?php endif; ?>
+			<p>
+				<a class="button button-primary" href="<?php echo esc_url( $reconnect_url ); ?>">
+					<?php esc_html_e( 'Reconnect to DeloPay', 'delopay' ); ?>
+				</a>
+				<a class="button" href="<?php echo esc_url( $logs_url ); ?>">
+					<?php esc_html_e( 'View logs', 'delopay' ); ?>
+				</a>
 			</p>
 		</div>
 		<?php

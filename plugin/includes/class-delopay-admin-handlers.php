@@ -25,13 +25,188 @@ class Delopay_Admin_Handlers {
 
 	private static function actions() {
 		return array(
-			'delopay_save_product'    => 'save_product',
-			'delopay_delete_product'  => 'delete_product',
-			'delopay_export_products' => 'export_products',
-			'delopay_import_products' => 'import_products',
-			'delopay_save_category'   => 'save_category',
-			'delopay_delete_category' => 'delete_category',
+			'delopay_save_product'     => 'save_product',
+			'delopay_delete_product'   => 'delete_product',
+			'delopay_export_products'  => 'export_products',
+			'delopay_import_products'  => 'import_products',
+			'delopay_save_category'    => 'save_category',
+			'delopay_delete_category'  => 'delete_category',
+			'delopay_clear_logs'       => 'clear_logs',
+			'delopay_check_connection' => 'check_connection',
+			'delopay_woo_takeover'     => 'woo_takeover',
+			'delopay_woo_undo'         => 'woo_undo',
+			'delopay_woo_split'        => 'woo_split',
 		);
+	}
+
+	public function clear_logs(): void {
+		Delopay_Admin_UI::require_cap();
+		check_admin_referer( 'delopay_clear_logs' );
+
+		Delopay_Log::clear();
+
+		Delopay_Admin_UI::redirect(
+			array(
+				'page'  => Delopay_Admin::SLUG_LOGS,
+				'flash' => 'logs_cleared',
+			)
+		);
+	}
+
+	/**
+	 * Probe the API on demand. This is the button a merchant presses after
+	 * reconnecting, to see for themselves that it took.
+	 */
+	public function check_connection(): void {
+		Delopay_Admin_UI::require_cap();
+		check_admin_referer( 'delopay_check_connection' );
+
+		$state = Delopay_Health::check_now();
+		$flash = 'health_unknown';
+		if ( Delopay_Health::STATE_OK === $state ) {
+			$flash = 'health_ok';
+		} elseif ( Delopay_Health::STATE_INVALID === $state ) {
+			$flash = 'health_bad';
+		}
+
+		Delopay_Admin_UI::redirect(
+			array(
+				'page'  => Delopay_Admin::SLUG_LOGS,
+				'flash' => $flash,
+			)
+		);
+	}
+
+	/**
+	 * Hide the WooCommerce storefront and redirect its URLs at the DeloPay one.
+	 */
+	public function woo_takeover(): void {
+		Delopay_Admin_UI::require_cap();
+		check_admin_referer( 'delopay_woo_takeover' );
+
+		$stats = Delopay_Woo::apply_takeover();
+
+		if ( '' !== $stats['blocked'] ) {
+			Delopay_Admin_UI::redirect(
+				array(
+					'page'  => Delopay_Admin::SLUG_SETTINGS,
+					'flash' => 'woo_blocked',
+					'msg'   => rawurlencode(
+						'no_storefront' === $stats['blocked']
+							? __( 'Nothing was changed: no page carries the [delopay_products] shortcode, so the WooCommerce URLs would redirect to a storefront that does not exist. Publish your catalog page first — the redirects are permanent and browsers cache them.', 'delopay' )
+							: __( 'Nothing was changed: WooCommerce is not active on this site.', 'delopay' )
+					),
+				)
+			);
+		}
+
+		$msg = $stats['remaining'] > 0
+			? sprintf(
+				/* translators: 1: products hidden, 2: pages hidden, 3: products still published */
+				__( 'WooCommerce storefront replaced: %1$d products and %2$d pages hidden. %3$d products still published — run it again to finish.', 'delopay' ),
+				$stats['products'],
+				$stats['pages'],
+				$stats['remaining']
+			)
+			: sprintf(
+				/* translators: 1: products hidden, 2: pages hidden */
+				__( 'WooCommerce storefront replaced: %1$d products and %2$d pages hidden, and its URLs now redirect to your DeloPay store.', 'delopay' ),
+				$stats['products'],
+				$stats['pages']
+			);
+
+		Delopay_Admin_UI::redirect(
+			array(
+				'page'  => Delopay_Admin::SLUG_SETTINGS,
+				'flash' => 'woo_applied',
+				'msg'   => rawurlencode( $msg ),
+			)
+		);
+	}
+
+	/**
+	 * Put back everything the takeover hid.
+	 */
+	public function woo_undo(): void {
+		Delopay_Admin_UI::require_cap();
+		check_admin_referer( 'delopay_woo_undo' );
+
+		$stats = Delopay_Woo::undo_takeover();
+
+		$msg = $stats['remaining'] > 0
+			? sprintf(
+				/* translators: 1: posts republished, 2: posts still hidden */
+				__( '%1$d posts republished. %2$d still hidden — run it again to finish; redirects stay on until every one is back.', 'delopay' ),
+				$stats['restored'],
+				$stats['remaining']
+			)
+			: sprintf(
+				/* translators: %d: number of posts restored */
+				__( 'WooCommerce storefront restored: %d posts republished and redirects turned off. Browsers that already followed a permanent redirect may need a hard reload.', 'delopay' ),
+				$stats['restored']
+			);
+
+		Delopay_Admin_UI::redirect(
+			array(
+				'page'  => Delopay_Admin::SLUG_SETTINGS,
+				'flash' => 'woo_undone',
+				'msg'   => rawurlencode( $msg ),
+			)
+		);
+	}
+
+	/**
+	 * Move DeloPay shortcodes off WooCommerce's own pages onto their own.
+	 */
+	public function woo_split(): void {
+		Delopay_Admin_UI::require_cap();
+		check_admin_referer( 'delopay_woo_split' );
+
+		$stats = Delopay_Woo::split_conflicting_pages();
+
+		Delopay_Admin_UI::redirect(
+			array(
+				'page'  => Delopay_Admin::SLUG_SETTINGS,
+				'flash' => 'woo_split',
+				'msg'   => rawurlencode( $this->woo_split_message( $stats ) ),
+			)
+		);
+	}
+
+	/**
+	 * What the "give each shortcode its own page" action actually did.
+	 *
+	 * @param array{created:int, hidden:int, skipped:int, redirects:bool} $stats Action result.
+	 * @return string
+	 */
+	private function woo_split_message( array $stats ) {
+		$msg = $stats['redirects']
+			? sprintf(
+				/* translators: 1: pages created, 2: WooCommerce pages hidden */
+				__( '%1$d DeloPay pages created and %2$d WooCommerce pages hidden. Their old URLs now redirect to the new pages, so existing menu links keep working.', 'delopay' ),
+				$stats['created'],
+				$stats['hidden']
+			)
+			: sprintf(
+				/* translators: %d: pages created */
+				__( '%d DeloPay pages created. Point your menus at them.', 'delopay' ),
+				$stats['created']
+			);
+
+		if ( $stats['skipped'] > 0 ) {
+			$msg .= ' ' . sprintf(
+				/* translators: %d: number of pages that need manual editing */
+				_n(
+					'%d WooCommerce page was left alone and still needs the shortcode moved by hand — see the notice above.',
+					'%d WooCommerce pages were left alone and still need their shortcodes moved by hand — see the notice above.',
+					$stats['skipped'],
+					'delopay'
+				),
+				$stats['skipped']
+			);
+		}
+
+		return $msg;
 	}
 
 	public function save_product() {

@@ -31,6 +31,7 @@ class Delopay_Plugin {
 		Delopay_REST::instance();
 		Delopay_Webhook::instance();
 		Delopay_Connect::instance();
+		Delopay_Woo::instance();
 		Delopay_Admin::instance();
 		Delopay_Shortcodes::instance();
 		Delopay_Plugin_Details::instance();
@@ -42,6 +43,11 @@ class Delopay_Plugin {
 		add_filter( 'cron_schedules', array( $this, 'register_cron_schedule' ) ); // phpcs:ignore WordPress.WP.CronInterval.ChangeDetected
 		add_action( self::RECONCILE_HOOK, array( 'Delopay_Orders', 'reconcile_pending_refunds' ) );
 		add_action( 'init', array( $this, 'maybe_schedule_reconciliation' ) );
+
+		// Background connection check + log retention.
+		Delopay_Health::hooks();
+		Delopay_Log::hooks();
+		add_action( 'init', array( $this, 'maybe_schedule_maintenance' ) );
 
 		// A plugin update that adds a column never re-runs the activation
 		// hook, so bring the schema forward on the first admin request after
@@ -63,6 +69,20 @@ class Delopay_Plugin {
 	public function maybe_schedule_reconciliation() {
 		if ( ! wp_next_scheduled( self::RECONCILE_HOOK ) ) {
 			wp_schedule_event( time() + self::RECONCILE_INITIAL_DELAY, self::RECONCILE_SCHEDULE, self::RECONCILE_HOOK );
+		}
+	}
+
+	/**
+	 * Hourly connection check and daily log pruning. Both use WordPress'
+	 * built-in schedules — neither is time-critical enough to warrant a custom
+	 * interval, and a revoked key is caught by the next real API call anyway.
+	 */
+	public function maybe_schedule_maintenance(): void {
+		if ( ! wp_next_scheduled( Delopay_Health::CHECK_HOOK ) ) {
+			wp_schedule_event( time() + Delopay_Health::CHECK_DELAY, Delopay_Health::CHECK_SCHEDULE, Delopay_Health::CHECK_HOOK );
+		}
+		if ( ! wp_next_scheduled( Delopay_Log::PRUNE_HOOK ) ) {
+			wp_schedule_event( time() + Delopay_Log::PRUNE_DELAY, Delopay_Log::PRUNE_SCHEDULE, Delopay_Log::PRUNE_HOOK );
 		}
 	}
 
@@ -160,28 +180,87 @@ class Delopay_Plugin {
 		flush_rewrite_rules();
 	}
 
+	/**
+	 * Create the cart and checkout pages this plugin needs.
+	 *
+	 * A page already sitting at `/cart/` is not evidence that *we* have a cart
+	 * page — on a site that already runs WooCommerce it is Woo's, and treating
+	 * it as ours left replace-installs with no DeloPay cart or checkout page at
+	 * all. Merchants then pasted the shortcodes onto Woo's pages, where Woo
+	 * redirects its checkout to its cart the moment its own (always empty) cart
+	 * is consulted, and the checkout became unreachable with no error anywhere.
+	 *
+	 * So the question asked here is "does a page carry our shortcode", not
+	 * "is the slug free", and a taken slug is stepped around rather than
+	 * surrendered to.
+	 */
 	private static function ensure_storefront_pages() {
 		$pages = array(
-			'cart'     => array( __( 'Cart', 'delopay' ), '[delopay_cart]' ),
-			'checkout' => array( __( 'Checkout', 'delopay' ), '[delopay_checkout]' ),
+			'cart'     => array( __( 'Cart', 'delopay' ), 'delopay_cart' ),
+			'checkout' => array( __( 'Checkout', 'delopay' ), 'delopay_checkout' ),
 		);
 		foreach ( $pages as $slug => $data ) {
 			list( $title, $shortcode ) = $data;
-			$existing                  = get_page_by_path( $slug, OBJECT, 'page' );
-			if ( $existing && 'page' === $existing->post_type ) {
+
+			if ( self::page_carrying_shortcode( $shortcode ) ) {
 				continue;
 			}
+
+			$existing = get_page_by_path( $slug, OBJECT, 'page' );
+			if ( $existing && 'page' === $existing->post_type ) {
+				$slug = 'delopay-' . $slug;
+			}
+
 			wp_insert_post(
 				array(
 					'post_type'    => 'page',
 					'post_status'  => 'publish',
 					'post_title'   => $title,
 					'post_name'    => $slug,
-					'post_content' => self::shortcode_block( $shortcode ),
+					'post_content' => self::shortcode_block( '[' . $shortcode . ']' ),
 				),
 				false
 			);
 		}
+	}
+
+	/**
+	 * The first published page whose content contains a shortcode, if any.
+	 *
+	 * Deliberately not `has_shortcode()`: that returns false for a shortcode
+	 * that is not registered yet, and during activation none of ours are — the
+	 * plugin's `plugins_loaded` hook is registered too late to have fired in
+	 * the request that activates it. A page holding `[delopay_cart]` would
+	 * therefore look empty and get a duplicate created next to it.
+	 *
+	 * @param string $shortcode Shortcode tag, without brackets.
+	 * @return WP_Post|null
+	 */
+	private static function page_carrying_shortcode( $shortcode ) {
+		foreach ( (array) get_pages( array( 'post_status' => 'publish' ) ) as $page ) {
+			if ( self::content_has_shortcode( (string) $page->post_content, $shortcode ) ) {
+				return $page;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Whether content contains a shortcode, registered or not.
+	 *
+	 * Matches `[tag]`, `[tag ...attrs]` and `[tag]...[/tag]`, and deliberately
+	 * does not match a longer tag that merely starts the same way
+	 * (`[delopay_cart_summary]` is not `[delopay_cart]`).
+	 *
+	 * @param string $content   Post content.
+	 * @param string $shortcode Shortcode tag, without brackets.
+	 * @return bool
+	 */
+	private static function content_has_shortcode( $content, $shortcode ) {
+		if ( '' === $content || false === strpos( $content, '[' ) ) {
+			return false;
+		}
+		return 1 === preg_match( '/\[' . preg_quote( $shortcode, '/' ) . '(?![\w-])/', $content );
 	}
 
 	private static function ensure_home_category() {
@@ -295,6 +374,8 @@ class Delopay_Plugin {
 
 	public static function deactivate() {
 		wp_clear_scheduled_hook( self::RECONCILE_HOOK );
+		wp_clear_scheduled_hook( Delopay_Health::CHECK_HOOK );
+		wp_clear_scheduled_hook( Delopay_Log::PRUNE_HOOK );
 		flush_rewrite_rules();
 	}
 }

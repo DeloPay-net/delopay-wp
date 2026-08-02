@@ -25,12 +25,29 @@ class Delopay_Admin_Page_Settings extends Delopay_Admin_Page {
 		$is_connected = Delopay_Connect::is_connected() && Delopay_Settings::is_configured();
 		$connected_at = Delopay_Connect::connected_at();
 		$manual_open  = ! $is_connected;
+		$health       = Delopay_Health::state();
+
+		// Arriving from the "Reconnect to DeloPay" notice: the connect card is
+		// what they came for, so pull it into focus rather than making them
+		// find it.
+		$focus_connect = '' !== $this->get( Delopay_Admin::RECONNECT_ARG );
 		?>
 		<div class="wrap delopay-wrap">
 			<h1 class="wp-heading-inline"><?php esc_html_e( 'DeloPay Settings', 'delopay' ); ?></h1>
 			<hr class="wp-header-end">
 
-			<?php $this->render_connect_card( $is_connected, $env, $settings, $connected_at ); ?>
+			<?php
+			Delopay_Admin_UI::flash_notice(
+				array(
+					'woo_applied' => array( 'success', __( 'WooCommerce storefront replaced.', 'delopay' ) ),
+					'woo_undone'  => array( 'success', __( 'WooCommerce storefront restored.', 'delopay' ) ),
+					'woo_split'   => array( 'success', __( 'DeloPay shortcodes moved onto their own pages.', 'delopay' ) ),
+					'woo_blocked' => array( 'error', __( 'The WooCommerce storefront was left untouched.', 'delopay' ) ),
+				)
+			);
+			?>
+
+			<?php $this->render_connect_card( $is_connected, $env, $settings, $connected_at, $health, $focus_connect ); ?>
 
 			<form method="post" action="options.php" class="delopay-settings-form">
 				<?php settings_fields( Delopay_Admin::SETTINGS_GROUP ); ?>
@@ -47,18 +64,233 @@ class Delopay_Admin_Page_Settings extends Delopay_Admin_Page {
 
 				<?php submit_button(); ?>
 			</form>
+
+			<?php $this->render_woocommerce(); ?>
 		</div>
 		<?php
 	}
 
-	private function render_connect_card( $is_connected, $env, $settings, $connected_at ) {
+	/**
+	 * The "replace my existing WooCommerce storefront" card.
+	 *
+	 * Rendered outside the settings form on purpose: these are `admin-post`
+	 * actions with their own nonces, and a form inside a form is not a thing.
+	 * The whole card is absent when WooCommerce is not installed, which is the
+	 * common case — nothing to replace, nothing to explain.
+	 */
+	private function render_woocommerce(): void {
+		$survey = Delopay_Woo::survey();
+
+		// Also shown when WooCommerce is gone but this plugin is still hiding
+		// its posts or redirecting its URLs — deactivating WooCommerce is the
+		// point of a successful replacement, and Undo has to outlive it.
+		$has_state = $survey['redirects'] || $survey['hidden_products'] > 0 || $survey['hidden_pages'] > 0;
+		if ( ! $survey['woo_active'] && ! $has_state ) {
+			return;
+		}
+
+		$leaking = $survey['published_products'] > 0 || ! empty( $survey['published_pages'] );
 		?>
-		<div class="delopay-connect-card <?php echo esc_attr( $is_connected ? 'is-connected' : 'is-brand' ); ?>">
+		<h2 class="delopay-settings-section-title"><?php esc_html_e( 'WooCommerce', 'delopay' ); ?></h2>
+		<p class="delopay-settings-section-desc">
+			<?php
+			echo esc_html(
+				$survey['woo_active']
+					? __( 'WooCommerce is active on this site. Its storefront serves in parallel with DeloPay\'s until you replace it.', 'delopay' )
+					: __( 'WooCommerce is no longer active, but DeloPay is still hiding its storefront. Undo below to put everything back.', 'delopay' )
+			);
+			?>
+		</p>
+
+		<table class="form-table" role="presentation">
+			<tbody>
+				<tr>
+					<th><?php esc_html_e( 'Still published', 'delopay' ); ?></th>
+					<td>
+						<?php if ( ! $survey['woo_active'] ) : ?>
+							<p class="description">
+								<?php esc_html_e( 'Cannot be checked — WooCommerce is not active, so DeloPay cannot see which of its pages are still published. Reactivate it to inspect, or press Undo below.', 'delopay' ); ?>
+							</p>
+						<?php elseif ( $leaking ) : ?>
+							<ul class="ul-disc">
+								<?php if ( $survey['published_products'] > 0 ) : ?>
+									<li>
+										<?php
+										printf(
+											/* translators: %d: number of published WooCommerce products */
+											esc_html( _n( '%d WooCommerce product', '%d WooCommerce products', $survey['published_products'], 'delopay' ) ),
+											(int) $survey['published_products']
+										);
+										?>
+									</li>
+								<?php endif; ?>
+								<?php foreach ( $survey['published_pages'] as $page ) : ?>
+									<li>
+										<a href="<?php echo esc_url( $page['url'] ); ?>" target="_blank" rel="noopener noreferrer">
+											<?php echo esc_html( $page['title'] ); ?> ↗
+										</a>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+						<?php else : ?>
+							<p class="description"><?php esc_html_e( 'Nothing — the WooCommerce storefront is not serving any pages.', 'delopay' ); ?></p>
+						<?php endif; ?>
+					</td>
+				</tr>
+				<?php if ( ! empty( $survey['structural'] ) ) : ?>
+					<tr>
+						<th><?php esc_html_e( 'Needs your decision', 'delopay' ); ?></th>
+						<td>
+							<ul class="ul-disc">
+								<?php foreach ( $survey['structural'] as $structural ) : ?>
+									<li>
+										<strong><?php echo esc_html( $structural['title'] ); ?></strong>
+										<?php
+										echo esc_html(
+											'front' === $structural['role']
+												? __( '— this WooCommerce page is your homepage.', 'delopay' )
+												: __( '— this WooCommerce page is your posts page.', 'delopay' )
+										);
+										?>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+							<p class="description">
+								<?php
+								printf(
+									/* translators: %s: link to Settings → Reading */
+									esc_html__( 'DeloPay leaves it alone: hiding it or redirecting it away would move your homepage, and a permanent redirect sticks in every browser that follows it. Point %s at a DeloPay page first, then replace the storefront.', 'delopay' ),
+									'<a href="' . esc_url( admin_url( 'options-reading.php' ) ) . '">' . esc_html__( 'Settings → Reading', 'delopay' ) . '</a>'
+								);
+								?>
+							</p>
+						</td>
+					</tr>
+				<?php endif; ?>
+				<tr>
+					<th><?php esc_html_e( 'Redirects', 'delopay' ); ?></th>
+					<td>
+							<?php $redirected = Delopay_Woo::redirected_paths(); ?>
+						<p class="description">
+							<?php
+							// Armed-or-not comes from the option, never from the
+							// list: a path drops off the list when its DeloPay
+							// page is deleted, and reporting that as "off" would
+							// be wrong twice over — the option is still set, and
+							// those URLs are answering 404 rather than serving
+							// as-is. Republishing the page resumes the 301s.
+							if ( ! $survey['redirects'] ) {
+								esc_html_e( 'Off — WooCommerce URLs are served as-is.', 'delopay' );
+							} elseif ( 'released' === Delopay_Woo::empty_redirect_reason() ) {
+								esc_html_e( 'On, but nothing is claimed — you republished the WooCommerce pages yourself, so DeloPay stopped redirecting them. They are serving normally. Press Undo below to clear the leftover setting.', 'delopay' );
+							} elseif ( 'woo_inactive' === Delopay_Woo::empty_redirect_reason() ) {
+								esc_html_e( 'On, but inactive — DeloPay can only redirect the WooCommerce pages it hid while WooCommerce is loaded, so those URLs are answering 404 instead. Reactivate WooCommerce, or press Undo below to put the pages back.', 'delopay' );
+							} elseif ( empty( $redirected ) ) {
+								esc_html_e( 'On, but pointing nowhere — the DeloPay pages these URLs were redirected to no longer exist, so they answer 404. Publish them again, or press Undo below.', 'delopay' );
+							} else {
+								esc_html_e( 'On — these WooCommerce URLs send visitors to your DeloPay pages:', 'delopay' );
+							}
+							?>
+						</p>
+						<?php if ( ! empty( $redirected ) ) : ?>
+							<ul class="ul-disc">
+								<?php foreach ( $redirected as $path ) : ?>
+									<li><code><?php echo esc_html( $path ); ?></code></li>
+								<?php endforeach; ?>
+							</ul>
+						<?php endif; ?>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><?php esc_html_e( 'Replace the storefront', 'delopay' ); ?></th>
+					<td>
+						<?php if ( $survey['woo_active'] ) : ?>
+							<form method="post" action="<?php echo esc_url( Delopay_Admin_UI::admin_post_url() ); ?>">
+								<?php wp_nonce_field( 'delopay_woo_takeover' ); ?>
+								<input type="hidden" name="action" value="delopay_woo_takeover">
+								<?php
+								submit_button(
+									__( 'Hide the WooCommerce storefront', 'delopay' ),
+									'primary',
+									'submit',
+									false,
+									$survey['storefront_ready'] ? array() : array( 'disabled' => 'disabled' )
+								);
+								?>
+							</form>
+							<p class="description">
+								<?php esc_html_e( 'Moves WooCommerce products and its shop/cart/checkout/my-account pages to draft, and permanently redirects their URLs to your DeloPay store. Nothing is deleted, and WooCommerce itself keeps running so your theme does not break.', 'delopay' ); ?>
+							</p>
+							<?php if ( ! $survey['storefront_ready'] ) : ?>
+								<p class="description delopay-help">
+									<strong><?php esc_html_e( 'Not yet:', 'delopay' ); ?></strong>
+									<?php esc_html_e( 'no published page carries the [delopay_products] shortcode, so the WooCommerce URLs would redirect to a storefront that does not exist. The redirects are permanent and browsers cache them, so publish your catalog page first.', 'delopay' ); ?>
+								</p>
+							<?php endif; ?>
+						<?php endif; ?>
+						<?php if ( $survey['hidden_products'] > 0 || $survey['hidden_pages'] > 0 || $survey['redirects'] ) : ?>
+							<form method="post" action="<?php echo esc_url( Delopay_Admin_UI::admin_post_url() ); ?>">
+								<?php wp_nonce_field( 'delopay_woo_undo' ); ?>
+								<input type="hidden" name="action" value="delopay_woo_undo">
+								<?php
+								submit_button(
+									__( 'Undo — republish what DeloPay hid', 'delopay' ),
+									'secondary',
+									'submit',
+									false
+								);
+								?>
+							</form>
+							<p class="description">
+								<?php
+								printf(
+									/* translators: 1: hidden product count, 2: hidden page count */
+									esc_html__( 'DeloPay is currently hiding %1$d products and %2$d pages. Undo republishes exactly those and turns redirects off; posts you drafted yourself are left alone.', 'delopay' ),
+									(int) $survey['hidden_products'],
+									(int) $survey['hidden_pages']
+								);
+								?>
+							</p>
+						<?php endif; ?>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<?php
+	}
+
+	/**
+	 * Connect / reconnect hero card at the top of the Settings screen.
+	 *
+	 * @param bool                 $is_connected  Whether credentials are stored.
+	 * @param string               $env           Active environment key.
+	 * @param array<string, mixed> $settings      All settings.
+	 * @param int                  $connected_at  Unix time of the last successful connect.
+	 * @param string               $health        One of the Delopay_Health::STATE_* constants.
+	 * @param bool                 $focus_connect Whether to pull the card into focus on load.
+	 */
+	private function render_connect_card( $is_connected, $env, $settings, $connected_at, $health = '', $focus_connect = false ) {
+		// "Connected" here means credentials are stored; whether DeloPay still
+		// accepts them is a separate question, and a rejected key must not be
+		// dressed up as a healthy connection.
+		$rejected = Delopay_Health::STATE_INVALID === $health;
+		$classes  = $is_connected ? ( $rejected ? 'is-rejected' : 'is-connected' ) : 'is-brand';
+		?>
+		<div id="delopay-connect-card" class="delopay-connect-card <?php echo esc_attr( $classes ); ?>"
+			<?php echo esc_attr( $focus_connect ? 'data-delopay-focus-connect' : '' ); ?>>
 			<?php if ( $is_connected ) : ?>
 				<div class="delopay-connect-status">
 					<span class="delopay-connect-dot" aria-hidden="true">●</span>
 					<div>
-						<strong><?php esc_html_e( 'Connected to DeloPay', 'delopay' ); ?></strong>
+						<strong>
+							<?php
+							echo esc_html(
+								$rejected
+									? __( 'DeloPay is rejecting this site\'s API key', 'delopay' )
+									: __( 'Connected to DeloPay', 'delopay' )
+							);
+							?>
+						</strong>
 						<p class="description">
 							<?php
 							printf(
@@ -70,10 +302,16 @@ class Delopay_Admin_Page_Settings extends Delopay_Admin_Page {
 							);
 							?>
 						</p>
+						<?php if ( $rejected ) : ?>
+							<p class="description">
+								<?php esc_html_e( 'Payments cannot be taken until this is fixed. Click Reconnect and sign in again — that reissues the key.', 'delopay' ); ?>
+							</p>
+						<?php endif; ?>
 					</div>
 				</div>
 				<div class="delopay-connect-actions">
-					<button type="button" class="button" data-delopay-connect-button data-delopay-environment="<?php echo esc_attr( $env ); ?>">
+					<button type="button" class="button <?php echo esc_attr( $rejected ? 'button-primary' : '' ); ?>"
+						data-delopay-connect-button data-delopay-environment="<?php echo esc_attr( $env ); ?>">
 						<?php esc_html_e( 'Reconnect', 'delopay' ); ?>
 					</button>
 					<button type="button" class="button button-link-delete" data-delopay-disconnect-button>

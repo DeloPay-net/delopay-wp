@@ -45,6 +45,8 @@ class Delopay_Orders {
 		return self::table( 'delopay_products' ); }
 	public static function table_categories() {
 		return self::table( 'delopay_categories' ); }
+	public static function table_logs(): string {
+		return self::table( 'delopay_logs' ); }
 
 	private static function table( $name ) {
 		global $wpdb;
@@ -72,7 +74,10 @@ class Delopay_Orders {
 	 * the CREATE TABLE statements below change.
 	 */
 	const SCHEMA_OPTION  = 'delopay_schema_version';
-	const SCHEMA_VERSION = 3;
+	const SCHEMA_VERSION = 4;
+
+	/** Revision that introduced the log table. */
+	const SCHEMA_LOGS = 4;
 
 	/**
 	 * Re-run dbDelta when the stored revision is behind. dbDelta is
@@ -86,6 +91,18 @@ class Delopay_Orders {
 		self::install_schema();
 	}
 
+	/**
+	 * Whether the log table exists yet.
+	 *
+	 * Reads the (autoloaded) schema revision rather than asking MySQL, so the
+	 * logger can check it on every call for free. Between a plugin update and
+	 * the first admin request — the only window where this is false on an
+	 * otherwise healthy site — log entries go to error_log() alone.
+	 */
+	public static function has_logs_table(): bool {
+		return (int) get_option( self::SCHEMA_OPTION, 0 ) >= self::SCHEMA_LOGS;
+	}
+
 	public static function install_schema() {
 		global $wpdb;
 		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
@@ -95,6 +112,7 @@ class Delopay_Orders {
 		$refunds         = self::table_refunds();
 		$products        = self::table_products();
 		$categories      = self::table_categories();
+		$logs            = self::table_logs();
 
 		dbDelta(
 			"CREATE TABLE {$orders} (
@@ -185,6 +203,20 @@ class Delopay_Orders {
 			UNIQUE KEY slug (slug),
 			KEY status (status),
 			KEY sort_order (sort_order)
+		) {$charset_collate};"
+		);
+
+		// Plugin log, read by DeloPay → Logs. Capped by Delopay_Log::prune().
+		dbDelta(
+			"CREATE TABLE {$logs} (
+			id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+			created_at DATETIME NOT NULL,
+			level VARCHAR(16) NOT NULL DEFAULT 'info',
+			message TEXT NOT NULL,
+			context LONGTEXT DEFAULT NULL,
+			PRIMARY KEY (id),
+			KEY created_at (created_at),
+			KEY level (level)
 		) {$charset_collate};"
 		);
 

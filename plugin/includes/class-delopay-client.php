@@ -12,10 +12,22 @@ class Delopay_Client {
 	private $base_url;
 	private $profile_id;
 
+	/**
+	 * Whether this instance's outcomes count as evidence about the site's
+	 * connection. Only true when it runs on the stored credentials — the
+	 * connect flow probes credentials the control center just handed over,
+	 * against a URL that is not necessarily the saved one, and neither says
+	 * anything about what this site is configured with.
+	 *
+	 * @var bool
+	 */
+	private $reports_health;
+
 	public function __construct( $api_key = null, $base_url = null, $profile_id = null ) {
-		$this->api_key    = $api_key ?? Delopay_Settings::get( 'api_key' );
-		$this->base_url   = rtrim( $base_url ?? Delopay_Settings::get_api_base_url(), '/' );
-		$this->profile_id = $profile_id ?? Delopay_Settings::get( 'profile_id' );
+		$this->reports_health = ( null === $api_key && null === $base_url );
+		$this->api_key        = $api_key ?? Delopay_Settings::get( 'api_key' );
+		$this->base_url       = rtrim( $base_url ?? Delopay_Settings::get_api_base_url(), '/' );
+		$this->profile_id     = $profile_id ?? Delopay_Settings::get( 'profile_id' );
 	}
 
 	public function is_ready() {
@@ -259,6 +271,9 @@ class Delopay_Client {
 
 		$response = wp_remote_request( $this->base_url . $path, $args );
 		if ( is_wp_error( $response ) ) {
+			// Status 0 = the request never completed, which is a network fault
+			// rather than a verdict on the credentials.
+			$this->report_health( 0, $response->get_error_message() );
 			return $response;
 		}
 
@@ -267,9 +282,11 @@ class Delopay_Client {
 		$decoded = json_decode( $raw, true );
 
 		if ( $code < 200 || $code >= 300 ) {
+			$message = self::extract_error_message( $decoded, $code, $raw );
+			$this->report_health( (int) $code, $message );
 			return new WP_Error(
 				'delopay_api_error',
-				self::extract_error_message( $decoded, $code, $raw ),
+				$message,
 				array(
 					'status' => $code,
 					'body'   => $decoded,
@@ -277,7 +294,22 @@ class Delopay_Client {
 			);
 		}
 
+		$this->report_health( (int) $code, '' );
+
 		return is_array( $decoded ) ? $decoded : array();
+	}
+
+	/**
+	 * Tell Delopay_Health what the API just did with our credentials.
+	 *
+	 * @param int    $status  HTTP status, 0 when the request never completed.
+	 * @param string $message Error message to surface to the merchant.
+	 */
+	private function report_health( $status, $message ): void {
+		if ( ! $this->reports_health ) {
+			return;
+		}
+		Delopay_Health::record_status( $status, $message );
 	}
 
 	private static function extract_error_message( $decoded, $code, $raw ) {

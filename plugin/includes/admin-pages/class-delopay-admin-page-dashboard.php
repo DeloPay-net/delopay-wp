@@ -21,7 +21,9 @@ class Delopay_Admin_Page_Dashboard extends Delopay_Admin_Page {
 		$settings_url   = Delopay_Admin_UI::page_url( Delopay_Admin::SLUG_SETTINGS );
 		$products_url   = Delopay_Admin_UI::page_url( Delopay_Admin::SLUG_PRODUCTS );
 		$orders_url     = Delopay_Admin_UI::page_url( Delopay_Admin::SLUG_ORDERS );
+		$logs_url       = Delopay_Admin_UI::page_url( Delopay_Admin::SLUG_LOGS );
 		$branding_url   = Delopay_Settings::get_branding_url();
+		$health         = Delopay_Health::state();
 		?>
 		<div class="wrap delopay-wrap">
 			<h1><?php esc_html_e( 'DeloPay', 'delopay' ); ?></h1>
@@ -33,8 +35,16 @@ class Delopay_Admin_Page_Dashboard extends Delopay_Admin_Page {
 				<div class="delopay-card">
 					<h2><?php esc_html_e( 'Setup', 'delopay' ); ?></h2>
 					<ul>
-						<li><?php echo Delopay_Settings::is_configured() ? '✅' : '⚠️'; ?>
+						<?php
+						/*
+						 * This row reports whether the key WORKS, not whether one is
+						 * saved. A revoked key used to leave a green tick here while
+						 * every payment failed, which is worse than showing nothing.
+						 */
+						?>
+						<li><?php echo esc_html( Delopay_Health::icon( $health ) ); ?>
 							<a href="<?php echo esc_url( $settings_url ); ?>"><?php esc_html_e( 'API key & checkout URL', 'delopay' ); ?></a>
+							<span class="delopay-check-note"><?php echo esc_html( self::health_note( $health ) ); ?></span>
 						</li>
 						<li><?php echo esc_html( $settings['webhook_secret'] ? '✅' : '⚠️' ); ?>
 							<a href="<?php echo esc_url( $settings_url ); ?>"><?php esc_html_e( 'Webhook secret configured', 'delopay' ); ?></a>
@@ -43,6 +53,9 @@ class Delopay_Admin_Page_Dashboard extends Delopay_Admin_Page {
 							<a href="<?php echo esc_url( $products_url ); ?>"><?php esc_html_e( 'Add at least one product', 'delopay' ); ?></a>
 						</li>
 					</ul>
+					<p>
+						<a class="button" href="<?php echo esc_url( $logs_url ); ?>"><?php esc_html_e( 'View logs →', 'delopay' ); ?></a>
+					</p>
 				</div>
 
 				<div class="delopay-card">
@@ -87,5 +100,26 @@ class Delopay_Admin_Page_Dashboard extends Delopay_Admin_Page {
 			</div>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Short plain-language gloss next to the connection row, so the marker is
+	 * never the only thing carrying the meaning.
+	 *
+	 * @param string $state One of the Delopay_Health::STATE_* constants.
+	 */
+	private static function health_note( $state ): string {
+		switch ( $state ) {
+			case Delopay_Health::STATE_OK:
+				return __( '— connected', 'delopay' );
+			case Delopay_Health::STATE_INVALID:
+				return __( '— key rejected, payments are failing', 'delopay' );
+			case Delopay_Health::STATE_UNREACHABLE:
+				return __( '— could not reach DeloPay', 'delopay' );
+			case Delopay_Health::STATE_NOT_CONNECTED:
+				return __( '— never connected', 'delopay' );
+			default:
+				return __( '— not verified yet', 'delopay' );
+		}
 	}
 }

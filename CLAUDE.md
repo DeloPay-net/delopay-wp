@@ -50,15 +50,53 @@ CI (`.github/workflows/lint.yml`) runs `composer lint` + `composer analyze` on p
 
 ### Plugin data model — custom tables, not CPTs
 
-Despite a stale README mention of "custom post type", the plugin uses **four custom DB tables**:
-`delopay_products`, `delopay_categories`, `delopay_orders`, `delopay_refunds`.
-Schema is created/upgraded via `dbDelta` from `Delopay_Orders` / `Delopay_Products`. **All other classes get table names via `Delopay_Orders::table_orders() / table_refunds() / table_products() / table_categories()`** — never hardcode `$wpdb->prefix . 'delopay_*'` directly.
+Despite a stale README mention of "custom post type", the plugin uses **five custom DB tables**:
+`delopay_products`, `delopay_categories`, `delopay_orders`, `delopay_refunds`, `delopay_logs`.
+Schema is created/upgraded via `dbDelta` from `Delopay_Orders` / `Delopay_Products`. **All other classes get table names via `Delopay_Orders::table_orders() / table_refunds() / table_products() / table_categories() / table_logs()`** — never hardcode `$wpdb->prefix . 'delopay_*'` directly.
 
 ### Plugin bootstrap (read in order)
 
 1. `plugin/delopay.php` — defines `DELOPAY_VERSION/FILE/DIR/URL` and `require_once`s every class in `includes/`.
-2. `Delopay_Plugin::instance()` (in `class-delopay-plugin.php`) is the root singleton. Its constructor instantiates the other singletons in dependency order: Settings → Categories → Products → Orders → REST → Webhook → Connect → Admin → Shortcodes → Plugin_Details.
-3. Registers a 15-minute custom cron (`delopay_fifteen_minutes`) that calls `Delopay_Orders::reconcile_pending_refunds`.
+2. `Delopay_Plugin::instance()` (in `class-delopay-plugin.php`) is the root singleton. Its constructor instantiates the other singletons in dependency order: Settings → Categories → Products → Orders → REST → Webhook → Connect → **Woo** → Admin → Shortcodes → Plugin_Details.
+3. Registers a 15-minute custom cron (`delopay_fifteen_minutes`) that calls `Delopay_Orders::reconcile_pending_refunds`, plus two on WP's built-in schedules: hourly `delopay_health_check` (`Delopay_Health::check_now`) and daily `delopay_prune_logs` (`Delopay_Log::prune`).
+
+### Connection health
+
+`Delopay_Settings::is_configured()` only answers "is a key stored?". **`Delopay_Health::state()` is the one to use for anything user-facing** — it reports whether DeloPay still *accepts* the key (`ok` / `invalid` / `unreachable` / `unknown` / `not_connected`). It is fed by the hourly probe and by `Delopay_Client::request()`, which reports every HTTP status it sees. The verdict is stored against a fingerprint of the key it was reached for, so changing the key resets the state rather than inheriting the old one's. A client constructed with explicit credentials (the connect-flow probe) does **not** report health.
+
+### Logging
+
+`Delopay_Log` writes to the `delopay_logs` table at every level — that table is what `DeloPay → Logs` renders — and additionally to `error_log()`, which stays gated behind `WP_DEBUG_LOG` for non-error levels. Context arrays go through `redact()` before either sink. Use `Delopay_Log::throttled()` on anything an unauthenticated caller can trigger (the webhook receiver), or replayed junk will push real entries out of the capped table.
+
+### Replacing a WooCommerce storefront
+
+`Delopay_Woo` exists because the common onboarding path is a site that already
+runs WooCommerce. It can hide Woo's products and shop/cart/checkout/my-account
+pages and 301 their URLs at the DeloPay ones, and undo all of it. Three pieces of
+state, all of which `uninstall.php` clears:
+
+- `delopay_woo_redirects` — **autoloaded**, read on every front-end request.
+  Holds a *scope*: `all` (the takeover claims the catalog too) or `pages` (the
+  shortcode-split fix claims only the pages it retired). Legacy `'1'` reads as
+  `all`.
+- `delopay_woo_url_map` — the paths the old storefront occupied, captured
+  *before* anything is drafted, because drafting a page destroys the pretty
+  permalink that is sitting in search results.
+- `_delopay_woo_hidden` post meta — the marker on everything this plugin drafted.
+  It is the sole authority on what Undo restores *and* on what the redirects are
+  entitled to claim, so republishing a post by hand releases it
+  (`forget_republished_post()`).
+
+Two couplings worth knowing: **`Delopay_Shortcodes::page_with_shortcode()`
+delegates to `Delopay_Woo::preferred_page_with_shortcode()`**, which prefers a
+DeloPay-owned page over a WooCommerce one carrying the same shortcode — without
+that, `[delopay_checkout]` pasted onto Woo's checkout page wins the tie and every
+"Proceed to checkout" link lands on a page Woo redirects back to its own cart.
+And **status changes go through `Delopay_Woo::set_post_status()`**, never a bare
+`wp_update_post()`: a status-only update still runs `post_content` through kses,
+which strips iframes and styles out of product descriptions wherever the current
+user lacks `unfiltered_html` (all of multisite, and any site with
+`DISALLOW_UNFILTERED_HTML`).
 
 ### Trust model — webhook is the source of truth
 
