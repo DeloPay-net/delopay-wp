@@ -35,6 +35,7 @@ $delopay_includes = array(
 	'class-delopay-rest.php',
 	'class-delopay-webhook.php',
 	'class-delopay-connect.php',
+	'class-delopay-woo.php',
 	'class-delopay-admin-ui.php',
 	'class-delopay-admin-handlers.php',
 	'class-delopay-plugin-details.php',

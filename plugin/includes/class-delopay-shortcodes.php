@@ -37,6 +37,15 @@ class Delopay_Shortcodes {
 		add_action( 'deleted_post', array( __CLASS__, 'invalidate_page_cache' ) );
 	}
 
+	/**
+	 * Every shortcode tag this plugin registers.
+	 *
+	 * @return string[]
+	 */
+	public static function tags() {
+		return array_keys( self::$shortcodes );
+	}
+
 	public static function invalidate_page_cache() {
 		foreach ( self::$shortcodes as $tag => $_ ) {
 			wp_cache_delete( $tag, self::PAGE_CACHE_GROUP );
@@ -506,19 +515,27 @@ class Delopay_Shortcodes {
 		);
 	}
 
+	/**
+	 * The URL of the page carrying a shortcode, if any.
+	 *
+	 * Delegates the choice to `Delopay_Woo` so that a shortcode which also sits
+	 * on a WooCommerce page never resolves to the Woo one. That mattered in
+	 * practice: `[delopay_checkout]` pasted onto Woo's checkout page made the
+	 * cart's "Proceed to checkout" link point at a page Woo redirects straight
+	 * back to its own cart, so the cart appeared to work and the checkout was
+	 * simply unreachable.
+	 *
+	 * @param string $shortcode Shortcode tag.
+	 * @return string|null
+	 */
 	private function page_with_shortcode( $shortcode ) {
 		$cached = wp_cache_get( $shortcode, self::PAGE_CACHE_GROUP );
 		if ( false !== $cached ) {
 			return '' === $cached ? null : $cached;
 		}
 
-		$url = null;
-		foreach ( get_pages() as $page ) {
-			if ( has_shortcode( $page->post_content, $shortcode ) ) {
-				$url = get_permalink( $page );
-				break;
-			}
-		}
+		$page = Delopay_Woo::preferred_page_with_shortcode( $shortcode );
+		$url  = $page ? get_permalink( $page ) : null;
 
 		wp_cache_set( $shortcode, null === $url ? '' : $url, self::PAGE_CACHE_GROUP, HOUR_IN_SECONDS );
 		return $url;
