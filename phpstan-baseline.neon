@@ -535,30 +535,6 @@ parameters:
 			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
 
 		-
-			message: '#^Method Delopay_Admin_Page_Settings\:\:render_connect_card\(\) has parameter \$connected_at with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
-
-		-
-			message: '#^Method Delopay_Admin_Page_Settings\:\:render_connect_card\(\) has parameter \$env with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
-
-		-
-			message: '#^Method Delopay_Admin_Page_Settings\:\:render_connect_card\(\) has parameter \$is_connected with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
-
-		-
-			message: '#^Method Delopay_Admin_Page_Settings\:\:render_connect_card\(\) has parameter \$settings with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: plugin/includes/admin-pages/class-delopay-admin-page-settings.php
-
-		-
 			message: '#^Method Delopay_Admin_Page_Settings\:\:render_credentials\(\) has no return type specified\.$#'
 			identifier: missingType.return
 			count: 1

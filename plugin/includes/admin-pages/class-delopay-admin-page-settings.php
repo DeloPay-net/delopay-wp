@@ -25,12 +25,18 @@ class Delopay_Admin_Page_Settings extends Delopay_Admin_Page {
 		$is_connected = Delopay_Connect::is_connected() && Delopay_Settings::is_configured();
 		$connected_at = Delopay_Connect::connected_at();
 		$manual_open  = ! $is_connected;
+		$health       = Delopay_Health::state();
+
+		// Arriving from the "Reconnect to DeloPay" notice: the connect card is
+		// what they came for, so pull it into focus rather than making them
+		// find it.
+		$focus_connect = '' !== $this->get( Delopay_Admin::RECONNECT_ARG );
 		?>
 		<div class="wrap delopay-wrap">
 			<h1 class="wp-heading-inline"><?php esc_html_e( 'DeloPay Settings', 'delopay' ); ?></h1>
 			<hr class="wp-header-end">
 
-			<?php $this->render_connect_card( $is_connected, $env, $settings, $connected_at ); ?>
+			<?php $this->render_connect_card( $is_connected, $env, $settings, $connected_at, $health, $focus_connect ); ?>
 
 			<form method="post" action="options.php" class="delopay-settings-form">
 				<?php settings_fields( Delopay_Admin::SETTINGS_GROUP ); ?>
@@ -51,14 +57,38 @@ class Delopay_Admin_Page_Settings extends Delopay_Admin_Page {
 		<?php
 	}
 
-	private function render_connect_card( $is_connected, $env, $settings, $connected_at ) {
+	/**
+	 * Connect / reconnect hero card at the top of the Settings screen.
+	 *
+	 * @param bool                 $is_connected  Whether credentials are stored.
+	 * @param string               $env           Active environment key.
+	 * @param array<string, mixed> $settings      All settings.
+	 * @param int                  $connected_at  Unix time of the last successful connect.
+	 * @param string               $health        One of the Delopay_Health::STATE_* constants.
+	 * @param bool                 $focus_connect Whether to pull the card into focus on load.
+	 */
+	private function render_connect_card( $is_connected, $env, $settings, $connected_at, $health = '', $focus_connect = false ) {
+		// "Connected" here means credentials are stored; whether DeloPay still
+		// accepts them is a separate question, and a rejected key must not be
+		// dressed up as a healthy connection.
+		$rejected = Delopay_Health::STATE_INVALID === $health;
+		$classes  = $is_connected ? ( $rejected ? 'is-rejected' : 'is-connected' ) : 'is-brand';
 		?>
-		<div class="delopay-connect-card <?php echo esc_attr( $is_connected ? 'is-connected' : 'is-brand' ); ?>">
+		<div id="delopay-connect-card" class="delopay-connect-card <?php echo esc_attr( $classes ); ?>"
+			<?php echo esc_attr( $focus_connect ? 'data-delopay-focus-connect' : '' ); ?>>
 			<?php if ( $is_connected ) : ?>
 				<div class="delopay-connect-status">
 					<span class="delopay-connect-dot" aria-hidden="true">●</span>
 					<div>
-						<strong><?php esc_html_e( 'Connected to DeloPay', 'delopay' ); ?></strong>
+						<strong>
+							<?php
+							echo esc_html(
+								$rejected
+									? __( 'DeloPay is rejecting this site\'s API key', 'delopay' )
+									: __( 'Connected to DeloPay', 'delopay' )
+							);
+							?>
+						</strong>
 						<p class="description">
 							<?php
 							printf(
@@ -70,10 +100,16 @@ class Delopay_Admin_Page_Settings extends Delopay_Admin_Page {
 							);
 							?>
 						</p>
+						<?php if ( $rejected ) : ?>
+							<p class="description">
+								<?php esc_html_e( 'Payments cannot be taken until this is fixed. Click Reconnect and sign in again — that reissues the key.', 'delopay' ); ?>
+							</p>
+						<?php endif; ?>
 					</div>
 				</div>
 				<div class="delopay-connect-actions">
-					<button type="button" class="button" data-delopay-connect-button data-delopay-environment="<?php echo esc_attr( $env ); ?>">
+					<button type="button" class="button <?php echo esc_attr( $rejected ? 'button-primary' : '' ); ?>"
+						data-delopay-connect-button data-delopay-environment="<?php echo esc_attr( $env ); ?>">
 						<?php esc_html_e( 'Reconnect', 'delopay' ); ?>
 					</button>
 					<button type="button" class="button button-link-delete" data-delopay-disconnect-button>

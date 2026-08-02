@@ -43,6 +43,11 @@ class Delopay_Plugin {
 		add_action( self::RECONCILE_HOOK, array( 'Delopay_Orders', 'reconcile_pending_refunds' ) );
 		add_action( 'init', array( $this, 'maybe_schedule_reconciliation' ) );
 
+		// Background connection check + log retention.
+		Delopay_Health::hooks();
+		Delopay_Log::hooks();
+		add_action( 'init', array( $this, 'maybe_schedule_maintenance' ) );
+
 		// A plugin update that adds a column never re-runs the activation
 		// hook, so bring the schema forward on the first admin request after
 		// an upgrade. Guarded by a stored revision — normally a single
@@ -63,6 +68,20 @@ class Delopay_Plugin {
 	public function maybe_schedule_reconciliation() {
 		if ( ! wp_next_scheduled( self::RECONCILE_HOOK ) ) {
 			wp_schedule_event( time() + self::RECONCILE_INITIAL_DELAY, self::RECONCILE_SCHEDULE, self::RECONCILE_HOOK );
+		}
+	}
+
+	/**
+	 * Hourly connection check and daily log pruning. Both use WordPress'
+	 * built-in schedules — neither is time-critical enough to warrant a custom
+	 * interval, and a revoked key is caught by the next real API call anyway.
+	 */
+	public function maybe_schedule_maintenance(): void {
+		if ( ! wp_next_scheduled( Delopay_Health::CHECK_HOOK ) ) {
+			wp_schedule_event( time() + Delopay_Health::CHECK_DELAY, Delopay_Health::CHECK_SCHEDULE, Delopay_Health::CHECK_HOOK );
+		}
+		if ( ! wp_next_scheduled( Delopay_Log::PRUNE_HOOK ) ) {
+			wp_schedule_event( time() + Delopay_Log::PRUNE_DELAY, Delopay_Log::PRUNE_SCHEDULE, Delopay_Log::PRUNE_HOOK );
 		}
 	}
 
@@ -295,6 +314,8 @@ class Delopay_Plugin {
 
 	public static function deactivate() {
 		wp_clear_scheduled_hook( self::RECONCILE_HOOK );
+		wp_clear_scheduled_hook( Delopay_Health::CHECK_HOOK );
+		wp_clear_scheduled_hook( Delopay_Log::PRUNE_HOOK );
 		flush_rewrite_rules();
 	}
 }

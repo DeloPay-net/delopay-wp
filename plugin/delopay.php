@@ -26,6 +26,7 @@ define( 'DELOPAY_URL', plugin_dir_url( __FILE__ ) );
 $delopay_includes = array(
 	'class-delopay-log.php',
 	'class-delopay-settings.php',
+	'class-delopay-health.php',
 	'class-delopay-client.php',
 	'class-delopay-orders.php',
 	'class-delopay-metadata.php',
@@ -46,6 +47,7 @@ $delopay_includes = array(
 	'admin-pages/class-delopay-admin-page-disputes.php',
 	'admin-pages/class-delopay-admin-page-products.php',
 	'admin-pages/class-delopay-admin-page-categories.php',
+	'admin-pages/class-delopay-admin-page-logs.php',
 	'class-delopay-admin.php',
 	'class-delopay-shortcodes.php',
 	'class-delopay-plugin.php',

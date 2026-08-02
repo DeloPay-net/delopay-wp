@@ -34,7 +34,8 @@ DeloPay is a composable payments orchestrator that connects to multiple payment 
 * **Refunds in the admin** — full and partial refunds in `DeloPay → Orders`, pushed to the connector and reconciled by a 15-minute background cron.
 * **One-click pairing** — `Connect to DeloPay` runs an OAuth-style handshake from the Settings screen; the API key is provisioned automatically and stored on the server (never exposed to the browser).
 * **Multi-currency, minor units** — all prices stored as integer minor units, formatted server-side in the buyer's locale.
-* **Standalone admin pages** — Dashboard, Products, Categories, Orders, Branding, Business profile, Settings. WP-CLI compatible (`wp option get delopay_settings`).
+* **Standalone admin pages** — Dashboard, Products, Categories, Orders, Branding, Business profile, Settings, Logs. WP-CLI compatible (`wp option get delopay_settings`).
+* **Connection health & logs** — the plugin checks that DeloPay still accepts your API key and warns you on every admin screen if it does not. `DeloPay → Logs` shows what happened, with secrets redacted, so you never need server access to diagnose a failing checkout.
 * **Pairs with the DeloPay Shop theme** for a turn-key storefront, or use any theme via the shortcodes above.
 
 = How the integration works =
@@ -93,6 +94,12 @@ By activating and connecting this plugin you acknowledge that order, product and
 == Changelog ==
 
 = Unreleased =
+* **A broken connection now says so.** The Dashboard setup checklist used to show a green tick as soon as *some* API key was saved — a revoked or mistyped key kept the tick while every payment failed. It now reports whether DeloPay still **accepts** the key: connected, never connected, or key rejected.
+* If DeloPay rejects the key, a notice appears on every WordPress admin screen — "your DeloPay connection is not working, payments are failing" — with a **Reconnect** button that takes you straight to the connect flow. That is the whole fix: reconnect and save.
+* The check runs hourly in the background, and any real API call that comes back rejected marks the connection bad immediately. A successful call clears it just as fast, so the notice disappears on its own once you have reconnected.
+* **New `DeloPay → Logs` screen.** What the plugin recorded while talking to DeloPay — timestamp, level, message, expandable details — filterable by level, with a **Copy for support** button that puts the visible page on your clipboard for a support ticket. Previously these entries only went to the server's PHP error log, which most merchants cannot read, and info/warning entries were hidden entirely unless `WP_DEBUG_LOG` was on.
+* Rejected webhooks are logged too, so a webhook secret that does not match the one DeloPay signs with is visible instead of silently leaving orders stuck as pending.
+* API keys, webhook secrets and signatures are redacted before anything is stored. Entries are kept for 7 days, up to 500, pruned by a daily job, and everything is removed when you uninstall the plugin.
 * Stripe wallets in the embedded checkout: methods marked as **native panes** on your Stripe connector (Apple Pay, Google Pay, Klarna, …) now render as tiles that open a focused DeloPay checkout in a new tab — see *Wallets in the embedded checkout* above. No plugin change was needed; the checkout iframe already permits the pop-up. The readme now documents the sandbox attributes required if your theme wraps the checkout in its own frame.
 
 = 1.3.0 =

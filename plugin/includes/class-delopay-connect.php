@@ -236,6 +236,14 @@ class Delopay_Connect {
 
 		update_option( Delopay_Settings::OPTION_KEY, $current );
 		update_option( self::OPTION_CONNECTED_AT, time(), false );
+
+		// The probe above just proved these credentials against this control
+		// center, so the site is verifiably connected as of now. Recording it
+		// here is what clears the "API key rejected" notice the moment the
+		// merchant finishes reconnecting.
+		Delopay_Health::reset();
+		Delopay_Health::record_status( 200, '' );
+		Delopay_Log::info( 'connected to DeloPay', array( 'environment' => $pending['environment'] ) );
 	}
 
 	public function cancel( WP_REST_Request $request ) {
@@ -260,6 +268,9 @@ class Delopay_Connect {
 		delete_option( self::OPTION_MERCHANT_ID );
 		delete_option( self::OPTION_API_KEY_ID );
 		delete_option( self::OPTION_CONNECTED_AT );
+		Delopay_Health::reset();
+
+		Delopay_Log::info( 'disconnected from DeloPay', array( 'revoke' => $revoke_status ) );
 
 		return new WP_REST_Response(
 			array(

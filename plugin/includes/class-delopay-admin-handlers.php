@@ -25,12 +25,52 @@ class Delopay_Admin_Handlers {
 
 	private static function actions() {
 		return array(
-			'delopay_save_product'    => 'save_product',
-			'delopay_delete_product'  => 'delete_product',
-			'delopay_export_products' => 'export_products',
-			'delopay_import_products' => 'import_products',
-			'delopay_save_category'   => 'save_category',
-			'delopay_delete_category' => 'delete_category',
+			'delopay_save_product'     => 'save_product',
+			'delopay_delete_product'   => 'delete_product',
+			'delopay_export_products'  => 'export_products',
+			'delopay_import_products'  => 'import_products',
+			'delopay_save_category'    => 'save_category',
+			'delopay_delete_category'  => 'delete_category',
+			'delopay_clear_logs'       => 'clear_logs',
+			'delopay_check_connection' => 'check_connection',
+		);
+	}
+
+	public function clear_logs(): void {
+		Delopay_Admin_UI::require_cap();
+		check_admin_referer( 'delopay_clear_logs' );
+
+		Delopay_Log::clear();
+
+		Delopay_Admin_UI::redirect(
+			array(
+				'page'  => Delopay_Admin::SLUG_LOGS,
+				'flash' => 'logs_cleared',
+			)
+		);
+	}
+
+	/**
+	 * Probe the API on demand. This is the button a merchant presses after
+	 * reconnecting, to see for themselves that it took.
+	 */
+	public function check_connection(): void {
+		Delopay_Admin_UI::require_cap();
+		check_admin_referer( 'delopay_check_connection' );
+
+		$state = Delopay_Health::check_now();
+		$flash = 'health_unknown';
+		if ( Delopay_Health::STATE_OK === $state ) {
+			$flash = 'health_ok';
+		} elseif ( Delopay_Health::STATE_INVALID === $state ) {
+			$flash = 'health_bad';
+		}
+
+		Delopay_Admin_UI::redirect(
+			array(
+				'page'  => Delopay_Admin::SLUG_LOGS,
+				'flash' => $flash,
+			)
 		);
 	}
 
